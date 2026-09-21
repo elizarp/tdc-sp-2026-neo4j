@@ -6,9 +6,10 @@ velocidade que os participantes, em vez de mostrar slides e só depois soltar pr
 são reais, do teste de ponta a ponta feito com banco **limpo e recarregado do zero** numa AuraDB
 Free real (ver [gds/README.md](../../gds/README.md)) — pode citar com confiança, não são estimativa.
 
-> **Pré-requisito crítico (fazer ANTES do dia 23/09):** publicar `data/`, `cypher/` e `gds/` num
-> repo público (GitHub) — `$baseUrl` do `LOAD CSV` depende disso. Sem isso, ninguém consegue
-> carregar os CSVs ao vivo.
+> **Pré-requisito crítico (fazer ANTES do dia 23/09):** repositório é
+> [github.com/elizarp/tdc-sp-2026-neo4j](https://github.com/elizarp/tdc-sp-2026-neo4j) — confirme
+> que está público e com o push mais recente antes do workshop. `$baseUrl` do `LOAD CSV` depende
+> disso. Sem isso, ninguém consegue carregar os CSVs ao vivo.
 
 ---
 
@@ -91,7 +92,7 @@ Confirme com a sala:
   instância (ex.: `b49e0444`/`b49e0444`), não o clássico `neo4j`/`neo4j` — cada um confere as
   próprias credenciais na tela de conexão da Console antes de tentar logar.
 
-Passe o `:param baseUrl => 'https://raw.githubusercontent.com/<org>/<repo>/main/data/'` na tela —
+Passe o `:param baseUrl => 'https://raw.githubusercontent.com/elizarp/tdc-sp-2026-neo4j/main/data/'` na tela —
 todo mundo cola isso primeiro.
 
 ---
@@ -349,7 +350,7 @@ verdade, não lendo doc. Vale mais pra essa plateia do que outro slide de concei
 
 **Slide: recursos + contato.**
 
-- Link do repositório (CSVs, constraints, GDS, tudo reaproveitável).
+- Repositório: github.com/elizarp/tdc-sp-2026-neo4j (CSVs, constraints, GDS, tudo reaproveitável).
 - `docs/00-modelo-dados.md` pra quem quiser adaptar o modelo pro próprio domínio.
 - `eliezer.zarpelao@neo4j.com` · `linkedin.com/in/eliezerzarpelao`.
 

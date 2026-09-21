@@ -43,10 +43,8 @@ Sim — apresentação de slides (30 min) + live coding / demonstração ao vivo
 
 **Link do material / apresentação**
 ```
-https://github.com/elizarp/neo4j-agente-fraude
+https://github.com/elizarp/tdc-sp-2026-neo4j
 ```
-*(repositório de referência do padrão de agente; atualizar com o repositório definitivo do
-workshop assim que publicado)*
 
 **Observações para a organização (opcional)** (≤1000)
 ```

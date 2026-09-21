@@ -272,7 +272,7 @@ Engenharia, não conceito — o que só aparece testando de verdade:
 
 ## Recursos
 
-- Repositório do workshop: `<link a publicar>`
+- Repositório do workshop: github.com/elizarp/tdc-sp-2026-neo4j
 - Modelo de dados: `docs/00-modelo-dados.md`
 - Account Takeover Fraud: neo4j.com/developer/industry-use-cases/finserv/retail-banking/account-takeover-fraud
 - Recommendation Engine Hands-On: neo4j.com/blog/developer/recommendation-engine-hands-on-1

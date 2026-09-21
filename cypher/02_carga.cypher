@@ -5,7 +5,7 @@
 // Antes de rodar, defina o parâmetro com a URL base dos CSVs (GitHub raw do
 // repositório do workshop, terminando em "/"):
 //
-//   :param baseUrl => 'https://raw.githubusercontent.com/<org>/<repo>/main/data/'
+//   :param baseUrl => 'https://raw.githubusercontent.com/elizarp/tdc-sp-2026-neo4j/main/data/'
 //
 // Cada bloco usa `CALL (row) { ... } IN TRANSACTIONS OF 1000 ROWS` (Cypher 25)
 // pra não estourar memória de transação em arquivos grandes (acessos.csv e

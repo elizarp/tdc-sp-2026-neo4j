@@ -18,7 +18,7 @@ Defina o parâmetro com a URL base dos CSVs (GitHub raw do repositório do works
 `/`):
 
 ```
-:param baseUrl => 'https://raw.githubusercontent.com/<org>/<repo>/main/data/'
+:param baseUrl => 'https://raw.githubusercontent.com/elizarp/tdc-sp-2026-neo4j/main/data/'
 ```
 
 Em execução local (Neo4j Desktop/Docker) dá pra usar `file:///` apontando pra pasta `import/` da

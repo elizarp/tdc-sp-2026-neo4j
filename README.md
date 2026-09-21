@@ -36,7 +36,7 @@ real, com o banco limpo e recarregado do zero.
 cd data && python3 generate_dados.py
 
 # 2. No Neo4j Browser / Aura Query, apontando pra sua AuraDB Free:
-:param baseUrl => 'https://raw.githubusercontent.com/<seu-usuario>/<seu-repo>/main/data/'
+:param baseUrl => 'https://raw.githubusercontent.com/elizarp/tdc-sp-2026-neo4j/main/data/'
 ```
 
 Depois, na ordem: `cypher/01_constraints.cypher` → `cypher/02_carga.cypher` →
