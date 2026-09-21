@@ -23,15 +23,15 @@ repositório público.
 
 ## Passo a passo pra rodar
 
-```bash
-# 1. Gerar os CSVs (opcional — já vêm gerados no repo, só regerar se mudar algo em data/generate_dados.py)
-cd data && python3 generate_dados.py
+Gerar os CSVs é opcional — já vêm gerados no repo, só regerar se mudar algo em
+`data/generate_dados.py`:
 
-# 2. No Neo4j Browser / Aura Query, apontando pra sua AuraDB Free:
-:param baseUrl => 'https://raw.githubusercontent.com/elizarp/tdc-sp-2026-neo4j/main/data/'
+```bash
+cd data && python3 generate_dados.py
 ```
 
-Depois, na ordem: `cypher/01_constraints.cypher` → `cypher/02_carga.cypher` →
+No Neo4j Browser / Aura Query, apontando pra sua AuraDB Free, na ordem: `cypher/01_constraints.cypher` →
+`cypher/02_carga.cypher` →
 `cypher/03_jornada.cypher` → `gds/04_gds_fraude.cypher` → `gds/05_gds_recomendacao.cypher` →
 `gds/06_gds_jornada.cypher` → (bônus) `gds/07_segmentacao_comportamental.cypher` →
 `gds/08_resolucao_identidade.cypher`. Detalhes e resultados esperados em cada `README.md` das

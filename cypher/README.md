@@ -14,15 +14,12 @@
 
 ## Antes de rodar
 
-Defina o parâmetro com a URL base dos CSVs (GitHub raw do repositório do workshop, terminando em
-`/`):
+Nada — os `LOAD CSV` já apontam direto pro raw do repositório público
+([github.com/elizarp/tdc-sp-2026-neo4j](https://github.com/elizarp/tdc-sp-2026-neo4j)), sem
+`:param` nem setup. Só precisa que o repositório esteja público antes do workshop.
 
-```
-:param baseUrl => 'https://raw.githubusercontent.com/elizarp/tdc-sp-2026-neo4j/main/data/'
-```
-
-Em execução local (Neo4j Desktop/Docker) dá pra usar `file:///` apontando pra pasta `import/` da
-instância em vez de uma URL remota — só trocar o valor de `baseUrl`.
+Em execução local (Neo4j Desktop/Docker) dá pra trocar as URLs por `file:///` apontando pra pasta
+`import/` da instância, se preferir não depender de rede.
 
 ## Por que `CALL (row) { ... } IN TRANSACTIONS OF N ROWS`
 
