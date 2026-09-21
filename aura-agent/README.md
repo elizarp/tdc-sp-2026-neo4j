@@ -40,27 +40,34 @@ de sintaxe usando `melhor.cliente` direto num `MERGE`) foi encontrado e corrigid
 > satisfação), essa ferramenta separada é necessária. Foi adicionada depois de testar o agente ao
 > vivo: perguntar por "ocorrências" não tinha ferramenta dedicada.
 
-## Perguntas de exemplo (testadas, com IDs reais da base)
+## Perguntas de exemplo (revalidadas contra a base atual, todas com resposta OK)
 
 O agente pede o parâmetro que faltar se você só disser o nome da ferramenta (ex.: digitar
-"Verificar Anel de Fraude" sem CPF/ID faz ele perguntar de volta). Pra ir direto ao resultado,
-inclua o valor na própria pergunta — como nos exemplos abaixo, todos com IDs reais e resultado
-esperado real (testado nesta base):
+"Verificar Anel de Fraude" sem ID faz ele perguntar de volta). Pra ir direto ao resultado, inclua
+o valor na própria pergunta — como nos exemplos abaixo.
 
-| Pergunte isso | Ferramenta usada | Resultado esperado |
+> **Atenção a IDs "grudados" no exemplo**: os CSVs são regenerados com seed fixa, mas **qualquer
+> mudança no código do gerador desloca a sequência determinística inteira** — nome, anel de
+> fraude, persona, tudo pode mudar pra um mesmo `cliente_id` de uma rodada pra outra. Já aconteceu
+> aqui (um `CLI0018` que era anel de fraude numa rodada virou cliente comum na rodada seguinte,
+> depois de eu adicionar as personas comportamentais ao gerador). **Sempre reconfira os exemplos
+> contra `data/gabarito.json` depois de regenerar os dados** — não confie num ID citado de memória.
+
+| Pergunte isso | Ferramenta usada | Resultado real (revalidado) |
 |---|---|---|
-| "O cliente CLI0018 faz parte de algum anel de fraude?" | Verificar Anel de Fraude | Sim — grupo com CLI0050, CLI0112, CLI0149 |
-| "Quais as 5 contas com maior score de influência?" | Ranking de Contas Suspeitas | As 6 contas-laranja injetadas, score 345-408 |
-| "Que produto você recomenda para o cliente CLI0001?" | Recomendar Produto | Empréstimo Pessoal, CDB Rende Mais, entre outros |
-| "Quais produtos são comprados junto com o Cartão Platinum?" | Produtos Comprados Junto | Seguro Viagem (90), Empréstimo Pessoal (89)... |
-| "Me dê uma visão completa do cliente CLI0001" | Visão 360 do Cliente | Nome, segmento, cidade, totais de transação/acesso/chamado |
-| "Mostre os 10 eventos mais recentes da jornada do cliente CLI0001" | Jornada Recente do Cliente | Mistura de Acesso/Transacao/Chamado em ordem cronológica |
+| "O cliente CLI0067 faz parte de algum anel de fraude?" | Verificar Anel de Fraude | Sim — mesmo grupo que CLI0076 e CLI0070 |
+| "Quais as 5 contas com maior score de influência?" | Ranking de Contas Suspeitas | Topo inclui CLI0279 (score ≈395), CLI0793 (≈369), CLI1313 (≈368) — 3 das 6 contas-laranja injetadas |
+| "Que produto você recomenda para o cliente CLI0001?" | Recomendar Produto | Seguro de Vida e Seguro Viagem, confiança média 75% |
+| "Quais produtos são comprados junto com o Cartão Platinum?" | Produtos Comprados Junto | Seguro Viagem (77), Financiamento Veicular (72), Empréstimo Pessoal (71) |
+| "Me dê uma visão completa do cliente CLI0001" | Visão 360 do Cliente | Henrique Rodrigues, segmento Universitário, Rio de Janeiro, 21 transações, 45 acessos, 3 chamados, 3 produtos |
+| "Mostre os 10 eventos mais recentes da jornada do cliente CLI0001" | Jornada Recente do Cliente | Sequência de `Transacao` mais recentes (01/03, 27/02, 20/02...), misturado com `Acesso`/`Chamado` mais atrás |
 | "Quais ocorrências o cliente CLI0001 abriu?" | Ocorrências (Chamados) do Cliente | 3 chamados, incluindo uma "Contestação de transação" ligada à TX0020438 |
-| "O cliente CLI0001 está em risco de cancelar?" | Risco de Churn de um Cliente | Dias sem acessar/transacionar + chamados de insatisfação |
-| "Quais os 5 clientes com maior risco de churn?" | Ranking de Clientes em Risco de Churn | Ranking por dias desde o último acesso |
-| "Qual o segmento comportamental do cliente CLI0001, e quem se parece com ele?" | Segmento Comportamental | Segmento + até 5 clientes parecidos |
-| "Para qual cliente o registro REG0001 foi resolvido?" | Resolver Identidade de Registro Bruto | CLI1423, com score de confiança |
-| "Quantos clientes existem no segmento Premium?" | Consulta Livre no Grafo (Text2Cypher) | Contagem — não tem ferramenta dedicada pra isso, é o caso de uso do fallback |
+| "O cliente CLI0001 está em risco de cancelar?" | Risco de Churn de um Cliente | Último acesso 25/02/2026, última transação 01/03/2026 |
+| "Quais os 5 clientes com maior risco de churn?" | Ranking de Clientes em Risco de Churn | CLI0647 (362 dias sem acessar), CLI0496 (354), CLI0824 (348)... |
+| "Qual o segmento comportamental do cliente CLI0001, e quem se parece com ele?" | Segmento Comportamental | Segmento 6; parecidos: CLI0189, CLI0317, CLI0371, CLI0531, CLI0578 |
+| "Para qual cliente o registro REG0001 foi resolvido?" | Resolver Identidade de Registro Bruto | CLI1423, score de confiança ≈0.97 |
+| "Quantos clientes existem no segmento Premium?" | Consulta Livre no Grafo (Text2Cypher) | 366 — pergunta simples sem ferramenta dedicada, cai no fallback |
+| "Quais clientes que fazem parte de um anel de fraude também contrataram algum produto de Seguro e tiveram algum acesso malsucedido ao app?" | Consulta Livre no Grafo (Text2Cypher) | 32 clientes — pergunta complexa cruzando `Cliente` (anel via RG/Email/Telefone/Dispositivo), `Produto`, `TipoProduto` e `Acesso` (5+ entidades), sem ferramenta dedicada. Bom exemplo pra mostrar o fallback combinando sinais de dois casos de uso numa pergunta só |
 
 ## Como recriar/atualizar
 
