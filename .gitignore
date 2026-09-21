@@ -15,3 +15,5 @@ __pycache__/
 # quem for fazer o workshop (anéis de fraude, contas-laranja, resolução de
 # identidade, tudo ali). Ver data/README.md.
 data/gabarito.json
+
+docs/

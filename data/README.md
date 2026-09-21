@@ -8,7 +8,7 @@ python3 generate_dados.py
 ```
 
 Todos os arquivos ficam prontos para `LOAD CSV` direto (fase 3), com os nomes de coluna já
-alinhados às propriedades do [modelo de dados](../docs/00-modelo-dados.md).
+alinhados às propriedades do modelo de dados (documentação local, fora deste repositório).
 
 ## Orçamento de nós: ~195.000 (teto do AuraDB Free é 200.000)
 
@@ -35,7 +35,6 @@ Acesso/AcaoApp/Transacao/Chamado por proporção fixa — o total nunca estoura,
 | `registros_brutos.csv` | 115 | `registro_id, nomeBruto, cpfBruto, telefoneBruto, dataNascimentoBruto, cidadeBruto, canalOrigem` | `(:RegistroBruto)` — **sem** link com `Cliente` na carga (isso é o que a resolução de identidade, fase 4, descobre) |
 
 **Total real após dedupe de identidades: 195.000 nós** (verificado por recontagem independente).
-Breakdown completo em [00-modelo-dados.md § Orçamento de nós](../docs/00-modelo-dados.md#orçamento-de-nós-dimensionamento-pro-free-tier).
 
 `(:Cliente)-[:SIMILAR_A]->(:Cliente)`, `(:Produto)-[:COMPRADO_JUNTO]->(:Produto)`,
 `(evento)-[:PROXIMO_EVENTO]->(evento)` (a jornada), `(:TipoAcao)` + `(:Cliente)-[:REALIZOU_TIPO]->(:TipoAcao)`
@@ -75,9 +74,8 @@ identidade) **não** têm CSV — são calculados na fase 3/4 (GDS e agregação
 ## Jornada do cliente
 
 `Acesso`, `Transacao` e `Chamado` têm timestamp (`dataHora`, `data`, `abertoEm`). A fase 3 encadeia
-os três por cliente, em ordem cronológica, com `PROXIMO_EVENTO` — ver
-[00-modelo-dados.md § Jornada do cliente](../docs/00-modelo-dados.md#jornada-do-cliente) pra a
-consulta completa.
+os três por cliente, em ordem cronológica, com `PROXIMO_EVENTO` — a consulta completa está em
+[cypher/03_jornada.cypher](../cypher/03_jornada.cypher).
 
 ## `gabarito.json` — não carregar no grafo
 

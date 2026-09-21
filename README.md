@@ -9,16 +9,6 @@ Base fictícia de uma fintech ("FinTechConecta"), ~195 mil nós, calibrada para 
 AuraDB Free. Tudo neste repositório foi testado de ponta a ponta contra uma instância AuraDB Free
 real, com o banco limpo e recarregado do zero.
 
-## Comece por aqui
-
-1. **[docs/00-modelo-dados.md](docs/00-modelo-dados.md)** — o modelo de grafo: nós, relacionamentos,
-   diagrama, e como cada caso de uso usa um subgrafo diferente.
-2. **[docs/01-plano-workshop.md](docs/01-plano-workshop.md)** — plano geral, fases de construção,
-   agenda.
-3. **[docs/slides/roteiro-ao-vivo.md](docs/slides/roteiro-ao-vivo.md)** — roteiro minuto a minuto
-   do workshop (formato build-along). **[docs/slides/slides.md](docs/slides/slides.md)** é o deck
-   alternativo em formato de palestra clássica.
-
 ## Estrutura
 
 | Pasta | Conteúdo |
@@ -27,7 +17,9 @@ real, com o banco limpo e recarregado do zero.
 | [`cypher/`](cypher) | Constraints + carga (`LOAD CSV`) + construção da jornada do cliente |
 | [`gds/`](gds) | Scripts de Graph Data Science (via Aura Graph Analytics) para os 6 casos de uso |
 | [`aura-agent/`](aura-agent) | Config do Aura Agent único que responde perguntas sobre os 6 casos de uso |
-| [`docs/`](docs) | Modelo de dados, plano do workshop, slides, submissão do TDC |
+
+O modelo de dados, o plano do workshop e os slides ficam num diretório `docs/` local, fora deste
+repositório público.
 
 ## Passo a passo pra rodar
 

@@ -34,8 +34,7 @@ linhas em vez de tudo numa transação só — importante aqui porque `acessos.c
 
 Testado de ponta a ponta 3 vezes (2 numa AuraDB Free real, 1 num sandbox self-managed), sempre
 começando de banco vazio: **carga completa em 32-90 segundos** (a variação é mais rede/latência do
-que volume de dado). Cabe folgado nos ~15 min reservados na agenda
-([01-plano-workshop.md](../docs/01-plano-workshop.md)) para constraints + carga.
+que volume de dado). Cabe folgado nos ~15 min reservados na agenda do workshop pra constraints + carga.
 
 ## O que NÃO vem de CSV
 

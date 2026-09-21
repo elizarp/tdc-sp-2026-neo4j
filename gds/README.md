@@ -56,7 +56,7 @@ em vez de criar uma nova (importante: **só dá 1 sessão por vez no Free**, ent
 | BFS (20 acessos malsucedidos, `maxDepth: 4`) | ~10s |
 
 Total da fase 4 inteira (3 scripts, sessão fria incluída): **~80 segundos**. Cabe folgado nos ~35
-min reservados nos blocos 6-8 do [roteiro](../docs/slides/roteiro-ao-vivo.md).
+min reservados pra isso na agenda do workshop.
 
 ## Lições do teste (pra não repetir na hora do workshop)
 
