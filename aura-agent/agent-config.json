@@ -75,7 +75,7 @@
       "description": "Perfil consolidado de um cliente: dados cadastrais, quantas transacoes/acessos/chamados ele tem, quais produtos contratou, e os sinais de fraude ja calculados. Use para perguntas como 'me da uma visao completa desse cliente' ou 'quem e esse cliente'.",
       "enabled": true,
       "config": {
-        "template": "MATCH (c:Cliente {cliente_id: $clienteId}) OPTIONAL MATCH (c)-[:ENVIOU]->(tx:Transacao) OPTIONAL MATCH (c)-[:ACESSOU]->(ac:Acesso) OPTIONAL MATCH (c)-[:ABRIU_CHAMADO]->(ch:Chamado) OPTIONAL MATCH (c)-[:CONTRATOU]->(p:Produto) RETURN c.cliente_id AS cliente, c.nome AS nome, c.segmento AS segmento, c.cidade AS cidade, c.dataCadastro AS dataCadastro, count(DISTINCT tx) AS totalTransacoes, count(DISTINCT ac) AS totalAcessos, count(DISTINCT ch) AS totalChamados, collect(DISTINCT p.nome) AS produtosContratados, c.grupoFraude AS grupoFraude, c.scoreInfluencia AS scoreInfluencia",
+        "template": "MATCH (c:Cliente {cliente_id: $clienteId}) OPTIONAL MATCH (c)-[:ENVIOU]->(tx:Transacao) OPTIONAL MATCH (c)-[:ACESSOU]->(ac:Acesso) OPTIONAL MATCH (c)-[:ABRIU_CHAMADO]->(ch:Chamado) OPTIONAL MATCH (c)-[:CONTRATOU]->(p:Produto) RETURN c.cliente_id AS cliente, c.nome AS nome, c.segmento AS segmento, c.cidade AS cidade, c.dataCriacao AS dataCriacao, c.dataAlteracao AS dataAlteracao, count(DISTINCT tx) AS totalTransacoes, count(DISTINCT ac) AS totalAcessos, count(DISTINCT ch) AS totalChamados, collect(DISTINCT p.nome) AS produtosContratados, c.grupoFraude AS grupoFraude, c.scoreInfluencia AS scoreInfluencia",
         "parameters": [
           {
             "name": "clienteId",

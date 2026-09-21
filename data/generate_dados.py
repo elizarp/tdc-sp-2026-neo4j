@@ -4,8 +4,9 @@
 Roda com: python3 generate_dados.py
 
 Gera, na mesma pasta:
-  clientes.csv, rgs.csv, emails.csv, telefones.csv, dispositivos.csv,
-  localizacoes.csv, transacoes.csv, tipos_produto.csv, produtos.csv,
+  clientes.csv (cadastro completo: dados pessoais + RG/e-mail/telefone/
+  localização, num único arquivo, com dataCriacao e dataAlteracao),
+  dispositivos.csv, transacoes.csv, tipos_produto.csv, produtos.csv,
   contratacoes.csv, chamados.csv, acessos.csv, acoes_app.csv,
   registros_brutos.csv
 e o gabarito (data/gabarito.json) com a verdade injetada — anéis de fraude,
@@ -249,7 +250,7 @@ def main():
             "cidade": cidade,
             "estado": estado,
             "segmento": random.choice(SEGMENTOS),
-            "dataCadastro": rand_date(date(2018, 1, 1), date(2025, 12, 31)).isoformat(),
+            "dataCriacao": rand_date(date(2018, 1, 1), date(2025, 12, 31)).isoformat(),
             "_lat": lat,
             "_lon": lon,
             "_perfil": perfil,
@@ -513,7 +514,7 @@ def main():
         for _ in range(n_produtos):
             candidatos = PERFIS[perfil] if (perfil and random.random() < 0.7) else [p[0] for p in PRODUTOS]
             escolhidos.add(random.choice(candidatos))
-        for produto_id in escolhidos:
+        for produto_id in sorted(escolhidos):
             vezes = random.randint(1, 12)
             contratacoes.append({
                 "cliente_id": c["cliente_id"],
@@ -523,31 +524,60 @@ def main():
                 "ultimoUso": rand_date(date(2025, 1, 1), REF_DATE).isoformat(),
             })
 
+    # --- Cadastro do cliente (RG/e-mail/telefone/localização num só arquivo) -----
+    # Feito por último de propósito: nada depois daqui consome random, então
+    # unificar essas colunas num único registro por cliente (em vez de 4
+    # arquivos separados) não desloca nenhuma decisão já tomada acima (anéis
+    # de fraude, personas, transações, etc. já estão 100% fechados nesse ponto)
+    # — o grafo final não muda.
+    cadastro_clientes = []
+    for c in clientes:
+        cid = c["cliente_id"]
+        rg = rgs[cid]
+        email = emails[cid]
+        tel = telefones[cid]
+        data_criacao = date.fromisoformat(c["dataCriacao"])
+        # ~25% dos clientes tiveram algum dado alterado depois do cadastro
+        # original (troca de telefone/e-mail/endereço) — dataAlteracao > dataCriacao.
+        if random.random() < 0.25:
+            data_alteracao = rand_date(data_criacao, REF_DATE)
+        else:
+            data_alteracao = data_criacao
+        cadastro_clientes.append({
+            "cliente_id": cid,
+            "nome": c["nome"],
+            "cpf": c["cpf"],
+            "dataNascimento": c["dataNascimento"],
+            "cidade": c["cidade"],
+            "estado": c["estado"],
+            "segmento": c["segmento"],
+            "latitude": c["_lat"],
+            "longitude": c["_lon"],
+            "dataCriacao": c["dataCriacao"],
+            "dataAlteracao": data_alteracao.isoformat(),
+            "rg_id": rg["rg_id"],
+            "rg_numero": rg["numero"],
+            "rg_desde": rand_date(date(2018, 1, 1), date(2025, 12, 31)).isoformat(),
+            "email_id": email["email_id"],
+            "email_endereco": email["endereco"],
+            "email_dominio": email["dominio"],
+            "email_desde": rand_date(date(2018, 1, 1), date(2025, 12, 31)).isoformat(),
+            "telefone_id": tel["telefone_id"],
+            "telefone_numero": tel["numero"],
+            "telefone_ddd": tel["ddd"],
+            "telefone_desde": rand_date(date(2018, 1, 1), date(2025, 12, 31)).isoformat(),
+        })
+
     # --- Escreve CSVs -------------------------------------------------------------
     print("Gerando CSVs em", OUT_DIR)
 
     write_csv("clientes.csv",
-               ["cliente_id", "nome", "cpf", "dataNascimento", "cidade", "estado", "segmento", "dataCadastro"],
-               clientes)
-
-    write_csv("localizacoes.csv",
-               ["cliente_id", "location_id", "cidade", "estado", "latitude", "longitude"],
-               localizacoes)
-
-    write_csv("rgs.csv",
-               ["cliente_id", "rg_id", "numero", "desde"],
-               [{"cliente_id": cid, **v, "desde": rand_date(date(2018, 1, 1), date(2025, 12, 31)).isoformat()}
-                for cid, v in rgs.items()])
-
-    write_csv("emails.csv",
-               ["cliente_id", "email_id", "endereco", "dominio", "desde"],
-               [{"cliente_id": cid, **v, "desde": rand_date(date(2018, 1, 1), date(2025, 12, 31)).isoformat()}
-                for cid, v in emails.items()])
-
-    write_csv("telefones.csv",
-               ["cliente_id", "telefone_id", "numero", "ddd", "desde"],
-               [{"cliente_id": cid, **v, "desde": rand_date(date(2018, 1, 1), date(2025, 12, 31)).isoformat()}
-                for cid, v in telefones.items()])
+               ["cliente_id", "nome", "cpf", "dataNascimento", "cidade", "estado", "segmento",
+                "latitude", "longitude", "dataCriacao", "dataAlteracao",
+                "rg_id", "rg_numero", "rg_desde",
+                "email_id", "email_endereco", "email_dominio", "email_desde",
+                "telefone_id", "telefone_numero", "telefone_ddd", "telefone_desde"],
+               cadastro_clientes)
 
     write_csv("dispositivos.csv",
                ["cliente_id", "device_id", "modelo", "sistemaOperacional", "primeiroAcesso", "ultimoAcesso"],

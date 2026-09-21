@@ -11,7 +11,12 @@
 // acoes_app.csv passam de 50k/100k linhas).
 
 // ============================================================
-// 1) Cliente
+// 1) Cliente — cadastro completo num único arquivo: dados pessoais,
+// localização e as identidades soltas (RG/e-mail/telefone) que viram anéis de
+// fraude quando repetidas entre clientes. clientes.csv é a fonte única do
+// cadastro (não tem mais rgs.csv/emails.csv/telefones.csv/localizacoes.csv
+// separados) — dataCriacao é quando o cadastro nasceu, dataAlteracao é a
+// última vez que algum dado foi atualizado (pode ser igual a dataCriacao).
 // ============================================================
 LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/elizarp/tdc-sp-2026-neo4j/main/data/clientes.csv' AS row
 CALL (row) {
@@ -22,11 +27,51 @@ CALL (row) {
       c.cidade = row.cidade,
       c.estado = row.estado,
       c.segmento = row.segmento,
-      c.dataCadastro = date(row.dataCadastro)
+      c.dataCriacao = date(row.dataCriacao),
+      c.dataAlteracao = date(row.dataAlteracao)
+
+  MERGE (l:Localizacao {location_id: 'LOC_' + toUpper(replace(row.cidade, ' ', '_'))})
+  SET l.cidade = row.cidade,
+      l.estado = row.estado,
+      l.latitude = toFloat(row.latitude),
+      l.longitude = toFloat(row.longitude)
+  MERGE (c)-[:LOCALIZADO_EM]->(l)
+
+  MERGE (rg:RG {rg_id: row.rg_id})
+  SET rg.numero = row.rg_numero
+  MERGE (c)-[relRg:POSSUI_RG]->(rg)
+  SET relRg.desde = date(row.rg_desde)
+
+  MERGE (email:Email {email_id: row.email_id})
+  SET email.endereco = row.email_endereco,
+      email.dominio = row.email_dominio
+  MERGE (c)-[relEmail:POSSUI_EMAIL]->(email)
+  SET relEmail.desde = date(row.email_desde)
+
+  MERGE (tel:Telefone {telefone_id: row.telefone_id})
+  SET tel.numero = row.telefone_numero,
+      tel.ddd = row.telefone_ddd
+  MERGE (c)-[relTel:POSSUI_TELEFONE]->(tel)
+  SET relTel.desde = date(row.telefone_desde)
 } IN TRANSACTIONS OF 1000 ROWS;
 
 // ============================================================
-// 2) TipoProduto e Produto (+ DO_TIPO)
+// 2) Dispositivo — continua em arquivo próprio: é dado técnico/de uso, não
+// de cadastro (o cliente não "declara" um dispositivo, ele só usa).
+// ============================================================
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/elizarp/tdc-sp-2026-neo4j/main/data/dispositivos.csv' AS row
+CALL (row) {
+  MATCH (c:Cliente {cliente_id: row.cliente_id})
+  MERGE (d:Dispositivo {device_id: row.device_id})
+  SET d.modelo = row.modelo,
+      d.sistemaOperacional = row.sistemaOperacional
+  MERGE (c)-[rel:USA_DISPOSITIVO]->(d)
+  SET rel.primeiroAcesso = date(row.primeiroAcesso),
+      rel.ultimoAcesso = date(row.ultimoAcesso)
+} IN TRANSACTIONS OF 1000 ROWS;
+
+// ============================================================
+// 3) TipoProduto e Produto (+ DO_TIPO)
 // ============================================================
 LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/elizarp/tdc-sp-2026-neo4j/main/data/tipos_produto.csv' AS row
 CALL (row) {
@@ -46,64 +91,7 @@ CALL (row) {
 } IN TRANSACTIONS OF 100 ROWS;
 
 // ============================================================
-// 3) Localizacao (+ LOCALIZADO_EM) — location_id se repete por cidade, dedupe automático
-// ============================================================
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/elizarp/tdc-sp-2026-neo4j/main/data/localizacoes.csv' AS row
-CALL (row) {
-  MATCH (c:Cliente {cliente_id: row.cliente_id})
-  MERGE (l:Localizacao {location_id: row.location_id})
-  SET l.cidade = row.cidade,
-      l.estado = row.estado,
-      l.latitude = toFloat(row.latitude),
-      l.longitude = toFloat(row.longitude)
-  MERGE (c)-[:LOCALIZADO_EM]->(l)
-} IN TRANSACTIONS OF 1000 ROWS;
-
-// ============================================================
-// 4) Identidades soltas (RG, Email, Telefone, Dispositivo)
-// ============================================================
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/elizarp/tdc-sp-2026-neo4j/main/data/rgs.csv' AS row
-CALL (row) {
-  MATCH (c:Cliente {cliente_id: row.cliente_id})
-  MERGE (r:RG {rg_id: row.rg_id})
-  SET r.numero = row.numero
-  MERGE (c)-[rel:POSSUI_RG]->(r)
-  SET rel.desde = date(row.desde)
-} IN TRANSACTIONS OF 1000 ROWS;
-
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/elizarp/tdc-sp-2026-neo4j/main/data/emails.csv' AS row
-CALL (row) {
-  MATCH (c:Cliente {cliente_id: row.cliente_id})
-  MERGE (e:Email {email_id: row.email_id})
-  SET e.endereco = row.endereco,
-      e.dominio = row.dominio
-  MERGE (c)-[rel:POSSUI_EMAIL]->(e)
-  SET rel.desde = date(row.desde)
-} IN TRANSACTIONS OF 1000 ROWS;
-
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/elizarp/tdc-sp-2026-neo4j/main/data/telefones.csv' AS row
-CALL (row) {
-  MATCH (c:Cliente {cliente_id: row.cliente_id})
-  MERGE (t:Telefone {telefone_id: row.telefone_id})
-  SET t.numero = row.numero,
-      t.ddd = row.ddd
-  MERGE (c)-[rel:POSSUI_TELEFONE]->(t)
-  SET rel.desde = date(row.desde)
-} IN TRANSACTIONS OF 1000 ROWS;
-
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/elizarp/tdc-sp-2026-neo4j/main/data/dispositivos.csv' AS row
-CALL (row) {
-  MATCH (c:Cliente {cliente_id: row.cliente_id})
-  MERGE (d:Dispositivo {device_id: row.device_id})
-  SET d.modelo = row.modelo,
-      d.sistemaOperacional = row.sistemaOperacional
-  MERGE (c)-[rel:USA_DISPOSITIVO]->(d)
-  SET rel.primeiroAcesso = date(row.primeiroAcesso),
-      rel.ultimoAcesso = date(row.ultimoAcesso)
-} IN TRANSACTIONS OF 1000 ROWS;
-
-// ============================================================
-// 5) Transacao (+ ENVIOU, PARA) — grafo de Pix entre clientes
+// 4) Transacao (+ ENVIOU, PARA) — grafo de Pix entre clientes
 // ============================================================
 LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/elizarp/tdc-sp-2026-neo4j/main/data/transacoes.csv' AS row
 CALL (row) {
@@ -119,7 +107,7 @@ CALL (row) {
 } IN TRANSACTIONS OF 1000 ROWS;
 
 // ============================================================
-// 6) Contratacoes (+ CONTRATOU)
+// 5) Contratacoes (+ CONTRATOU)
 // ============================================================
 LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/elizarp/tdc-sp-2026-neo4j/main/data/contratacoes.csv' AS row
 CALL (row) {
@@ -132,7 +120,7 @@ CALL (row) {
 } IN TRANSACTIONS OF 1000 ROWS;
 
 // ============================================================
-// 7) Acesso (+ ACESSOU) — logins/sessões no app
+// 6) Acesso (+ ACESSOU) — logins/sessões no app
 // ============================================================
 LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/elizarp/tdc-sp-2026-neo4j/main/data/acessos.csv' AS row
 CALL (row) {
@@ -146,7 +134,7 @@ CALL (row) {
 } IN TRANSACTIONS OF 1000 ROWS;
 
 // ============================================================
-// 8) AcaoApp (+ REALIZOU_ACAO, SOBRE_PRODUTO) — clickstream dentro da sessão
+// 7) AcaoApp (+ REALIZOU_ACAO, SOBRE_PRODUTO) — clickstream dentro da sessão
 // ============================================================
 LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/elizarp/tdc-sp-2026-neo4j/main/data/acoes_app.csv' AS row
 CALL (row) {
@@ -162,7 +150,7 @@ CALL (row) {
 } IN TRANSACTIONS OF 1000 ROWS;
 
 // ============================================================
-// 9) Chamado (+ ABRIU_CHAMADO, SOBRE_TRANSACAO) — ocorrências multicanal
+// 8) Chamado (+ ABRIU_CHAMADO, SOBRE_TRANSACAO) — ocorrências multicanal
 // ============================================================
 LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/elizarp/tdc-sp-2026-neo4j/main/data/chamados.csv' AS row
 CALL (row) {
@@ -184,7 +172,7 @@ CALL (row) {
 } IN TRANSACTIONS OF 1000 ROWS;
 
 // ============================================================
-// 10) RegistroBruto — registros crus de outros sistemas, SEM link com Cliente
+// 9) RegistroBruto — registros crus de outros sistemas, SEM link com Cliente
 // (a fase 4 de resolução de identidade é quem descobre esse link)
 // ============================================================
 LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/elizarp/tdc-sp-2026-neo4j/main/data/registros_brutos.csv' AS row

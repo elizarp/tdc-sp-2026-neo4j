@@ -10,6 +10,14 @@ python3 generate_dados.py
 Todos os arquivos ficam prontos para `LOAD CSV` direto (fase 3), com os nomes de coluna já
 alinhados às propriedades do modelo de dados (documentação local, fora deste repositório).
 
+**`clientes.csv` é o cadastro completo do cliente num arquivo só** — não tem mais
+`rgs.csv`/`emails.csv`/`telefones.csv`/`localizacoes.csv` separados. Cada linha é o registro de um
+cliente, com `dataCriacao` (quando o cadastro nasceu) e `dataAlteracao` (a última vez que algum
+dado foi atualizado — igual a `dataCriacao` se nunca mudou nada). RG/e-mail/telefone/localização
+viraram colunas prefixadas (`rg_*`, `email_*`, `telefone_*`) do mesmo jeito que já eram
+identificáveis antes, só que juntos — a fase 3 faz tudo (`Cliente`, `Localizacao`, `RG`, `Email`,
+`Telefone`) num único `LOAD CSV`, na mesma transação por linha.
+
 ## Orçamento de nós: ~195.000 (teto do AuraDB Free é 200.000)
 
 O script calcula primeiro o overhead fixo (Cliente + identidades já deduplicadas pelos anéis de
@@ -19,12 +27,8 @@ Acesso/AcaoApp/Transacao/Chamado por proporção fixa — o total nunca estoura,
 
 | Arquivo | Linhas | Colunas | Vira no grafo |
 |---|---|---|---|
-| `clientes.csv` | 1.500 | `cliente_id, nome, cpf, dataNascimento, cidade, estado, segmento, dataCadastro` | `(:Cliente)` |
-| `localizacoes.csv` | 1.500 | `cliente_id, location_id, cidade, estado, latitude, longitude` | `(:Cliente)-[:LOCALIZADO_EM]->(:Localizacao)` — `location_id` repete por cidade (10 cidades), então o `MERGE` da fase 3 dedupe pra ~10 nós |
-| `rgs.csv` | 1.500 | `cliente_id, rg_id, numero, desde` | `(:Cliente)-[:POSSUI_RG {desde}]->(:RG)` |
-| `emails.csv` | 1.500 | `cliente_id, email_id, endereco, dominio, desde` | `(:Cliente)-[:POSSUI_EMAIL {desde}]->(:Email)` |
-| `telefones.csv` | 1.500 | `cliente_id, telefone_id, numero, ddd, desde` | `(:Cliente)-[:POSSUI_TELEFONE {desde}]->(:Telefone)` |
-| `dispositivos.csv` | 1.500 | `cliente_id, device_id, modelo, sistemaOperacional, primeiroAcesso, ultimoAcesso` | `(:Cliente)-[:USA_DISPOSITIVO {primeiroAcesso, ultimoAcesso}]->(:Dispositivo)` |
+| `clientes.csv` | 1.500 | `cliente_id, nome, cpf, dataNascimento, cidade, estado, segmento, latitude, longitude, dataCriacao, dataAlteracao, rg_id, rg_numero, rg_desde, email_id, email_endereco, email_dominio, email_desde, telefone_id, telefone_numero, telefone_ddd, telefone_desde` | `(:Cliente)`, `(:Cliente)-[:LOCALIZADO_EM]->(:Localizacao)`, `(:Cliente)-[:POSSUI_RG]->(:RG)`, `(:Cliente)-[:POSSUI_EMAIL]->(:Email)`, `(:Cliente)-[:POSSUI_TELEFONE]->(:Telefone)` — **o cadastro inteiro do cliente num arquivo só** (ver nota abaixo) |
+| `dispositivos.csv` | 1.500 | `cliente_id, device_id, modelo, sistemaOperacional, primeiroAcesso, ultimoAcesso` | `(:Cliente)-[:USA_DISPOSITIVO {primeiroAcesso, ultimoAcesso}]->(:Dispositivo)` — fica separado do cadastro de propósito: dispositivo é dado de *uso*, não algo que o cliente declara no cadastro |
 | `transacoes.csv` | ~24.400 | `transacao_id, clienteOrigemId, clienteDestinoId, valor, data, tipo` | `(:Cliente)-[:ENVIOU]->(:Transacao)-[:PARA]->(:Cliente)` |
 | `tipos_produto.csv` | 5 | `tipo_id, nome, ehContrato` | `(:TipoProduto)` |
 | `produtos.csv` | 10 | `produto_id, nome, categoria, tipo_id` | `(:Produto)-[:DO_TIPO]->(:TipoProduto)` (`tipo_id` só serve pra montar o relacionamento) |
@@ -65,6 +69,9 @@ identidade) **não** têm CSV — são calculados na fase 3/4 (GDS e agregação
   `operacional_puro`): cada cliente tem uma, e ela vies a o canal de `Acesso`, o canal de `Chamado` e
   o tipo de `AcaoApp` — sinal real pra segmentação (Node Similarity/Louvain), diferente do perfil de
   *contratação* acima (uma é comportamento de uso, a outra é o que o cliente compra).
+- **Cadastro alterado** (~25% dos clientes): `dataAlteracao` posterior a `dataCriacao`, simulando
+  que o cliente atualizou algum dado depois do cadastro original — realismo de "cadastro vivo",
+  sem duplicar linha por cliente (o CSV guarda só o estado atual, com as duas datas).
 - **Registros brutos** (115: 90 duplicados + 25 negativos): os 90 duplicados são clientes reais
   capturados de novo com ruído — nome abreviado/com typo, CPF mascarado ou sem pontuação, telefone
   sem DDD ou com 1 dígito trocado, às vezes data de nascimento com dia/mês invertidos. Os 25

@@ -5,8 +5,10 @@
 1. **[01_constraints.cypher](01_constraints.cypher)** — todas as constraints de unicidade + índices
    auxiliares nas datas (usados pela jornada e pelo GDS). Idempotente.
 2. **[02_carga.cypher](02_carga.cypher)** — `LOAD CSV` de todos os arquivos gerados na fase 2, em
-   10 blocos, na ordem certa de dependência (nó antes do relacionamento que aponta pra ele).
-   Idempotente (`MERGE` em tudo — pode rodar de novo sem duplicar). O bloco 10 (`RegistroBruto`)
+   9 blocos, na ordem certa de dependência (nó antes do relacionamento que aponta pra ele).
+   Idempotente (`MERGE` em tudo — pode rodar de novo sem duplicar). O bloco 1 sozinho já carrega
+   `Cliente` + `Localizacao` + `RG` + `Email` + `Telefone`, porque `clientes.csv` traz o cadastro
+   inteiro numa linha só (ver [data/README.md](../data/README.md)). O último bloco (`RegistroBruto`)
    carrega sem link nenhum com `Cliente` de propósito — a resolução de identidade (fase 4) é quem
    descobre esse link.
 3. **[03_jornada.cypher](03_jornada.cypher)** — encadeia `Transacao`/`Acesso`/`Chamado` por cliente
