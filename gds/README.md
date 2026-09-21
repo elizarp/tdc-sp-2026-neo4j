@@ -103,7 +103,7 @@ similaridade, pra não comparar todo registro com todo cliente — aqui, a essa 
 
 ## Próxima fase
 
-**Fase 5 — Agentes**: um único Aura Agent com 11 ferramentas cobrindo os 6 casos de uso (fraude,
+**Fase 5 — Agentes**: um único Aura Agent com 12 ferramentas cobrindo os 6 casos de uso (fraude,
 recomendação, Customer 360, jornada, churn, segmentação comportamental e resolução de identidade),
 no padrão do [aura-agent](https://github.com/elizarp/neo4j-agente-fraude/tree/main/aura-agent). Já
 criado e testado — ver `aura-agent/README.md`.

@@ -171,6 +171,22 @@
       }
     },
     {
+      "type": "cypherTemplate",
+      "name": "Ocorrencias (Chamados) do Cliente",
+      "description": "Lista todas as ocorrencias/chamados multicanal que um cliente abriu, com canal, assunto, severidade, status e satisfacao. Quando o assunto for \"Contestacao de transacao\", mostra tambem a transacao contestada. Use para perguntas como \"quais ocorrencias esse cliente abriu?\" ou \"mostra os chamados desse cliente\".",
+      "enabled": true,
+      "config": {
+        "template": "MATCH (c:Cliente {cliente_id: $clienteId})-[:ABRIU_CHAMADO]->(ch:Chamado) OPTIONAL MATCH (ch)-[:SOBRE_TRANSACAO]->(t:Transacao) RETURN ch.chamado_id AS chamado, ch.canal AS canal, ch.assunto AS assunto, ch.severidade AS severidade, ch.status AS status, ch.abertoEm AS abertoEm, ch.satisfacao AS satisfacao, t.transacao_id AS transacaoContestada ORDER BY ch.abertoEm DESC",
+        "parameters": [
+          {
+            "name": "clienteId",
+            "data_type": "string",
+            "description": "ID do cliente, no formato CLIxxxx."
+          }
+        ]
+      }
+    },
+    {
       "type": "text2cypher",
       "name": "Consulta Livre no Grafo",
       "description": "Fallback para perguntas que nao se encaixam nas ferramentas especificas acima - agregacoes abertas, contagens, filtros por cidade/segmento/canal, ou qualquer pergunta exploratoria sobre clientes, transacoes, produtos, acessos ou chamados. Nao usar para as perguntas ja cobertas pelas outras ferramentas.",
