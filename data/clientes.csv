@@ -1,0 +1,1501 @@
+cliente_id,nome,cpf,dataNascimento,cidade,estado,segmento,dataCadastro
+CLI0001,Henrique Rodrigues,001.854.204-96,1967-10-19,Rio de Janeiro,RJ,Universitário,2018-05-11
+CLI0002,Caio Rocha,002.529.325-67,1984-12-15,Brasília,DF,Varejo,2019-10-16
+CLI0003,Enzo Costa,003.204.194-58,1968-09-04,Recife,PE,Private,2021-11-09
+CLI0004,Sabrina Gomes,004.949.743-89,1992-06-11,Fortaleza,CE,Premium,2025-11-25
+CLI0005,Carla Pereira,005.987.203-58,1984-12-08,Rio de Janeiro,RJ,Universitário,2025-02-16
+CLI0006,Vanessa Ferreira,006.646.846-41,1974-08-29,Salvador,BA,Universitário,2022-04-04
+CLI0007,Bruna Costa,007.963.886-17,1980-07-19,Porto Alegre,RS,Varejo,2021-07-16
+CLI0008,Gabriela Melo,008.505.758-68,1972-10-25,Campinas,SP,Private,2019-07-26
+CLI0009,Débora Dias,009.538.697-61,1992-06-22,Curitiba,PR,Premium,2019-07-21
+CLI0010,Aline Ferreira,010.911.796-64,1965-09-12,São Paulo,SP,Universitário,2022-04-13
+CLI0011,Sabrina Silva,011.796.838-24,1983-12-09,Campinas,SP,Private,2019-04-02
+CLI0012,Rafael Ferreira,012.619.208-90,1986-10-10,São Paulo,SP,Premium,2019-09-19
+CLI0013,Vanessa Costa,013.600.119-24,1992-07-25,Salvador,BA,Private,2020-09-07
+CLI0014,Enzo Rocha,014.884.228-26,2002-08-22,Rio de Janeiro,RJ,Premium,2020-12-21
+CLI0015,Gabriela Rocha,015.873.847-98,1978-01-17,Brasília,DF,Private,2022-06-23
+CLI0016,Daniel Pereira,016.330.165-53,1961-11-20,Fortaleza,CE,Premium,2024-08-07
+CLI0017,Carla Santos,017.980.438-19,1981-05-08,Curitiba,PR,Private,2025-07-03
+CLI0018,Fernanda Carvalho,018.294.196-22,1998-09-02,Campinas,SP,Private,2022-10-01
+CLI0019,Bruno Martins,019.845.447-23,1982-04-22,Recife,PE,Premium,2020-02-19
+CLI0020,Otávio Rocha,020.200.151-93,1961-04-28,Belo Horizonte,MG,Varejo,2020-08-26
+CLI0021,Helena Martins,021.160.268-58,1960-03-11,Belo Horizonte,MG,Universitário,2020-12-22
+CLI0022,Eduarda Almeida,022.403.322-17,1965-06-20,Porto Alegre,RS,Private,2018-08-23
+CLI0023,Bruno Barbosa,023.182.971-33,1966-02-23,São Paulo,SP,Varejo,2025-07-28
+CLI0024,Vanessa Oliveira,024.529.773-84,1988-05-19,Campinas,SP,Private,2020-04-16
+CLI0025,Bruna Gomes,025.568.423-19,1960-11-01,Salvador,BA,Universitário,2024-12-19
+CLI0026,Eduarda Ribeiro,026.170.350-57,1985-07-26,Rio de Janeiro,RJ,Premium,2022-11-30
+CLI0027,Bruna Rocha,027.406.779-23,1972-01-18,Brasília,DF,Private,2019-04-18
+CLI0028,Caio Costa,028.308.803-91,1983-09-07,Belo Horizonte,MG,Universitário,2020-10-25
+CLI0029,Bruno Silva,029.441.889-26,1983-07-02,São Paulo,SP,Premium,2022-12-15
+CLI0030,Guilherme Ribeiro,030.696.665-28,1998-07-23,São Paulo,SP,Premium,2018-06-21
+CLI0031,Gabriela Pereira,031.782.205-55,1996-06-16,Porto Alegre,RS,Premium,2020-08-27
+CLI0032,Felipe Costa,032.901.521-95,1982-04-06,Belo Horizonte,MG,Private,2019-10-15
+CLI0033,Henrique Almeida,033.936.571-54,1987-05-19,Rio de Janeiro,RJ,Premium,2020-07-02
+CLI0034,Lucas Barbosa,034.509.795-78,1989-09-16,Salvador,BA,Varejo,2019-04-18
+CLI0035,Daniel Nascimento,035.544.453-50,1999-02-24,Porto Alegre,RS,Varejo,2022-04-27
+CLI0036,Lucas Carvalho,036.171.780-52,1988-02-29,São Paulo,SP,Varejo,2021-05-15
+CLI0037,Mariana Gomes,037.667.230-34,1997-09-20,Brasília,DF,Universitário,2025-08-06
+CLI0038,João Gomes,038.315.540-84,1988-11-28,Campinas,SP,Universitário,2022-12-15
+CLI0039,Fernanda Ferreira,039.774.186-46,1990-01-26,Fortaleza,CE,Varejo,2020-08-20
+CLI0040,Patrícia Nascimento,040.970.886-19,2000-11-09,Curitiba,PR,Universitário,2025-01-23
+CLI0041,Mariana Pereira,041.251.771-98,1960-06-30,Campinas,SP,Varejo,2022-10-08
+CLI0042,Juliana Souza,042.567.236-69,1988-06-19,Brasília,DF,Universitário,2024-11-14
+CLI0043,Igor Ferreira,043.861.982-70,2000-05-17,Brasília,DF,Private,2020-10-09
+CLI0044,Otávio Oliveira,044.830.392-40,1984-05-17,Brasília,DF,Private,2021-08-02
+CLI0045,Mariana Rodrigues,045.823.319-18,1997-03-21,Brasília,DF,Universitário,2021-09-17
+CLI0046,Igor Dias,046.812.120-83,1994-02-15,Curitiba,PR,Universitário,2018-01-25
+CLI0047,Sabrina Rocha,047.919.717-38,2003-10-20,Salvador,BA,Premium,2021-01-22
+CLI0048,Guilherme Araujo,048.230.737-78,1962-06-02,Salvador,BA,Universitário,2024-08-21
+CLI0049,Eduarda Araujo,049.286.151-43,1994-01-04,Campinas,SP,Private,2020-05-16
+CLI0050,Guilherme Oliveira,050.581.119-79,1964-09-02,Recife,PE,Private,2020-07-07
+CLI0051,Enzo Silva,051.353.304-12,1973-09-02,Rio de Janeiro,RJ,Premium,2019-06-02
+CLI0052,Felipe Nascimento,052.721.865-24,1974-09-10,Curitiba,PR,Private,2019-03-19
+CLI0053,Mariana Almeida,053.177.706-98,1981-10-14,Campinas,SP,Varejo,2025-10-26
+CLI0054,Lucas Rocha,054.538.777-57,1966-03-09,Campinas,SP,Private,2018-02-21
+CLI0055,Nicolas Ribeiro,055.750.948-68,1973-09-22,Recife,PE,Universitário,2019-12-23
+CLI0056,Otávio Carvalho,056.945.848-85,1984-01-29,Porto Alegre,RS,Private,2020-10-02
+CLI0057,Enzo Araujo,057.683.724-95,1993-12-31,Rio de Janeiro,RJ,Private,2018-04-28
+CLI0058,Isabela Nascimento,058.818.382-81,1960-11-28,Fortaleza,CE,Premium,2018-12-17
+CLI0059,Caio Melo,059.761.828-72,2000-03-16,Curitiba,PR,Varejo,2019-01-17
+CLI0060,Patrícia Rocha,060.643.452-64,1989-09-04,Curitiba,PR,Private,2025-11-18
+CLI0061,Daniel Almeida,061.423.222-78,1976-08-10,Fortaleza,CE,Premium,2020-06-05
+CLI0062,Daniel Almeida,062.403.332-56,1976-02-05,Campinas,SP,Private,2018-02-27
+CLI0063,Sabrina Gomes,063.814.229-91,2004-01-15,Brasília,DF,Varejo,2018-02-20
+CLI0064,Helena Melo,064.216.941-18,1995-12-13,Fortaleza,CE,Universitário,2018-10-31
+CLI0065,Eduarda Dias,065.411.187-41,1970-08-17,Campinas,SP,Universitário,2024-10-19
+CLI0066,Helena Dias,066.539.412-82,1965-05-27,Brasília,DF,Varejo,2020-05-01
+CLI0067,Henrique Ferreira,067.665.176-30,1960-03-28,Curitiba,PR,Universitário,2023-01-20
+CLI0068,Carla Pereira,068.370.906-90,1977-09-30,São Paulo,SP,Universitário,2019-04-16
+CLI0069,Guilherme Rodrigues,069.173.161-31,1987-08-06,Brasília,DF,Private,2022-12-04
+CLI0070,Otávio Oliveira,070.712.140-65,1988-11-30,Recife,PE,Private,2018-04-16
+CLI0071,Enzo Lima,071.690.141-32,2002-03-18,Rio de Janeiro,RJ,Universitário,2021-02-13
+CLI0072,Lucas Carvalho,072.441.428-95,1969-05-20,Fortaleza,CE,Premium,2021-09-12
+CLI0073,Guilherme Rocha,073.137.565-21,1988-03-20,Recife,PE,Private,2021-08-17
+CLI0074,Bruna Rocha,074.573.523-16,1976-10-29,Brasília,DF,Private,2024-12-25
+CLI0075,Isabela Rocha,075.234.394-66,2003-06-27,Fortaleza,CE,Varejo,2018-04-29
+CLI0076,Sabrina Carvalho,076.195.330-24,2001-05-25,Curitiba,PR,Varejo,2025-04-07
+CLI0077,Nicolas Melo,077.583.349-68,1972-12-22,Belo Horizonte,MG,Universitário,2020-02-20
+CLI0078,Enzo Carvalho,078.448.906-74,1983-12-20,Belo Horizonte,MG,Varejo,2021-03-04
+CLI0079,Helena Rodrigues,079.557.651-71,1990-12-18,Porto Alegre,RS,Private,2024-03-10
+CLI0080,Thiago Martins,080.339.976-62,1963-12-01,Salvador,BA,Private,2023-04-22
+CLI0081,Bruno Rodrigues,081.614.704-52,1969-01-01,Recife,PE,Universitário,2019-02-13
+CLI0082,Patrícia Lima,082.446.738-98,1995-08-29,Belo Horizonte,MG,Varejo,2021-09-07
+CLI0083,Helena Rocha,083.136.732-18,1981-01-22,Brasília,DF,Private,2020-07-20
+CLI0084,Otávio Ferreira,084.810.406-13,1964-02-16,Rio de Janeiro,RJ,Private,2018-08-18
+CLI0085,Henrique Barbosa,085.521.679-97,1976-02-26,Porto Alegre,RS,Premium,2019-12-19
+CLI0086,Henrique Araujo,086.753.360-68,1982-11-27,Campinas,SP,Varejo,2023-03-21
+CLI0087,Otávio Ribeiro,087.701.406-91,1998-01-24,Porto Alegre,RS,Private,2023-02-15
+CLI0088,Henrique Martins,088.685.467-83,1986-07-18,Recife,PE,Private,2018-03-31
+CLI0089,Juliana Nascimento,089.863.608-46,1980-08-23,Recife,PE,Private,2020-06-16
+CLI0090,Fernanda Araujo,090.134.693-56,1971-10-16,Belo Horizonte,MG,Varejo,2021-04-23
+CLI0091,Eduarda Rocha,091.997.474-77,2005-01-06,Salvador,BA,Private,2019-11-05
+CLI0092,Débora Costa,092.923.217-69,1966-10-03,Fortaleza,CE,Premium,2020-07-13
+CLI0093,Carla Martins,093.114.370-78,1971-02-01,Recife,PE,Universitário,2022-02-18
+CLI0094,Bruna Pereira,094.582.125-89,1989-06-05,Campinas,SP,Premium,2025-04-06
+CLI0095,Aline Carvalho,095.219.243-15,1963-05-04,Rio de Janeiro,RJ,Private,2023-07-11
+CLI0096,Bruna Rocha,096.529.701-29,1997-03-21,Brasília,DF,Varejo,2023-06-28
+CLI0097,Caio Ribeiro,097.322.554-66,1981-03-07,Campinas,SP,Private,2019-02-11
+CLI0098,Daniel Araujo,098.193.778-37,1961-11-30,Salvador,BA,Varejo,2021-09-28
+CLI0099,Carla Rocha,099.312.700-37,1980-11-25,Curitiba,PR,Private,2019-08-28
+CLI0100,Eduarda Rocha,100.356.917-32,1969-11-11,Porto Alegre,RS,Varejo,2019-06-24
+CLI0101,Ana Ferreira,101.371.153-26,1997-10-07,São Paulo,SP,Varejo,2018-09-18
+CLI0102,Vanessa Santos,102.844.902-94,1987-01-22,Brasília,DF,Universitário,2025-03-20
+CLI0103,Nicolas Souza,103.602.829-66,1966-08-05,São Paulo,SP,Varejo,2021-08-12
+CLI0104,Mariana Nascimento,104.643.401-68,2005-05-09,Porto Alegre,RS,Universitário,2019-02-11
+CLI0105,Nicolas Araujo,105.333.523-53,2000-09-07,Rio de Janeiro,RJ,Universitário,2022-08-31
+CLI0106,Bruna Melo,106.168.193-20,1968-05-12,Salvador,BA,Universitário,2019-01-31
+CLI0107,Thiago Rocha,107.675.437-95,1970-12-19,Salvador,BA,Universitário,2021-12-19
+CLI0108,João Nascimento,108.419.460-23,2005-07-09,Recife,PE,Premium,2019-09-26
+CLI0109,Helena Rocha,109.476.217-45,1980-04-15,Fortaleza,CE,Universitário,2024-04-16
+CLI0110,Vanessa Lima,110.129.284-44,1987-09-20,Campinas,SP,Private,2021-12-08
+CLI0111,Carla Rodrigues,111.858.748-13,1968-03-25,São Paulo,SP,Premium,2022-03-21
+CLI0112,Igor Santos,112.259.261-89,1964-06-18,Salvador,BA,Varejo,2021-01-19
+CLI0113,Nicolas Lima,113.320.873-75,1970-03-18,Fortaleza,CE,Private,2022-10-27
+CLI0114,Henrique Martins,114.713.156-10,1978-05-04,Campinas,SP,Private,2020-05-15
+CLI0115,Karina Souza,115.107.609-65,1975-10-06,Belo Horizonte,MG,Premium,2022-04-07
+CLI0116,Carla Martins,116.982.859-15,1999-02-19,Brasília,DF,Varejo,2023-02-27
+CLI0117,Thiago Martins,117.826.755-63,1985-12-21,Rio de Janeiro,RJ,Varejo,2022-07-18
+CLI0118,Nicolas Souza,118.349.546-85,1995-12-04,Campinas,SP,Varejo,2022-06-10
+CLI0119,Enzo Ferreira,119.178.622-91,1970-03-25,Porto Alegre,RS,Premium,2021-12-02
+CLI0120,Gabriela Ferreira,120.716.256-93,1966-10-05,Belo Horizonte,MG,Premium,2025-01-16
+CLI0121,Bruna Dias,121.758.750-89,1988-12-29,Fortaleza,CE,Private,2019-09-11
+CLI0122,Lucas Barbosa,122.175.417-69,2000-07-17,Porto Alegre,RS,Varejo,2018-08-22
+CLI0123,Aline Oliveira,123.729.708-74,1994-06-29,Salvador,BA,Universitário,2024-07-05
+CLI0124,Karina Nascimento,124.587.613-29,1965-07-20,São Paulo,SP,Universitário,2019-02-28
+CLI0125,Rafael Ferreira,125.140.353-66,1999-06-03,Salvador,BA,Premium,2022-01-30
+CLI0126,Fernanda Costa,126.167.437-22,1994-09-05,Recife,PE,Private,2020-10-29
+CLI0127,Carla Dias,127.779.244-54,1987-10-31,Campinas,SP,Universitário,2019-06-13
+CLI0128,Bruna Barbosa,128.195.761-95,1997-12-26,Porto Alegre,RS,Private,2018-03-16
+CLI0129,Enzo Melo,129.296.331-27,1973-11-25,Salvador,BA,Varejo,2021-04-26
+CLI0130,Bruna Costa,130.997.884-89,1971-10-04,Brasília,DF,Universitário,2019-09-24
+CLI0131,Débora Araujo,131.144.520-56,1981-04-23,Belo Horizonte,MG,Universitário,2024-11-05
+CLI0132,Fernanda Melo,132.955.298-57,1999-07-12,Fortaleza,CE,Universitário,2021-02-28
+CLI0133,Guilherme Almeida,133.920.719-27,1982-06-06,Recife,PE,Varejo,2025-03-11
+CLI0134,João Oliveira,134.881.264-44,2000-04-23,Rio de Janeiro,RJ,Premium,2022-11-27
+CLI0135,Guilherme Araujo,135.457.127-63,1964-10-11,Rio de Janeiro,RJ,Universitário,2023-08-19
+CLI0136,Juliana Souza,136.959.831-93,1990-01-29,Rio de Janeiro,RJ,Premium,2019-07-18
+CLI0137,Enzo Melo,137.559.730-10,1967-02-09,São Paulo,SP,Varejo,2020-11-14
+CLI0138,Henrique Gomes,138.224.148-40,1997-08-30,Campinas,SP,Universitário,2018-09-15
+CLI0139,Vanessa Rocha,139.116.747-75,1981-09-14,Rio de Janeiro,RJ,Premium,2021-04-08
+CLI0140,Rafael Ribeiro,140.169.638-79,2005-07-07,Curitiba,PR,Varejo,2022-05-19
+CLI0141,Isabela Silva,141.465.907-18,1990-12-07,Fortaleza,CE,Premium,2025-05-15
+CLI0142,Guilherme Ferreira,142.950.897-97,2001-09-06,Salvador,BA,Universitário,2025-01-31
+CLI0143,Caio Araujo,143.137.400-35,1963-12-06,Belo Horizonte,MG,Premium,2018-06-21
+CLI0144,Isabela Santos,144.871.762-34,1985-09-01,Recife,PE,Private,2018-07-15
+CLI0145,Igor Martins,145.861.550-59,1990-06-01,Salvador,BA,Premium,2023-07-26
+CLI0146,Carla Carvalho,146.716.942-33,1986-05-10,Brasília,DF,Private,2019-02-25
+CLI0147,Otávio Nascimento,147.834.536-31,1999-10-28,Rio de Janeiro,RJ,Private,2023-01-06
+CLI0148,Aline Santos,148.176.787-91,1996-06-10,Salvador,BA,Private,2023-10-03
+CLI0149,Helena Nascimento,149.794.900-66,1963-02-14,Belo Horizonte,MG,Premium,2018-10-03
+CLI0150,Vanessa Rodrigues,150.795.560-57,1993-05-17,Salvador,BA,Universitário,2018-11-11
+CLI0151,Karina Lima,151.355.216-13,1976-09-09,Campinas,SP,Universitário,2023-10-22
+CLI0152,Gabriela Nascimento,152.392.810-72,1977-12-16,Porto Alegre,RS,Varejo,2019-07-10
+CLI0153,Fernanda Costa,153.783.455-18,1986-01-18,Rio de Janeiro,RJ,Private,2019-10-08
+CLI0154,Daniel Almeida,154.911.242-40,2004-04-27,Belo Horizonte,MG,Varejo,2022-01-18
+CLI0155,Vanessa Oliveira,155.167.416-60,2002-12-10,Brasília,DF,Universitário,2022-08-05
+CLI0156,Bruna Barbosa,156.452.231-80,1976-04-28,Salvador,BA,Premium,2022-11-08
+CLI0157,Guilherme Souza,157.630.256-48,1974-10-09,Brasília,DF,Premium,2021-08-14
+CLI0158,Isabela Almeida,158.750.664-45,1971-03-25,Brasília,DF,Private,2024-11-21
+CLI0159,Felipe Nascimento,159.837.719-53,1963-09-11,Brasília,DF,Varejo,2018-11-29
+CLI0160,Vanessa Silva,160.609.742-79,1985-12-26,Campinas,SP,Private,2023-06-02
+CLI0161,João Araujo,161.174.805-17,1974-03-07,Curitiba,PR,Universitário,2022-08-30
+CLI0162,Mariana Rodrigues,162.878.479-75,1969-07-11,Campinas,SP,Private,2020-09-17
+CLI0163,Eduarda Souza,163.151.397-59,1997-07-06,Fortaleza,CE,Premium,2019-10-17
+CLI0164,Rafael Araujo,164.610.415-73,1962-01-29,Salvador,BA,Varejo,2022-05-30
+CLI0165,Thiago Ribeiro,165.149.151-46,2004-05-25,Brasília,DF,Universitário,2021-03-16
+CLI0166,Enzo Martins,166.474.146-61,1964-08-03,Recife,PE,Premium,2022-01-24
+CLI0167,Enzo Rocha,167.386.945-89,1970-08-29,Brasília,DF,Premium,2019-02-01
+CLI0168,Gabriela Nascimento,168.621.511-74,1963-08-12,Salvador,BA,Varejo,2018-06-09
+CLI0169,Eduarda Nascimento,169.627.243-51,1988-07-29,Belo Horizonte,MG,Premium,2022-05-29
+CLI0170,Caio Dias,170.406.586-12,1993-01-17,Porto Alegre,RS,Private,2025-07-22
+CLI0171,Fernanda Silva,171.711.585-43,1980-05-31,Rio de Janeiro,RJ,Varejo,2024-07-18
+CLI0172,Eduarda Pereira,172.132.686-99,1969-11-10,Campinas,SP,Premium,2018-03-19
+CLI0173,Caio Almeida,173.520.613-88,2002-04-23,Fortaleza,CE,Varejo,2025-11-30
+CLI0174,Rafael Martins,174.421.277-68,1990-09-17,Salvador,BA,Private,2025-07-31
+CLI0175,Isabela Rocha,175.405.330-48,1985-12-05,Porto Alegre,RS,Premium,2025-09-28
+CLI0176,Daniel Dias,176.792.656-58,1995-05-25,Salvador,BA,Private,2019-08-23
+CLI0177,Juliana Araujo,177.771.362-71,1979-03-13,Porto Alegre,RS,Premium,2024-01-16
+CLI0178,Henrique Santos,178.785.643-38,1980-11-20,Porto Alegre,RS,Varejo,2019-02-15
+CLI0179,Bruna Rodrigues,179.105.663-30,1996-07-03,Recife,PE,Universitário,2023-05-10
+CLI0180,Aline Dias,180.337.647-14,1975-09-15,Porto Alegre,RS,Universitário,2019-12-22
+CLI0181,Fernanda Melo,181.290.866-47,1963-05-12,São Paulo,SP,Varejo,2021-05-07
+CLI0182,Igor Rodrigues,182.971.616-69,1984-06-23,Salvador,BA,Premium,2019-04-07
+CLI0183,Caio Ferreira,183.114.854-53,1986-06-20,Salvador,BA,Premium,2019-12-20
+CLI0184,Carla Martins,184.785.197-33,1972-08-12,Recife,PE,Universitário,2021-08-18
+CLI0185,Otávio Lima,185.437.409-84,1961-01-09,Curitiba,PR,Private,2025-05-01
+CLI0186,Bruna Barbosa,186.820.888-49,1970-07-14,Rio de Janeiro,RJ,Private,2022-02-14
+CLI0187,Eduarda Araujo,187.865.720-57,1997-04-22,Campinas,SP,Universitário,2024-01-11
+CLI0188,Rafael Araujo,188.640.820-56,1967-01-03,Curitiba,PR,Varejo,2018-09-10
+CLI0189,Thiago Rocha,189.253.268-51,1999-08-22,Brasília,DF,Varejo,2025-08-18
+CLI0190,Fernanda Santos,190.564.235-75,1997-04-08,Rio de Janeiro,RJ,Universitário,2024-04-28
+CLI0191,Mariana Lima,191.936.103-37,1966-07-21,São Paulo,SP,Varejo,2022-10-02
+CLI0192,Juliana Melo,192.132.393-62,1976-02-23,São Paulo,SP,Premium,2025-03-12
+CLI0193,Helena Martins,193.484.182-97,1971-12-06,Recife,PE,Private,2019-05-01
+CLI0194,Enzo Silva,194.405.574-96,1998-01-18,Brasília,DF,Universitário,2020-07-29
+CLI0195,Gabriela Souza,195.132.928-94,1997-08-11,Curitiba,PR,Varejo,2020-09-12
+CLI0196,Débora Santos,196.511.549-39,1979-06-29,São Paulo,SP,Varejo,2019-07-28
+CLI0197,Guilherme Dias,197.426.691-86,1988-10-07,Brasília,DF,Premium,2021-05-21
+CLI0198,Bruno Rocha,198.705.852-32,1998-04-29,Brasília,DF,Universitário,2018-07-12
+CLI0199,Fernanda Barbosa,199.426.813-63,1996-08-16,Salvador,BA,Premium,2021-05-13
+CLI0200,Helena Rodrigues,200.925.574-17,1997-01-08,Fortaleza,CE,Universitário,2024-04-01
+CLI0201,Gabriela Costa,201.762.180-67,1993-04-16,Brasília,DF,Varejo,2024-01-03
+CLI0202,Helena Oliveira,202.292.923-85,1979-06-21,Porto Alegre,RS,Universitário,2020-05-05
+CLI0203,Juliana Almeida,203.859.220-71,1981-10-06,Salvador,BA,Premium,2022-06-13
+CLI0204,João Lima,204.468.625-73,2001-10-22,Porto Alegre,RS,Varejo,2023-04-08
+CLI0205,Karina Carvalho,205.146.676-38,1973-02-02,Salvador,BA,Varejo,2020-12-04
+CLI0206,Henrique Martins,206.683.953-41,2004-10-17,Recife,PE,Private,2020-11-20
+CLI0207,Otávio Ferreira,207.850.914-55,1975-03-09,Fortaleza,CE,Premium,2024-02-17
+CLI0208,Rafael Santos,208.959.967-19,1964-05-08,Brasília,DF,Varejo,2022-08-17
+CLI0209,Carla Rodrigues,209.109.323-74,2000-11-28,Belo Horizonte,MG,Private,2018-09-05
+CLI0210,Ana Silva,210.644.664-62,1961-01-23,Campinas,SP,Varejo,2023-12-09
+CLI0211,Rafael Carvalho,211.925.283-23,1968-08-22,Porto Alegre,RS,Premium,2020-09-14
+CLI0212,Lucas Martins,212.570.678-41,1980-04-05,Salvador,BA,Private,2025-09-02
+CLI0213,Mariana Martins,213.486.665-70,1965-01-12,Rio de Janeiro,RJ,Varejo,2025-11-18
+CLI0214,Igor Barbosa,214.143.335-37,2002-08-29,Recife,PE,Private,2018-07-10
+CLI0215,Felipe Costa,215.116.312-85,1972-12-07,Rio de Janeiro,RJ,Universitário,2018-11-12
+CLI0216,Bruna Rocha,216.439.493-27,1967-01-13,Campinas,SP,Private,2018-08-08
+CLI0217,Vanessa Nascimento,217.709.506-51,1962-08-28,Rio de Janeiro,RJ,Private,2023-01-20
+CLI0218,Carla Nascimento,218.402.917-41,1966-08-05,Recife,PE,Varejo,2021-01-02
+CLI0219,Karina Ribeiro,219.209.193-10,1987-08-28,Belo Horizonte,MG,Universitário,2022-01-14
+CLI0220,Daniel Silva,220.191.462-80,1968-05-07,Rio de Janeiro,RJ,Private,2022-04-27
+CLI0221,Débora Rocha,221.348.685-76,1975-03-19,São Paulo,SP,Universitário,2019-11-26
+CLI0222,Isabela Carvalho,222.406.595-19,1992-05-25,Fortaleza,CE,Private,2020-10-07
+CLI0223,Daniel Rodrigues,223.411.106-60,1989-10-21,Fortaleza,CE,Universitário,2021-09-11
+CLI0224,Patrícia Costa,224.281.507-50,1986-02-23,Campinas,SP,Universitário,2024-06-16
+CLI0225,Lucas Souza,225.677.304-85,1976-02-21,Curitiba,PR,Varejo,2023-03-06
+CLI0226,Guilherme Carvalho,226.789.611-27,1987-03-03,Porto Alegre,RS,Premium,2020-10-31
+CLI0227,Otávio Nascimento,227.590.696-61,2005-06-13,Belo Horizonte,MG,Universitário,2024-02-05
+CLI0228,Enzo Pereira,228.773.780-55,1974-12-03,Brasília,DF,Varejo,2024-04-25
+CLI0229,Fernanda Carvalho,229.208.110-22,1983-03-19,Recife,PE,Premium,2023-09-23
+CLI0230,Otávio Dias,230.807.612-29,1990-12-12,Campinas,SP,Varejo,2023-06-01
+CLI0231,Guilherme Rodrigues,231.456.419-53,2000-11-06,Rio de Janeiro,RJ,Premium,2023-11-05
+CLI0232,Carla Gomes,232.145.929-24,1962-01-10,Fortaleza,CE,Private,2025-04-08
+CLI0233,Rafael Ferreira,233.665.263-52,1998-04-02,Rio de Janeiro,RJ,Universitário,2020-08-07
+CLI0234,Ana Nascimento,234.302.560-85,1998-07-15,Belo Horizonte,MG,Universitário,2018-01-19
+CLI0235,Fernanda Rocha,235.291.474-51,1977-09-05,Curitiba,PR,Universitário,2019-04-12
+CLI0236,Vanessa Martins,236.725.501-85,1970-04-01,Brasília,DF,Private,2021-12-12
+CLI0237,Bruna Rodrigues,237.420.220-40,1987-05-25,Fortaleza,CE,Varejo,2020-01-20
+CLI0238,Nicolas Ferreira,238.598.750-78,1975-07-17,Recife,PE,Premium,2023-06-29
+CLI0239,Vanessa Santos,239.986.467-11,2003-06-23,Porto Alegre,RS,Premium,2020-03-10
+CLI0240,Nicolas Araujo,240.600.271-20,1962-10-08,Brasília,DF,Premium,2021-04-11
+CLI0241,Felipe Araujo,241.679.860-73,2005-10-29,São Paulo,SP,Varejo,2024-06-03
+CLI0242,Sabrina Almeida,242.535.204-93,1982-03-17,Salvador,BA,Private,2018-05-13
+CLI0243,Helena Souza,243.894.931-40,1978-10-30,Fortaleza,CE,Private,2025-12-21
+CLI0244,Fernanda Santos,244.683.459-78,1985-03-20,Campinas,SP,Premium,2021-08-18
+CLI0245,Eduarda Carvalho,245.160.383-93,1971-05-20,Porto Alegre,RS,Premium,2020-10-19
+CLI0246,Patrícia Rodrigues,246.691.747-44,1997-02-28,Curitiba,PR,Universitário,2023-01-26
+CLI0247,Rafael Lima,247.811.998-57,2000-10-16,Rio de Janeiro,RJ,Universitário,2021-09-02
+CLI0248,Helena Oliveira,248.914.647-60,1979-07-17,Rio de Janeiro,RJ,Universitário,2020-05-17
+CLI0249,Sabrina Dias,249.233.679-72,1990-11-02,Fortaleza,CE,Varejo,2018-07-08
+CLI0250,Otávio Silva,250.538.307-98,1971-11-01,Fortaleza,CE,Private,2019-10-14
+CLI0251,Carla Ribeiro,251.780.764-31,1964-08-23,Porto Alegre,RS,Universitário,2025-01-06
+CLI0252,Ana Almeida,252.588.179-26,1980-04-16,Curitiba,PR,Universitário,2018-02-08
+CLI0253,Caio Rodrigues,253.589.172-39,1994-05-14,São Paulo,SP,Varejo,2019-02-24
+CLI0254,Carla Barbosa,254.676.108-88,1974-09-21,Porto Alegre,RS,Universitário,2021-12-09
+CLI0255,Vanessa Araujo,255.980.322-21,1969-01-05,Curitiba,PR,Premium,2019-05-20
+CLI0256,Isabela Oliveira,256.354.666-86,1985-07-24,Recife,PE,Varejo,2025-05-20
+CLI0257,Débora Martins,257.402.761-16,1981-06-21,Porto Alegre,RS,Universitário,2022-04-30
+CLI0258,Juliana Costa,258.235.496-82,1997-10-03,Campinas,SP,Private,2024-02-16
+CLI0259,Ana Dias,259.169.114-43,1979-05-10,Belo Horizonte,MG,Varejo,2018-09-05
+CLI0260,Nicolas Martins,260.184.755-78,1973-09-12,Porto Alegre,RS,Private,2018-12-09
+CLI0261,Sabrina Costa,261.500.700-91,1965-12-06,Porto Alegre,RS,Private,2025-11-01
+CLI0262,Daniel Araujo,262.726.723-17,1987-09-30,Curitiba,PR,Premium,2019-05-05
+CLI0263,Patrícia Ribeiro,263.635.629-43,1974-12-24,São Paulo,SP,Private,2019-06-04
+CLI0264,Karina Carvalho,264.378.636-18,1983-08-04,Rio de Janeiro,RJ,Varejo,2023-07-26
+CLI0265,Helena Dias,265.270.476-30,1982-11-20,Fortaleza,CE,Varejo,2024-06-08
+CLI0266,Bruno Melo,266.472.492-29,1976-01-21,Brasília,DF,Varejo,2024-03-14
+CLI0267,Juliana Costa,267.377.945-19,1993-06-12,Recife,PE,Varejo,2023-08-19
+CLI0268,Mariana Oliveira,268.998.576-46,1987-11-15,Curitiba,PR,Private,2018-12-20
+CLI0269,João Dias,269.903.411-89,1981-10-05,Brasília,DF,Universitário,2022-02-17
+CLI0270,Eduarda Silva,270.519.124-39,1991-01-29,Curitiba,PR,Varejo,2021-10-04
+CLI0271,Helena Gomes,271.206.310-77,1981-05-14,São Paulo,SP,Universitário,2023-07-09
+CLI0272,Juliana Pereira,272.965.632-62,1993-06-01,Belo Horizonte,MG,Universitário,2018-12-14
+CLI0273,Carla Dias,273.681.163-65,1971-09-23,Campinas,SP,Premium,2021-04-09
+CLI0274,Otávio Lima,274.339.176-35,1972-03-18,Recife,PE,Varejo,2019-09-29
+CLI0275,Nicolas Souza,275.648.466-36,2000-07-17,Rio de Janeiro,RJ,Private,2023-03-13
+CLI0276,Guilherme Nascimento,276.141.320-51,1973-04-22,Belo Horizonte,MG,Varejo,2025-12-22
+CLI0277,Rafael Santos,277.793.406-43,1975-08-07,Curitiba,PR,Varejo,2022-07-15
+CLI0278,Fernanda Rodrigues,278.224.112-17,1979-12-10,Brasília,DF,Premium,2020-03-22
+CLI0279,Juliana Oliveira,279.122.166-35,1999-10-13,Recife,PE,Premium,2019-01-12
+CLI0280,Felipe Dias,280.543.941-60,2004-07-05,Salvador,BA,Varejo,2022-04-17
+CLI0281,Isabela Lima,281.556.252-14,1982-01-18,Recife,PE,Private,2023-08-06
+CLI0282,Nicolas Almeida,282.758.916-77,1982-05-09,São Paulo,SP,Varejo,2022-04-16
+CLI0283,Juliana Dias,283.614.429-59,1984-04-05,Salvador,BA,Premium,2018-04-17
+CLI0284,Enzo Dias,284.338.263-22,1982-03-27,Porto Alegre,RS,Premium,2020-12-27
+CLI0285,Enzo Pereira,285.689.966-59,1991-10-31,Brasília,DF,Premium,2019-12-23
+CLI0286,Caio Ribeiro,286.681.677-28,1976-11-20,Salvador,BA,Universitário,2024-01-30
+CLI0287,Bruno Pereira,287.716.324-12,2002-11-18,Porto Alegre,RS,Varejo,2021-09-20
+CLI0288,Bruno Silva,288.251.700-28,1969-12-13,Belo Horizonte,MG,Private,2018-10-25
+CLI0289,Karina Gomes,289.430.239-30,1999-03-12,Salvador,BA,Universitário,2025-04-13
+CLI0290,Henrique Dias,290.934.279-58,1987-07-11,Brasília,DF,Private,2019-06-06
+CLI0291,Helena Dias,291.133.286-87,1988-07-19,Belo Horizonte,MG,Premium,2025-03-04
+CLI0292,Lucas Costa,292.271.751-21,1990-02-13,Belo Horizonte,MG,Universitário,2018-02-16
+CLI0293,Isabela Souza,293.837.101-16,1994-08-16,Porto Alegre,RS,Universitário,2022-09-15
+CLI0294,Sabrina Martins,294.203.948-71,1980-03-27,Fortaleza,CE,Premium,2023-01-23
+CLI0295,João Silva,295.426.367-23,1966-08-28,Rio de Janeiro,RJ,Private,2019-11-28
+CLI0296,Vanessa Nascimento,296.594.821-13,1998-09-11,Rio de Janeiro,RJ,Premium,2024-10-23
+CLI0297,Gabriela Almeida,297.519.813-80,1983-10-19,Recife,PE,Private,2021-05-03
+CLI0298,Bruno Ribeiro,298.103.537-21,1986-06-04,Campinas,SP,Universitário,2020-03-28
+CLI0299,Carla Melo,299.964.218-49,1995-08-29,Rio de Janeiro,RJ,Universitário,2023-06-27
+CLI0300,Lucas Ferreira,300.556.145-43,1999-06-14,Brasília,DF,Universitário,2020-12-14
+CLI0301,Eduarda Souza,301.187.784-54,1997-02-20,Curitiba,PR,Premium,2024-03-17
+CLI0302,Thiago Pereira,302.587.406-20,1995-06-02,Brasília,DF,Varejo,2023-08-19
+CLI0303,Daniel Araujo,303.277.271-37,1977-04-16,Campinas,SP,Premium,2018-06-24
+CLI0304,Karina Oliveira,304.189.497-81,1995-08-25,Recife,PE,Private,2021-02-05
+CLI0305,Daniel Carvalho,305.253.251-82,1968-12-27,Brasília,DF,Varejo,2024-04-23
+CLI0306,Isabela Martins,306.770.597-83,2002-06-09,Brasília,DF,Varejo,2019-12-07
+CLI0307,Bruno Martins,307.439.807-40,1964-06-03,Porto Alegre,RS,Universitário,2021-01-05
+CLI0308,Helena Pereira,308.237.407-66,1988-10-14,Porto Alegre,RS,Private,2022-09-04
+CLI0309,Gabriela Carvalho,309.858.596-76,1993-07-18,Campinas,SP,Varejo,2023-10-12
+CLI0310,Felipe Almeida,310.996.952-35,1965-03-03,Brasília,DF,Premium,2018-05-16
+CLI0311,Isabela Ribeiro,311.943.575-74,1995-08-12,Fortaleza,CE,Varejo,2025-08-22
+CLI0312,Lucas Ferreira,312.957.364-98,1968-02-09,Campinas,SP,Private,2018-04-23
+CLI0313,Helena Pereira,313.762.330-96,1978-07-19,Recife,PE,Private,2025-04-22
+CLI0314,Vanessa Silva,314.329.358-87,1987-05-28,São Paulo,SP,Private,2022-10-02
+CLI0315,Isabela Almeida,315.577.409-96,1995-08-18,Recife,PE,Varejo,2018-01-31
+CLI0316,João Souza,316.593.165-53,1984-10-20,Salvador,BA,Private,2021-02-08
+CLI0317,Eduarda Barbosa,317.883.346-17,1996-04-02,Porto Alegre,RS,Private,2025-08-20
+CLI0318,Juliana Carvalho,318.514.497-14,1977-01-14,Fortaleza,CE,Private,2025-12-31
+CLI0319,Rafael Gomes,319.965.274-94,1976-04-01,Curitiba,PR,Private,2019-02-04
+CLI0320,Bruna Costa,320.770.191-38,1991-11-15,Brasília,DF,Premium,2021-06-11
+CLI0321,Lucas Lima,321.699.401-69,1970-07-26,Recife,PE,Universitário,2018-08-08
+CLI0322,Helena Martins,322.642.405-62,1964-11-06,Campinas,SP,Premium,2019-07-17
+CLI0323,Eduarda Costa,323.983.832-33,1967-04-02,Curitiba,PR,Universitário,2021-09-24
+CLI0324,Enzo Ferreira,324.690.882-30,2003-12-03,São Paulo,SP,Varejo,2019-06-15
+CLI0325,Nicolas Melo,325.492.104-14,1977-11-21,Campinas,SP,Private,2018-02-27
+CLI0326,Henrique Ribeiro,326.419.232-23,1994-05-30,Brasília,DF,Private,2019-11-16
+CLI0327,João Araujo,327.845.632-86,1990-04-23,Rio de Janeiro,RJ,Universitário,2025-09-14
+CLI0328,Juliana Martins,328.119.333-38,1971-10-09,Fortaleza,CE,Premium,2018-03-31
+CLI0329,Caio Santos,329.484.997-91,1982-12-12,Campinas,SP,Varejo,2024-08-29
+CLI0330,Otávio Martins,330.226.660-42,2002-07-24,São Paulo,SP,Premium,2020-04-21
+CLI0331,Vanessa Nascimento,331.817.240-63,1969-05-30,São Paulo,SP,Varejo,2021-03-03
+CLI0332,Lucas Carvalho,332.402.264-15,2004-07-12,Curitiba,PR,Premium,2025-09-19
+CLI0333,Bruna Oliveira,333.213.955-83,2004-04-29,Fortaleza,CE,Premium,2019-01-04
+CLI0334,Otávio Gomes,334.370.575-16,1968-12-14,Rio de Janeiro,RJ,Premium,2018-06-11
+CLI0335,Débora Souza,335.197.971-15,1960-11-12,Porto Alegre,RS,Premium,2025-06-10
+CLI0336,Igor Oliveira,336.481.934-53,1976-05-28,Fortaleza,CE,Varejo,2022-06-30
+CLI0337,Guilherme Martins,337.806.971-71,1997-11-01,Recife,PE,Premium,2019-04-09
+CLI0338,Fernanda Dias,338.794.548-33,1994-01-25,Belo Horizonte,MG,Private,2024-11-09
+CLI0339,Patrícia Melo,339.215.521-66,1964-02-15,São Paulo,SP,Varejo,2020-12-07
+CLI0340,Bruna Costa,340.631.635-98,1968-07-17,Brasília,DF,Universitário,2025-06-03
+CLI0341,Guilherme Rocha,341.727.155-11,1974-01-29,Curitiba,PR,Universitário,2023-07-24
+CLI0342,Bruno Barbosa,342.328.663-92,1993-12-20,Fortaleza,CE,Universitário,2020-08-20
+CLI0343,Carla Melo,343.557.423-25,2004-08-14,Rio de Janeiro,RJ,Varejo,2019-02-25
+CLI0344,Igor Barbosa,344.675.311-93,2000-12-05,Brasília,DF,Private,2022-01-28
+CLI0345,Karina Rocha,345.885.734-86,2002-06-12,São Paulo,SP,Private,2023-01-28
+CLI0346,Sabrina Barbosa,346.482.818-23,1964-02-09,Curitiba,PR,Premium,2023-07-10
+CLI0347,Daniel Lima,347.725.300-34,1970-10-31,Belo Horizonte,MG,Universitário,2020-06-02
+CLI0348,Juliana Dias,348.226.890-67,2001-01-12,Salvador,BA,Premium,2023-08-06
+CLI0349,Guilherme Dias,349.594.620-32,1975-07-31,São Paulo,SP,Premium,2019-03-01
+CLI0350,Vanessa Pereira,350.380.507-53,1986-05-23,Salvador,BA,Universitário,2019-07-01
+CLI0351,Guilherme Rocha,351.981.421-80,1979-07-01,Belo Horizonte,MG,Premium,2020-05-08
+CLI0352,Caio Ferreira,352.615.655-98,1988-12-02,Salvador,BA,Varejo,2021-12-13
+CLI0353,Bruna Rocha,353.392.998-64,1961-02-22,Brasília,DF,Varejo,2018-04-14
+CLI0354,Bruna Lima,354.249.959-17,1986-06-24,São Paulo,SP,Premium,2024-01-26
+CLI0355,Vanessa Rocha,355.985.329-92,1994-11-21,São Paulo,SP,Premium,2023-09-24
+CLI0356,Mariana Carvalho,356.907.801-50,1964-10-28,Porto Alegre,RS,Varejo,2020-10-26
+CLI0357,Juliana Ribeiro,357.873.702-79,1977-08-16,Curitiba,PR,Premium,2021-04-19
+CLI0358,Mariana Santos,358.538.385-81,1983-09-15,Rio de Janeiro,RJ,Premium,2019-10-22
+CLI0359,Karina Araujo,359.826.258-15,1973-10-15,Campinas,SP,Private,2024-09-10
+CLI0360,Patrícia Dias,360.663.466-19,1988-07-07,Campinas,SP,Premium,2020-01-24
+CLI0361,Nicolas Rocha,361.649.513-21,1991-05-07,Brasília,DF,Premium,2020-05-23
+CLI0362,Sabrina Silva,362.217.784-54,1999-12-25,Porto Alegre,RS,Premium,2025-03-15
+CLI0363,Bruno Costa,363.490.915-24,1994-08-14,Campinas,SP,Private,2024-01-22
+CLI0364,Rafael Barbosa,364.556.598-15,1986-08-05,Brasília,DF,Premium,2021-08-05
+CLI0365,Enzo Rocha,365.646.107-90,1965-11-15,Brasília,DF,Premium,2025-07-08
+CLI0366,Sabrina Carvalho,366.762.936-19,1973-10-17,Recife,PE,Varejo,2023-02-24
+CLI0367,Felipe Lima,367.671.172-83,1980-06-03,Salvador,BA,Private,2022-07-28
+CLI0368,Sabrina Silva,368.756.837-89,1965-09-03,Recife,PE,Varejo,2025-11-10
+CLI0369,João Gomes,369.721.188-46,1999-04-07,Rio de Janeiro,RJ,Universitário,2022-06-07
+CLI0370,Fernanda Rocha,370.402.749-28,1986-09-27,Belo Horizonte,MG,Private,2018-02-15
+CLI0371,Daniel Santos,371.105.686-86,1995-05-10,Brasília,DF,Varejo,2021-06-02
+CLI0372,Felipe Ferreira,372.326.731-42,1977-06-07,Salvador,BA,Varejo,2020-01-13
+CLI0373,Aline Rocha,373.174.397-95,1966-01-16,Campinas,SP,Private,2019-02-07
+CLI0374,João Nascimento,374.171.298-50,2003-08-03,Salvador,BA,Universitário,2021-09-06
+CLI0375,Thiago Dias,375.473.927-50,1998-06-04,Campinas,SP,Premium,2018-01-20
+CLI0376,Bruna Costa,376.998.591-69,1999-12-15,Recife,PE,Private,2021-06-05
+CLI0377,Guilherme Lima,377.979.946-27,1977-08-15,Fortaleza,CE,Private,2025-01-10
+CLI0378,Guilherme Dias,378.692.514-85,1979-02-01,São Paulo,SP,Varejo,2024-03-09
+CLI0379,Aline Rodrigues,379.474.501-38,1986-02-08,Porto Alegre,RS,Premium,2023-03-19
+CLI0380,Enzo Barbosa,380.243.556-30,1976-01-27,Salvador,BA,Premium,2023-06-04
+CLI0381,Carla Lima,381.478.339-15,1978-07-20,Salvador,BA,Private,2022-05-09
+CLI0382,Caio Barbosa,382.748.949-45,1983-08-16,São Paulo,SP,Premium,2022-03-23
+CLI0383,Mariana Pereira,383.628.515-55,1990-12-15,Recife,PE,Universitário,2023-05-29
+CLI0384,Rafael Lima,384.316.253-33,1974-02-12,Belo Horizonte,MG,Private,2024-10-01
+CLI0385,Débora Souza,385.593.791-71,2002-12-22,Rio de Janeiro,RJ,Premium,2024-08-16
+CLI0386,Eduarda Barbosa,386.140.686-28,1965-01-06,São Paulo,SP,Premium,2020-11-23
+CLI0387,Igor Gomes,387.187.321-67,2002-04-17,Belo Horizonte,MG,Universitário,2019-11-30
+CLI0388,Vanessa Barbosa,388.370.271-97,1990-09-28,Belo Horizonte,MG,Universitário,2024-09-09
+CLI0389,Eduarda Souza,389.116.307-76,2005-03-31,Campinas,SP,Universitário,2019-09-05
+CLI0390,Carla Melo,390.775.233-87,1960-02-09,Campinas,SP,Universitário,2023-11-09
+CLI0391,Henrique Melo,391.908.887-58,1991-06-12,Recife,PE,Varejo,2022-10-09
+CLI0392,João Nascimento,392.997.656-62,1983-02-16,Curitiba,PR,Premium,2018-01-23
+CLI0393,Mariana Almeida,393.804.923-50,1996-09-05,São Paulo,SP,Private,2019-03-13
+CLI0394,Thiago Ribeiro,394.726.382-97,1995-08-28,Porto Alegre,RS,Premium,2022-08-20
+CLI0395,Felipe Ribeiro,395.672.668-71,1982-10-07,Brasília,DF,Private,2024-06-24
+CLI0396,Débora Pereira,396.557.901-99,1974-07-07,Belo Horizonte,MG,Varejo,2020-05-28
+CLI0397,Felipe Martins,397.751.105-21,1973-01-14,Brasília,DF,Universitário,2024-09-24
+CLI0398,Débora Martins,398.510.728-93,1985-09-13,Curitiba,PR,Varejo,2019-12-19
+CLI0399,Gabriela Santos,399.902.713-75,1980-10-13,Fortaleza,CE,Premium,2025-07-23
+CLI0400,Isabela Martins,400.461.785-60,1996-05-16,São Paulo,SP,Premium,2023-10-22
+CLI0401,Sabrina Gomes,401.843.949-81,1991-03-25,São Paulo,SP,Private,2021-02-06
+CLI0402,Isabela Ferreira,402.516.618-23,1966-06-29,Fortaleza,CE,Private,2021-10-24
+CLI0403,Igor Rocha,403.932.912-83,1982-06-10,Rio de Janeiro,RJ,Universitário,2022-03-25
+CLI0404,Bruna Araujo,404.700.982-13,2003-03-29,Salvador,BA,Varejo,2020-11-22
+CLI0405,Fernanda Costa,405.522.461-76,1960-11-14,Rio de Janeiro,RJ,Private,2020-10-13
+CLI0406,Karina Ribeiro,406.323.687-44,1976-05-25,Salvador,BA,Premium,2023-08-06
+CLI0407,Gabriela Pereira,407.307.954-41,1991-12-10,Curitiba,PR,Premium,2019-03-13
+CLI0408,Helena Melo,408.480.735-50,2004-03-03,Fortaleza,CE,Private,2023-07-04
+CLI0409,Mariana Pereira,409.868.690-26,1964-11-09,Belo Horizonte,MG,Universitário,2023-05-14
+CLI0410,Daniel Barbosa,410.571.423-98,1960-10-02,Salvador,BA,Varejo,2025-07-24
+CLI0411,Lucas Nascimento,411.982.365-33,1983-08-01,Curitiba,PR,Premium,2021-01-08
+CLI0412,Nicolas Ribeiro,412.473.974-61,1985-01-31,Salvador,BA,Universitário,2020-01-07
+CLI0413,Guilherme Souza,413.838.376-40,1998-10-10,Campinas,SP,Universitário,2020-03-14
+CLI0414,Nicolas Melo,414.237.969-90,1988-04-28,Belo Horizonte,MG,Universitário,2021-05-13
+CLI0415,Mariana Souza,415.807.267-17,1979-05-01,Porto Alegre,RS,Private,2023-05-06
+CLI0416,Lucas Silva,416.521.224-54,1977-11-06,Salvador,BA,Premium,2021-03-11
+CLI0417,Enzo Araujo,417.180.490-88,1985-09-14,Salvador,BA,Universitário,2025-01-31
+CLI0418,Helena Oliveira,418.181.265-53,1980-06-22,Salvador,BA,Private,2021-07-21
+CLI0419,Isabela Araujo,419.899.983-56,2000-05-25,Porto Alegre,RS,Universitário,2019-11-17
+CLI0420,Felipe Martins,420.205.197-18,2002-06-14,Curitiba,PR,Varejo,2018-04-18
+CLI0421,Isabela Nascimento,421.259.186-93,1994-12-22,Recife,PE,Private,2020-07-28
+CLI0422,Bruno Ribeiro,422.981.433-70,2001-11-29,Belo Horizonte,MG,Private,2024-02-25
+CLI0423,Thiago Nascimento,423.567.746-91,1999-01-09,Fortaleza,CE,Private,2021-11-23
+CLI0424,Isabela Rodrigues,424.410.110-10,1972-03-24,Rio de Janeiro,RJ,Private,2021-03-20
+CLI0425,João Silva,425.884.540-47,1980-09-28,Fortaleza,CE,Varejo,2024-02-24
+CLI0426,Caio Martins,426.948.487-38,1983-08-05,Brasília,DF,Varejo,2022-09-26
+CLI0427,João Rocha,427.928.375-62,1976-11-12,Curitiba,PR,Varejo,2020-01-18
+CLI0428,Gabriela Costa,428.119.255-16,1961-12-26,Fortaleza,CE,Premium,2019-02-23
+CLI0429,Henrique Oliveira,429.254.115-73,1979-06-26,Porto Alegre,RS,Private,2022-09-18
+CLI0430,Carla Rodrigues,430.157.372-60,1966-05-28,Salvador,BA,Universitário,2020-01-14
+CLI0431,Guilherme Martins,431.948.112-25,1982-05-02,Curitiba,PR,Universitário,2022-12-20
+CLI0432,Patrícia Martins,432.797.419-51,1974-03-25,Curitiba,PR,Varejo,2024-03-01
+CLI0433,Gabriela Ribeiro,433.153.984-95,1979-07-16,Brasília,DF,Varejo,2020-08-24
+CLI0434,Mariana Pereira,434.109.143-84,2002-08-21,Belo Horizonte,MG,Premium,2022-03-02
+CLI0435,Bruna Nascimento,435.446.877-90,1965-05-21,Rio de Janeiro,RJ,Varejo,2021-12-27
+CLI0436,Sabrina Ribeiro,436.924.549-34,1961-11-30,Rio de Janeiro,RJ,Universitário,2022-01-07
+CLI0437,Caio Araujo,437.672.401-79,2003-12-20,Belo Horizonte,MG,Premium,2024-05-10
+CLI0438,Carla Barbosa,438.258.560-47,1983-08-17,Fortaleza,CE,Private,2023-02-03
+CLI0439,Débora Ferreira,439.119.734-56,1981-06-03,São Paulo,SP,Private,2018-09-17
+CLI0440,Vanessa Gomes,440.430.519-92,1988-11-21,Recife,PE,Varejo,2019-01-30
+CLI0441,Felipe Santos,441.306.209-72,1977-03-10,Brasília,DF,Varejo,2018-05-11
+CLI0442,Bruno Ribeiro,442.326.720-19,1961-03-04,Fortaleza,CE,Premium,2025-05-09
+CLI0443,Otávio Santos,443.469.671-63,1993-02-09,Fortaleza,CE,Varejo,2024-12-01
+CLI0444,Gabriela Barbosa,444.199.203-39,1994-07-27,Rio de Janeiro,RJ,Premium,2020-03-02
+CLI0445,Sabrina Rocha,445.525.864-23,1992-02-11,Brasília,DF,Universitário,2025-11-17
+CLI0446,Rafael Costa,446.773.261-78,1999-09-29,Belo Horizonte,MG,Private,2021-07-14
+CLI0447,Helena Ribeiro,447.522.882-91,1998-08-18,Brasília,DF,Private,2024-10-28
+CLI0448,Lucas Araujo,448.558.506-10,1963-02-09,Recife,PE,Private,2024-09-06
+CLI0449,João Pereira,449.319.976-50,1961-12-12,São Paulo,SP,Private,2024-03-17
+CLI0450,Lucas Rodrigues,450.241.371-56,1982-06-01,Campinas,SP,Premium,2020-11-15
+CLI0451,Débora Oliveira,451.840.432-71,1975-07-06,Porto Alegre,RS,Universitário,2025-09-25
+CLI0452,Débora Dias,452.490.180-17,1989-12-31,Rio de Janeiro,RJ,Private,2022-11-14
+CLI0453,Helena Pereira,453.865.768-87,1961-01-09,Recife,PE,Universitário,2018-08-10
+CLI0454,Eduarda Santos,454.789.849-60,1999-12-23,Brasília,DF,Varejo,2020-06-28
+CLI0455,Eduarda Costa,455.184.587-83,1964-06-03,Recife,PE,Universitário,2020-12-11
+CLI0456,Sabrina Almeida,456.599.504-93,1977-08-04,Belo Horizonte,MG,Premium,2020-09-19
+CLI0457,Bruna Dias,457.191.215-95,1997-02-07,Rio de Janeiro,RJ,Universitário,2022-02-05
+CLI0458,Lucas Nascimento,458.941.922-66,1973-01-30,Campinas,SP,Universitário,2018-07-03
+CLI0459,Enzo Oliveira,459.215.857-16,1981-10-21,Curitiba,PR,Premium,2021-03-24
+CLI0460,Karina Almeida,460.857.650-37,1978-04-14,Rio de Janeiro,RJ,Private,2024-02-26
+CLI0461,Mariana Dias,461.779.639-15,1982-12-01,Fortaleza,CE,Premium,2018-09-04
+CLI0462,Carla Martins,462.776.377-94,1992-04-25,Campinas,SP,Varejo,2018-03-20
+CLI0463,Henrique Martins,463.620.826-22,1988-04-19,Porto Alegre,RS,Universitário,2024-09-11
+CLI0464,Bruno Pereira,464.642.412-52,2003-12-15,Brasília,DF,Universitário,2019-10-06
+CLI0465,Aline Gomes,465.341.613-45,1965-07-24,São Paulo,SP,Private,2022-05-05
+CLI0466,Henrique Rodrigues,466.449.502-94,1972-04-24,São Paulo,SP,Varejo,2022-04-15
+CLI0467,Nicolas Pereira,467.686.256-64,1988-01-10,Brasília,DF,Private,2023-01-14
+CLI0468,João Barbosa,468.238.540-28,1974-03-06,Belo Horizonte,MG,Private,2018-10-05
+CLI0469,Karina Rodrigues,469.844.130-50,1997-02-22,Brasília,DF,Universitário,2021-05-27
+CLI0470,Eduarda Ferreira,470.126.880-88,1983-12-10,Porto Alegre,RS,Premium,2024-09-08
+CLI0471,Carla Melo,471.237.614-87,2002-01-20,Curitiba,PR,Private,2020-01-24
+CLI0472,Nicolas Silva,472.376.522-38,1978-03-13,Belo Horizonte,MG,Premium,2018-09-28
+CLI0473,Helena Nascimento,473.601.804-51,2001-01-17,Belo Horizonte,MG,Premium,2022-10-18
+CLI0474,Rafael Souza,474.562.567-15,1982-01-16,Recife,PE,Universitário,2018-06-10
+CLI0475,João Araujo,475.507.411-46,2001-05-22,Brasília,DF,Premium,2022-09-27
+CLI0476,Guilherme Araujo,476.192.839-74,1970-02-25,Brasília,DF,Premium,2024-07-25
+CLI0477,Otávio Silva,477.283.564-85,1978-02-11,Brasília,DF,Universitário,2019-01-05
+CLI0478,Daniel Araujo,478.749.471-20,1994-06-16,Belo Horizonte,MG,Premium,2022-04-01
+CLI0479,Thiago Rodrigues,479.266.989-28,1976-01-18,Brasília,DF,Varejo,2022-09-15
+CLI0480,Igor Rodrigues,480.307.103-89,1982-09-15,Fortaleza,CE,Varejo,2023-02-22
+CLI0481,Vanessa Melo,481.343.322-85,2002-09-05,Fortaleza,CE,Universitário,2022-08-07
+CLI0482,Vanessa Rocha,482.939.945-36,1964-05-21,São Paulo,SP,Premium,2019-08-31
+CLI0483,Helena Santos,483.783.691-87,1986-10-10,São Paulo,SP,Private,2018-12-26
+CLI0484,Otávio Dias,484.468.136-21,1986-11-07,Belo Horizonte,MG,Private,2022-02-18
+CLI0485,Guilherme Rocha,485.166.399-70,1972-01-26,Recife,PE,Varejo,2025-10-16
+CLI0486,Daniel Dias,486.847.744-77,1967-11-12,Recife,PE,Universitário,2025-09-21
+CLI0487,Nicolas Nascimento,487.968.424-43,1991-09-30,Campinas,SP,Premium,2024-11-21
+CLI0488,Caio Gomes,488.298.101-25,1962-02-24,Fortaleza,CE,Universitário,2025-01-05
+CLI0489,Nicolas Santos,489.441.458-81,1979-01-18,Rio de Janeiro,RJ,Varejo,2025-03-08
+CLI0490,Enzo Silva,490.216.802-52,1990-08-16,Rio de Janeiro,RJ,Universitário,2024-05-19
+CLI0491,Gabriela Costa,491.953.446-96,2002-12-25,Campinas,SP,Universitário,2018-05-26
+CLI0492,Otávio Carvalho,492.860.157-76,1986-11-08,Fortaleza,CE,Private,2024-03-24
+CLI0493,Fernanda Ribeiro,493.167.252-45,1962-10-18,Brasília,DF,Private,2022-03-17
+CLI0494,Helena Gomes,494.822.978-50,1962-11-02,Campinas,SP,Private,2022-08-23
+CLI0495,Otávio Gomes,495.321.637-48,1975-09-13,Rio de Janeiro,RJ,Varejo,2022-03-13
+CLI0496,Igor Barbosa,496.257.294-53,2003-05-17,Rio de Janeiro,RJ,Private,2021-09-02
+CLI0497,Guilherme Barbosa,497.792.235-36,1963-04-12,Belo Horizonte,MG,Universitário,2022-05-07
+CLI0498,Karina Araujo,498.147.205-76,1988-01-13,São Paulo,SP,Varejo,2024-06-23
+CLI0499,Gabriela Almeida,499.393.383-78,1988-08-18,Porto Alegre,RS,Universitário,2025-07-11
+CLI0500,Gabriela Rocha,500.458.662-50,1984-04-25,Porto Alegre,RS,Premium,2025-11-25
+CLI0501,João Nascimento,501.446.653-66,1964-07-20,Porto Alegre,RS,Premium,2018-04-29
+CLI0502,Mariana Ferreira,502.821.710-85,1999-12-31,Rio de Janeiro,RJ,Private,2021-07-03
+CLI0503,Juliana Araujo,503.681.234-21,2002-01-04,Salvador,BA,Varejo,2023-02-10
+CLI0504,Helena Nascimento,504.364.472-60,1976-06-13,Fortaleza,CE,Private,2021-08-23
+CLI0505,Daniel Ribeiro,505.590.572-31,1985-04-28,Fortaleza,CE,Private,2024-10-11
+CLI0506,Karina Rocha,506.765.172-48,2001-05-10,Recife,PE,Universitário,2024-08-15
+CLI0507,Patrícia Martins,507.167.448-36,1998-09-05,Recife,PE,Universitário,2024-05-12
+CLI0508,Daniel Dias,508.710.574-51,1968-10-04,Curitiba,PR,Universitário,2019-12-23
+CLI0509,Vanessa Souza,509.801.933-86,1993-12-29,Porto Alegre,RS,Private,2023-07-18
+CLI0510,Enzo Rodrigues,510.776.252-67,1986-02-24,Curitiba,PR,Universitário,2024-11-26
+CLI0511,João Dias,511.913.795-48,1999-01-01,Campinas,SP,Private,2019-01-01
+CLI0512,Bruno Ribeiro,512.662.154-10,1992-03-24,Brasília,DF,Varejo,2021-03-01
+CLI0513,Aline Costa,513.828.491-61,1994-03-26,São Paulo,SP,Universitário,2024-02-11
+CLI0514,Guilherme Carvalho,514.257.395-95,1971-04-06,Belo Horizonte,MG,Premium,2018-02-17
+CLI0515,Bruna Carvalho,515.239.186-27,1997-04-22,Rio de Janeiro,RJ,Universitário,2025-10-19
+CLI0516,Mariana Ribeiro,516.331.290-64,1960-08-31,Belo Horizonte,MG,Universitário,2020-08-27
+CLI0517,Bruno Santos,517.681.594-57,1970-02-25,Brasília,DF,Universitário,2025-09-29
+CLI0518,Otávio Barbosa,518.180.635-88,1967-12-08,Brasília,DF,Premium,2023-04-20
+CLI0519,Vanessa Santos,519.451.647-11,2002-01-23,Rio de Janeiro,RJ,Universitário,2023-10-01
+CLI0520,Felipe Santos,520.811.711-48,1983-05-14,Salvador,BA,Varejo,2025-01-21
+CLI0521,Bruna Gomes,521.928.855-89,1962-06-13,Fortaleza,CE,Private,2023-06-09
+CLI0522,Isabela Lima,522.114.859-24,1975-08-31,Porto Alegre,RS,Premium,2025-05-23
+CLI0523,Fernanda Pereira,523.596.285-77,1962-12-20,Fortaleza,CE,Private,2018-12-12
+CLI0524,Enzo Martins,524.343.776-66,1975-01-03,Belo Horizonte,MG,Premium,2024-06-24
+CLI0525,Bruno Ferreira,525.575.508-70,1987-01-14,Salvador,BA,Universitário,2023-12-22
+CLI0526,Ana Gomes,526.916.559-58,1988-04-27,Recife,PE,Varejo,2019-02-03
+CLI0527,Karina Lima,527.373.921-22,1982-11-28,Brasília,DF,Universitário,2023-03-04
+CLI0528,Bruna Ferreira,528.420.660-11,1960-10-04,Campinas,SP,Varejo,2018-02-18
+CLI0529,Lucas Pereira,529.842.390-42,1977-04-27,Recife,PE,Varejo,2018-04-08
+CLI0530,Caio Souza,530.188.976-87,1971-08-27,Campinas,SP,Universitário,2025-05-12
+CLI0531,Igor Souza,531.812.288-42,1986-06-05,Campinas,SP,Universitário,2025-05-29
+CLI0532,Isabela Ferreira,532.899.175-45,1965-08-06,Porto Alegre,RS,Universitário,2022-05-11
+CLI0533,Guilherme Lima,533.282.551-18,2004-02-11,Salvador,BA,Premium,2024-11-04
+CLI0534,Vanessa Souza,534.552.832-43,1969-04-07,Rio de Janeiro,RJ,Varejo,2018-10-26
+CLI0535,Ana Melo,535.252.768-91,1960-01-29,Rio de Janeiro,RJ,Varejo,2025-06-15
+CLI0536,Rafael Melo,536.589.546-61,1966-04-16,Salvador,BA,Premium,2018-01-14
+CLI0537,Daniel Dias,537.648.467-52,1987-03-03,Recife,PE,Universitário,2018-08-15
+CLI0538,Guilherme Araujo,538.878.884-47,1978-03-22,Rio de Janeiro,RJ,Premium,2024-03-21
+CLI0539,João Martins,539.209.745-98,1992-03-25,São Paulo,SP,Universitário,2018-12-14
+CLI0540,Débora Dias,540.344.600-59,1965-08-26,Curitiba,PR,Private,2023-08-09
+CLI0541,Ana Santos,541.447.157-53,1963-11-03,Brasília,DF,Universitário,2019-04-30
+CLI0542,Débora Dias,542.338.173-14,1972-09-13,Brasília,DF,Universitário,2025-05-02
+CLI0543,Henrique Rodrigues,543.114.276-90,1964-06-25,São Paulo,SP,Private,2019-02-03
+CLI0544,Patrícia Nascimento,544.918.730-38,1965-08-29,Campinas,SP,Premium,2022-10-12
+CLI0545,Karina Souza,545.800.689-79,1972-04-27,Salvador,BA,Private,2020-05-23
+CLI0546,Enzo Carvalho,546.272.813-57,1974-10-20,Salvador,BA,Universitário,2020-09-24
+CLI0547,Enzo Ferreira,547.116.598-20,1960-07-27,Campinas,SP,Varejo,2020-01-05
+CLI0548,Caio Melo,548.808.229-36,1972-11-01,Campinas,SP,Private,2023-11-13
+CLI0549,Vanessa Ferreira,549.834.611-88,1967-11-24,Fortaleza,CE,Private,2021-11-25
+CLI0550,Vanessa Ribeiro,550.983.879-79,2005-07-14,Curitiba,PR,Premium,2023-03-17
+CLI0551,Fernanda Rodrigues,551.801.964-70,2004-08-19,Curitiba,PR,Premium,2019-10-17
+CLI0552,Karina Nascimento,552.924.876-68,1963-11-20,Salvador,BA,Varejo,2018-08-03
+CLI0553,Rafael Souza,553.172.340-66,1989-03-30,Brasília,DF,Universitário,2020-03-25
+CLI0554,Henrique Souza,554.342.855-62,1977-12-09,Curitiba,PR,Universitário,2020-06-22
+CLI0555,Igor Carvalho,555.248.321-88,2000-10-26,Rio de Janeiro,RJ,Premium,2022-05-06
+CLI0556,Karina Rodrigues,556.132.808-82,1965-05-08,Curitiba,PR,Private,2019-07-14
+CLI0557,Nicolas Ferreira,557.878.451-38,1986-06-24,Rio de Janeiro,RJ,Premium,2025-02-26
+CLI0558,Carla Carvalho,558.977.634-72,1979-06-02,Campinas,SP,Universitário,2023-03-11
+CLI0559,Henrique Costa,559.544.693-38,1973-05-13,Porto Alegre,RS,Varejo,2022-09-08
+CLI0560,Nicolas Barbosa,560.503.590-99,1968-10-16,Fortaleza,CE,Universitário,2023-07-22
+CLI0561,Gabriela Rodrigues,561.467.402-40,1968-02-21,Curitiba,PR,Varejo,2023-05-20
+CLI0562,Otávio Araujo,562.890.241-61,1976-08-04,Fortaleza,CE,Private,2025-01-11
+CLI0563,Mariana Costa,563.643.133-47,1998-03-17,Fortaleza,CE,Private,2025-10-30
+CLI0564,Vanessa Costa,564.853.156-75,1992-08-27,Curitiba,PR,Varejo,2019-03-31
+CLI0565,Lucas Ribeiro,565.279.763-81,1966-01-04,Recife,PE,Premium,2019-07-21
+CLI0566,Enzo Pereira,566.428.461-44,2005-03-05,Rio de Janeiro,RJ,Universitário,2021-02-09
+CLI0567,Patrícia Barbosa,567.639.949-25,2002-03-07,São Paulo,SP,Private,2023-01-26
+CLI0568,Carla Martins,568.283.395-19,1969-10-23,Rio de Janeiro,RJ,Premium,2021-02-04
+CLI0569,Helena Almeida,569.633.742-12,1986-04-20,Rio de Janeiro,RJ,Universitário,2025-08-27
+CLI0570,Gabriela Oliveira,570.122.992-39,1990-02-18,Salvador,BA,Universitário,2024-06-28
+CLI0571,Thiago Barbosa,571.962.661-66,2001-02-01,Salvador,BA,Private,2024-05-12
+CLI0572,Patrícia Ribeiro,572.395.888-16,1973-04-22,Belo Horizonte,MG,Private,2021-03-10
+CLI0573,Caio Rocha,573.392.286-32,1973-10-08,Fortaleza,CE,Premium,2020-09-01
+CLI0574,Felipe Almeida,574.675.824-14,1988-06-07,Campinas,SP,Private,2019-08-29
+CLI0575,Daniel Silva,575.514.611-28,2001-02-03,Salvador,BA,Private,2019-10-02
+CLI0576,Igor Gomes,576.872.687-95,1973-03-12,Brasília,DF,Universitário,2021-10-19
+CLI0577,Bruna Rocha,577.219.415-13,1996-01-12,Rio de Janeiro,RJ,Premium,2023-01-01
+CLI0578,Fernanda Lima,578.300.123-20,1999-12-18,Campinas,SP,Varejo,2023-09-28
+CLI0579,Juliana Ribeiro,579.507.251-64,1993-02-28,Recife,PE,Universitário,2022-03-08
+CLI0580,Gabriela Araujo,580.859.525-66,1985-11-22,Porto Alegre,RS,Premium,2022-10-03
+CLI0581,Eduarda Almeida,581.410.586-77,1990-02-02,Recife,PE,Varejo,2024-08-16
+CLI0582,Felipe Rocha,582.573.827-82,1972-04-13,Recife,PE,Premium,2020-02-01
+CLI0583,Guilherme Gomes,583.954.699-48,2004-04-29,Recife,PE,Universitário,2020-07-08
+CLI0584,Aline Gomes,584.527.283-72,1981-12-15,Porto Alegre,RS,Varejo,2019-05-04
+CLI0585,Thiago Melo,585.679.546-43,2002-09-15,Porto Alegre,RS,Varejo,2022-03-09
+CLI0586,Karina Araujo,586.999.809-27,1992-01-23,Porto Alegre,RS,Premium,2018-08-05
+CLI0587,João Gomes,587.642.754-19,1977-05-21,Porto Alegre,RS,Premium,2019-01-23
+CLI0588,Isabela Ribeiro,588.198.647-84,1991-07-19,Salvador,BA,Premium,2018-02-22
+CLI0589,Nicolas Costa,589.266.204-37,1973-11-12,Belo Horizonte,MG,Premium,2020-02-11
+CLI0590,Nicolas Araujo,590.178.219-26,1961-07-23,Brasília,DF,Universitário,2021-11-27
+CLI0591,Igor Nascimento,591.635.881-53,1975-06-13,Porto Alegre,RS,Private,2018-04-28
+CLI0592,Caio Pereira,592.414.228-36,1971-09-06,Belo Horizonte,MG,Varejo,2022-10-07
+CLI0593,Bruno Almeida,593.210.133-94,1965-04-26,Rio de Janeiro,RJ,Universitário,2019-05-03
+CLI0594,Juliana Nascimento,594.310.701-35,1976-07-29,Porto Alegre,RS,Private,2018-04-30
+CLI0595,Lucas Ferreira,595.975.612-88,1981-09-11,Rio de Janeiro,RJ,Varejo,2019-02-10
+CLI0596,Felipe Rocha,596.104.842-22,1979-03-14,Brasília,DF,Universitário,2022-02-10
+CLI0597,Guilherme Ribeiro,597.488.534-37,1980-05-31,Campinas,SP,Universitário,2019-04-08
+CLI0598,Enzo Ribeiro,598.821.395-81,1963-08-23,Fortaleza,CE,Varejo,2021-09-05
+CLI0599,Vanessa Gomes,599.803.961-66,1980-04-06,Fortaleza,CE,Universitário,2021-04-05
+CLI0600,Bruna Ribeiro,600.283.113-96,2004-02-09,Rio de Janeiro,RJ,Varejo,2022-06-12
+CLI0601,Eduarda Martins,601.510.811-85,1969-02-15,Fortaleza,CE,Premium,2018-09-23
+CLI0602,Henrique Carvalho,602.842.611-45,1984-06-27,Curitiba,PR,Universitário,2021-12-29
+CLI0603,Rafael Lima,603.250.886-68,1969-09-10,Fortaleza,CE,Varejo,2020-10-23
+CLI0604,Patrícia Silva,604.283.491-87,1989-05-01,Belo Horizonte,MG,Premium,2021-05-25
+CLI0605,Fernanda Araujo,605.306.400-94,2004-09-01,Campinas,SP,Universitário,2023-08-30
+CLI0606,Igor Souza,606.492.560-50,1993-10-05,Brasília,DF,Universitário,2023-02-26
+CLI0607,Igor Ferreira,607.603.541-27,1988-01-12,São Paulo,SP,Universitário,2023-06-20
+CLI0608,Patrícia Rocha,608.974.260-74,1964-12-31,Fortaleza,CE,Universitário,2020-12-14
+CLI0609,Enzo Gomes,609.428.162-13,1964-01-18,Fortaleza,CE,Premium,2022-02-09
+CLI0610,Mariana Souza,610.538.453-55,1996-12-15,São Paulo,SP,Private,2018-08-20
+CLI0611,Juliana Oliveira,611.989.412-24,1990-04-15,Curitiba,PR,Premium,2018-03-22
+CLI0612,Ana Melo,612.702.122-50,1993-11-20,Recife,PE,Universitário,2021-08-13
+CLI0613,Caio Almeida,613.444.608-74,1990-06-18,Campinas,SP,Premium,2024-11-23
+CLI0614,João Lima,614.148.404-83,1996-01-25,Curitiba,PR,Premium,2025-01-02
+CLI0615,Thiago Costa,615.379.168-82,2002-08-21,Rio de Janeiro,RJ,Universitário,2020-05-09
+CLI0616,Bruna Rocha,616.420.304-63,1996-02-03,Porto Alegre,RS,Private,2025-01-03
+CLI0617,Igor Silva,617.742.820-76,1976-09-25,Brasília,DF,Universitário,2020-05-22
+CLI0618,Juliana Dias,618.844.741-17,1977-12-31,Fortaleza,CE,Private,2023-03-10
+CLI0619,Nicolas Costa,619.980.950-18,1978-04-06,Belo Horizonte,MG,Universitário,2020-12-29
+CLI0620,Henrique Souza,620.253.296-13,1982-01-12,Porto Alegre,RS,Private,2023-03-17
+CLI0621,Aline Santos,621.306.263-44,1972-03-28,Fortaleza,CE,Varejo,2020-11-24
+CLI0622,Fernanda Silva,622.156.980-20,1988-02-29,Brasília,DF,Private,2018-09-18
+CLI0623,Mariana Rodrigues,623.341.214-83,2004-11-17,Recife,PE,Varejo,2023-11-08
+CLI0624,Vanessa Souza,624.891.926-50,1989-07-17,Brasília,DF,Universitário,2020-08-24
+CLI0625,Gabriela Lima,625.550.518-42,1965-01-06,Recife,PE,Universitário,2023-12-26
+CLI0626,Isabela Rodrigues,626.471.586-57,1987-08-25,Salvador,BA,Varejo,2025-03-28
+CLI0627,Isabela Rocha,627.493.416-91,1992-07-21,Campinas,SP,Varejo,2023-12-31
+CLI0628,João Oliveira,628.942.874-40,1986-09-06,Recife,PE,Premium,2019-10-19
+CLI0629,Isabela Oliveira,629.942.898-72,2002-04-06,Fortaleza,CE,Universitário,2021-09-24
+CLI0630,Rafael Oliveira,630.460.530-87,1989-04-25,Rio de Janeiro,RJ,Universitário,2025-10-18
+CLI0631,Aline Araujo,631.910.756-27,1960-04-10,São Paulo,SP,Universitário,2020-03-30
+CLI0632,Helena Nascimento,632.802.520-50,2000-07-03,Rio de Janeiro,RJ,Universitário,2019-07-01
+CLI0633,Fernanda Gomes,633.303.186-63,1992-12-23,Porto Alegre,RS,Premium,2022-05-31
+CLI0634,Juliana Oliveira,634.573.303-43,1975-02-20,Campinas,SP,Varejo,2022-07-01
+CLI0635,Carla Ribeiro,635.274.680-25,1961-04-07,Campinas,SP,Universitário,2023-02-02
+CLI0636,João Melo,636.491.233-65,1978-07-15,Curitiba,PR,Premium,2021-03-05
+CLI0637,Ana Gomes,637.368.341-89,2000-06-16,Curitiba,PR,Premium,2022-02-23
+CLI0638,Caio Martins,638.803.317-59,1997-12-22,Rio de Janeiro,RJ,Private,2018-10-27
+CLI0639,Juliana Pereira,639.582.462-87,1964-01-31,Rio de Janeiro,RJ,Varejo,2020-11-04
+CLI0640,Thiago Ferreira,640.366.273-74,2004-03-19,Recife,PE,Private,2023-04-02
+CLI0641,Eduarda Lima,641.219.420-15,1971-06-22,Belo Horizonte,MG,Universitário,2021-02-24
+CLI0642,Vanessa Lima,642.629.420-65,1974-10-20,Porto Alegre,RS,Private,2023-07-06
+CLI0643,Gabriela Rodrigues,643.155.335-33,1963-03-21,Belo Horizonte,MG,Universitário,2020-12-01
+CLI0644,Bruno Araujo,644.465.826-81,2003-07-13,Rio de Janeiro,RJ,Universitário,2023-07-13
+CLI0645,Daniel Ribeiro,645.195.308-46,1976-03-16,Rio de Janeiro,RJ,Premium,2023-09-15
+CLI0646,Nicolas Oliveira,646.352.886-73,1968-06-17,Campinas,SP,Private,2018-04-17
+CLI0647,Lucas Dias,647.208.957-51,1973-10-17,Porto Alegre,RS,Varejo,2018-11-29
+CLI0648,Karina Santos,648.771.737-67,1989-02-23,Fortaleza,CE,Premium,2020-05-15
+CLI0649,Karina Santos,649.861.172-80,1994-03-20,São Paulo,SP,Varejo,2022-06-22
+CLI0650,Mariana Martins,650.391.762-93,1973-10-29,Recife,PE,Varejo,2021-05-07
+CLI0651,Igor Nascimento,651.234.467-95,1968-08-15,Fortaleza,CE,Private,2023-10-01
+CLI0652,Carla Carvalho,652.930.477-88,1976-09-19,Recife,PE,Universitário,2025-01-27
+CLI0653,Otávio Pereira,653.763.802-29,2004-06-08,Recife,PE,Varejo,2021-04-05
+CLI0654,Guilherme Pereira,654.635.537-47,1964-04-12,Fortaleza,CE,Varejo,2018-07-04
+CLI0655,Daniel Araujo,655.776.837-82,1982-09-24,Brasília,DF,Private,2020-11-09
+CLI0656,Fernanda Ferreira,656.963.502-15,1967-06-22,São Paulo,SP,Universitário,2025-11-25
+CLI0657,Vanessa Lima,657.449.992-33,1978-12-08,Porto Alegre,RS,Premium,2018-11-17
+CLI0658,Mariana Souza,658.113.275-93,2002-10-21,Rio de Janeiro,RJ,Universitário,2025-10-04
+CLI0659,João Nascimento,659.932.731-56,1995-06-09,Recife,PE,Private,2018-12-25
+CLI0660,Helena Silva,660.314.592-93,1973-01-08,Rio de Janeiro,RJ,Premium,2022-11-20
+CLI0661,Eduarda Melo,661.532.122-24,1974-11-25,Brasília,DF,Premium,2025-11-17
+CLI0662,Gabriela Gomes,662.683.949-60,1964-07-26,São Paulo,SP,Private,2018-02-02
+CLI0663,Helena Melo,663.854.692-86,1986-02-01,Rio de Janeiro,RJ,Varejo,2023-06-20
+CLI0664,Henrique Santos,664.640.119-64,1988-05-02,Campinas,SP,Varejo,2021-01-02
+CLI0665,Patrícia Nascimento,665.761.455-67,1999-02-19,Recife,PE,Varejo,2019-10-23
+CLI0666,Thiago Costa,666.716.973-94,2002-01-10,Salvador,BA,Premium,2021-04-16
+CLI0667,Fernanda Melo,667.918.964-30,1978-08-03,Recife,PE,Private,2025-09-30
+CLI0668,Daniel Carvalho,668.605.410-40,1978-10-15,Belo Horizonte,MG,Varejo,2018-03-16
+CLI0669,Bruna Ferreira,669.278.947-74,1962-11-13,Salvador,BA,Varejo,2021-10-15
+CLI0670,Karina Ribeiro,670.887.147-81,1983-12-31,Rio de Janeiro,RJ,Premium,2025-09-27
+CLI0671,Juliana Araujo,671.918.568-24,1969-07-01,Brasília,DF,Varejo,2024-04-22
+CLI0672,Felipe Gomes,672.825.552-74,2004-09-17,Rio de Janeiro,RJ,Varejo,2019-09-24
+CLI0673,Helena Almeida,673.549.525-10,1982-01-03,Salvador,BA,Universitário,2021-10-30
+CLI0674,Aline Pereira,674.255.871-77,1997-10-31,Porto Alegre,RS,Premium,2019-07-20
+CLI0675,Helena Barbosa,675.913.798-56,1962-09-02,Recife,PE,Universitário,2019-08-20
+CLI0676,Karina Costa,676.511.890-31,1998-12-10,Brasília,DF,Varejo,2022-05-30
+CLI0677,Aline Barbosa,677.402.529-61,1987-04-21,São Paulo,SP,Private,2021-11-10
+CLI0678,Otávio Almeida,678.657.739-89,1999-09-01,Brasília,DF,Private,2025-04-11
+CLI0679,Carla Santos,679.650.442-59,1971-04-21,Recife,PE,Private,2020-05-25
+CLI0680,Ana Rocha,680.706.364-40,1987-04-08,Brasília,DF,Universitário,2023-09-01
+CLI0681,Aline Barbosa,681.462.226-16,1971-03-11,Rio de Janeiro,RJ,Universitário,2021-05-05
+CLI0682,Lucas Gomes,682.391.782-83,1972-07-22,Salvador,BA,Universitário,2023-10-30
+CLI0683,Guilherme Ribeiro,683.565.200-28,1998-03-11,Curitiba,PR,Universitário,2018-12-02
+CLI0684,Lucas Barbosa,684.512.702-81,1995-06-02,Belo Horizonte,MG,Private,2024-07-21
+CLI0685,Débora Carvalho,685.943.266-28,2005-05-17,Fortaleza,CE,Premium,2023-06-09
+CLI0686,Caio Almeida,686.566.584-14,1974-01-26,Brasília,DF,Private,2019-05-02
+CLI0687,Daniel Ribeiro,687.685.396-15,1973-10-02,Campinas,SP,Varejo,2022-03-02
+CLI0688,Fernanda Dias,688.531.149-49,1985-06-07,Porto Alegre,RS,Premium,2020-01-20
+CLI0689,Carla Santos,689.527.592-83,1987-10-14,Fortaleza,CE,Universitário,2021-10-15
+CLI0690,Enzo Araujo,690.783.559-29,1989-03-05,Campinas,SP,Varejo,2025-01-03
+CLI0691,Karina Rocha,691.146.786-66,1984-11-19,Campinas,SP,Varejo,2019-11-10
+CLI0692,Gabriela Nascimento,692.654.690-16,1976-12-28,Porto Alegre,RS,Universitário,2023-08-21
+CLI0693,Ana Lima,693.905.310-41,1999-11-08,São Paulo,SP,Varejo,2023-12-26
+CLI0694,Nicolas Ferreira,694.524.124-77,1988-06-21,São Paulo,SP,Universitário,2020-11-19
+CLI0695,João Rodrigues,695.287.361-21,1973-11-01,Rio de Janeiro,RJ,Private,2022-07-27
+CLI0696,Mariana Souza,696.427.245-62,1989-01-31,Salvador,BA,Private,2022-03-19
+CLI0697,Patrícia Barbosa,697.870.616-59,1970-04-28,Rio de Janeiro,RJ,Private,2018-09-06
+CLI0698,Juliana Silva,698.375.667-85,1969-02-08,Rio de Janeiro,RJ,Premium,2024-03-22
+CLI0699,Carla Barbosa,699.308.901-28,1993-06-28,Belo Horizonte,MG,Premium,2020-10-01
+CLI0700,Guilherme Nascimento,700.396.768-31,1960-01-18,Brasília,DF,Varejo,2023-05-30
+CLI0701,Guilherme Almeida,701.699.960-75,1985-03-28,Porto Alegre,RS,Varejo,2019-10-24
+CLI0702,Débora Rocha,702.386.999-65,1978-12-01,Porto Alegre,RS,Private,2025-08-25
+CLI0703,Henrique Costa,703.449.315-68,1989-06-19,Salvador,BA,Varejo,2025-10-04
+CLI0704,Nicolas Rocha,704.813.820-72,1995-03-28,Campinas,SP,Varejo,2025-04-12
+CLI0705,Lucas Martins,705.947.715-55,1994-09-12,Rio de Janeiro,RJ,Premium,2025-10-26
+CLI0706,Ana Pereira,706.860.120-45,1992-02-07,Salvador,BA,Premium,2019-01-04
+CLI0707,Patrícia Ribeiro,707.137.387-73,1978-10-04,Campinas,SP,Varejo,2020-03-14
+CLI0708,Felipe Rocha,708.298.775-82,1975-09-30,Rio de Janeiro,RJ,Varejo,2024-08-06
+CLI0709,Juliana Dias,709.976.333-76,1984-08-11,Belo Horizonte,MG,Premium,2025-08-09
+CLI0710,Ana Carvalho,710.756.789-93,1964-08-26,Brasília,DF,Private,2022-11-07
+CLI0711,Patrícia Ribeiro,711.629.877-15,1980-02-22,Recife,PE,Varejo,2021-02-12
+CLI0712,Carla Dias,712.927.125-38,1998-01-08,Salvador,BA,Varejo,2020-10-20
+CLI0713,Aline Souza,713.128.591-65,1962-02-26,Curitiba,PR,Private,2020-10-22
+CLI0714,Rafael Pereira,714.174.894-86,1999-05-05,Salvador,BA,Varejo,2025-01-05
+CLI0715,Juliana Santos,715.486.420-98,1965-10-31,Fortaleza,CE,Premium,2018-09-11
+CLI0716,Daniel Santos,716.672.153-47,1994-03-22,Porto Alegre,RS,Universitário,2019-01-28
+CLI0717,Helena Nascimento,717.906.775-89,1960-12-13,Campinas,SP,Universitário,2022-04-22
+CLI0718,Otávio Barbosa,718.436.701-34,1969-09-09,Campinas,SP,Varejo,2018-02-20
+CLI0719,Igor Dias,719.229.752-75,1982-12-28,Campinas,SP,Private,2022-09-21
+CLI0720,Eduarda Gomes,720.698.546-75,1992-02-04,Belo Horizonte,MG,Private,2024-07-18
+CLI0721,Patrícia Gomes,721.717.451-47,1993-02-01,Brasília,DF,Varejo,2023-10-22
+CLI0722,Nicolas Ribeiro,722.300.305-91,1978-01-20,São Paulo,SP,Varejo,2021-10-30
+CLI0723,Helena Dias,723.679.443-88,1986-11-18,Curitiba,PR,Universitário,2021-09-08
+CLI0724,Caio Pereira,724.577.738-37,1981-06-11,São Paulo,SP,Universitário,2021-09-19
+CLI0725,Lucas Silva,725.175.466-13,1970-05-02,Recife,PE,Premium,2021-04-05
+CLI0726,Gabriela Gomes,726.278.324-43,1975-08-20,Salvador,BA,Private,2024-03-21
+CLI0727,Guilherme Lima,727.203.121-96,1972-04-24,Curitiba,PR,Universitário,2025-05-06
+CLI0728,Fernanda Ribeiro,728.776.275-77,1998-11-29,Curitiba,PR,Varejo,2019-05-01
+CLI0729,Fernanda Almeida,729.296.645-58,1993-07-29,Belo Horizonte,MG,Private,2024-09-21
+CLI0730,Helena Rocha,730.401.908-29,1989-05-25,São Paulo,SP,Premium,2018-08-07
+CLI0731,Gabriela Oliveira,731.903.581-94,1965-10-26,Porto Alegre,RS,Premium,2023-09-15
+CLI0732,Felipe Costa,732.829.482-77,2003-05-11,Brasília,DF,Universitário,2023-04-25
+CLI0733,Gabriela Pereira,733.307.562-40,1995-07-08,Porto Alegre,RS,Premium,2021-06-07
+CLI0734,Isabela Rocha,734.186.237-20,1986-06-21,Belo Horizonte,MG,Universitário,2023-10-27
+CLI0735,Rafael Nascimento,735.444.536-67,2001-12-11,Salvador,BA,Universitário,2022-08-03
+CLI0736,Henrique Lima,736.760.177-55,1967-05-24,Porto Alegre,RS,Private,2023-08-18
+CLI0737,Juliana Pereira,737.200.221-19,1992-04-26,Brasília,DF,Varejo,2024-02-15
+CLI0738,Caio Nascimento,738.241.975-79,1983-06-05,Salvador,BA,Varejo,2021-05-11
+CLI0739,Mariana Dias,739.875.771-11,2002-05-06,Porto Alegre,RS,Premium,2022-06-17
+CLI0740,Débora Araujo,740.448.910-20,1988-02-01,Curitiba,PR,Premium,2022-10-23
+CLI0741,Lucas Rodrigues,741.691.994-26,1987-05-31,Recife,PE,Varejo,2023-08-10
+CLI0742,Enzo Rocha,742.406.433-85,1962-01-31,Salvador,BA,Varejo,2019-07-24
+CLI0743,Thiago Nascimento,743.722.687-60,1994-03-18,Belo Horizonte,MG,Premium,2022-05-20
+CLI0744,Aline Gomes,744.195.275-23,1975-12-08,Fortaleza,CE,Varejo,2025-09-23
+CLI0745,Carla Martins,745.390.310-39,1986-02-11,Campinas,SP,Varejo,2023-02-06
+CLI0746,Felipe Souza,746.232.649-63,2002-11-27,Belo Horizonte,MG,Varejo,2022-05-13
+CLI0747,Nicolas Melo,747.262.718-83,1987-11-03,Curitiba,PR,Premium,2023-08-21
+CLI0748,Carla Martins,748.719.926-41,1989-07-04,Curitiba,PR,Universitário,2023-02-28
+CLI0749,Aline Araujo,749.455.817-48,1995-02-01,Fortaleza,CE,Premium,2022-08-28
+CLI0750,Mariana Santos,750.345.991-30,1984-07-24,Recife,PE,Private,2025-06-23
+CLI0751,Nicolas Rocha,751.224.477-19,1969-06-09,Rio de Janeiro,RJ,Private,2022-08-07
+CLI0752,Aline Araujo,752.490.451-61,1977-06-10,Brasília,DF,Universitário,2018-06-04
+CLI0753,Bruna Araujo,753.596.572-18,1967-05-28,São Paulo,SP,Premium,2022-11-28
+CLI0754,Felipe Gomes,754.227.647-60,1975-02-10,Belo Horizonte,MG,Varejo,2025-07-13
+CLI0755,Lucas Ferreira,755.321.831-14,1979-05-24,São Paulo,SP,Universitário,2025-10-24
+CLI0756,Caio Gomes,756.554.153-86,1960-06-01,Brasília,DF,Varejo,2022-03-26
+CLI0757,Juliana Pereira,757.304.193-12,1997-10-30,Curitiba,PR,Varejo,2018-03-01
+CLI0758,Débora Ferreira,758.145.525-75,1969-08-29,Rio de Janeiro,RJ,Private,2021-08-14
+CLI0759,Juliana Rocha,759.504.538-25,1980-11-06,Brasília,DF,Premium,2019-03-10
+CLI0760,Gabriela Araujo,760.325.167-94,1984-12-24,Recife,PE,Private,2018-06-29
+CLI0761,João Nascimento,761.611.204-78,1975-05-20,Rio de Janeiro,RJ,Private,2019-01-24
+CLI0762,Felipe Costa,762.971.782-71,1966-01-21,Recife,PE,Private,2018-03-14
+CLI0763,Mariana Barbosa,763.755.859-39,2005-03-01,Campinas,SP,Varejo,2020-08-10
+CLI0764,Vanessa Oliveira,764.161.240-57,2004-09-28,Rio de Janeiro,RJ,Private,2020-04-07
+CLI0765,Juliana Nascimento,765.554.856-52,1972-01-17,Belo Horizonte,MG,Private,2021-07-24
+CLI0766,Aline Gomes,766.868.124-39,1989-09-20,Brasília,DF,Private,2020-09-19
+CLI0767,Vanessa Martins,767.633.429-33,1999-09-08,Curitiba,PR,Varejo,2018-09-22
+CLI0768,Eduarda Oliveira,768.277.706-80,1978-05-02,Curitiba,PR,Premium,2023-09-10
+CLI0769,Felipe Almeida,769.350.534-32,1982-05-03,Rio de Janeiro,RJ,Private,2021-03-14
+CLI0770,Lucas Martins,770.486.271-70,1999-08-07,Curitiba,PR,Universitário,2023-09-01
+CLI0771,Ana Martins,771.537.974-20,1986-12-07,Campinas,SP,Premium,2024-03-14
+CLI0772,Sabrina Nascimento,772.592.173-52,1972-04-04,Fortaleza,CE,Universitário,2020-03-12
+CLI0773,Ana Barbosa,773.847.842-57,2004-02-02,Belo Horizonte,MG,Universitário,2022-08-31
+CLI0774,Nicolas Santos,774.227.494-82,1974-07-26,Salvador,BA,Premium,2022-11-23
+CLI0775,Rafael Melo,775.750.805-57,1965-03-05,Porto Alegre,RS,Universitário,2022-10-03
+CLI0776,Aline Silva,776.814.781-92,1973-04-07,São Paulo,SP,Private,2024-10-15
+CLI0777,Isabela Pereira,777.716.692-94,1974-06-25,Fortaleza,CE,Varejo,2019-04-24
+CLI0778,Rafael Almeida,778.997.533-31,1998-04-18,Recife,PE,Private,2025-10-04
+CLI0779,Thiago Gomes,779.851.521-21,1969-10-20,Porto Alegre,RS,Private,2019-08-08
+CLI0780,Guilherme Melo,780.101.199-18,1997-06-26,Recife,PE,Universitário,2025-05-04
+CLI0781,Lucas Ferreira,781.820.237-35,2003-08-23,Porto Alegre,RS,Premium,2023-08-21
+CLI0782,Fernanda Almeida,782.365.992-62,1999-07-16,Curitiba,PR,Varejo,2025-02-19
+CLI0783,Daniel Lima,783.165.450-13,1981-01-23,Belo Horizonte,MG,Universitário,2023-06-11
+CLI0784,Daniel Almeida,784.634.910-10,1993-09-13,São Paulo,SP,Private,2023-06-14
+CLI0785,Karina Ribeiro,785.798.451-50,1981-06-30,Fortaleza,CE,Private,2025-06-17
+CLI0786,Ana Araujo,786.991.815-61,1972-06-16,Salvador,BA,Varejo,2024-10-01
+CLI0787,Caio Pereira,787.477.562-89,2002-08-19,Rio de Janeiro,RJ,Universitário,2025-05-28
+CLI0788,Fernanda Costa,788.794.554-39,2003-06-21,Salvador,BA,Universitário,2024-11-14
+CLI0789,Débora Martins,789.400.721-34,1972-11-04,Rio de Janeiro,RJ,Varejo,2019-06-08
+CLI0790,Felipe Araujo,790.218.593-94,1981-08-11,Brasília,DF,Premium,2020-05-16
+CLI0791,Daniel Carvalho,791.832.129-30,1989-04-16,Belo Horizonte,MG,Universitário,2021-02-22
+CLI0792,Bruna Rodrigues,792.647.748-72,1968-02-11,Fortaleza,CE,Private,2020-07-05
+CLI0793,Aline Costa,793.486.834-58,1999-03-15,Campinas,SP,Premium,2020-07-04
+CLI0794,Débora Souza,794.686.476-26,1988-02-11,Rio de Janeiro,RJ,Universitário,2024-06-21
+CLI0795,Helena Martins,795.533.427-56,1971-05-01,São Paulo,SP,Premium,2019-03-13
+CLI0796,Patrícia Araujo,796.250.715-46,1973-01-31,Fortaleza,CE,Varejo,2024-09-19
+CLI0797,Helena Dias,797.589.746-37,2004-05-29,Salvador,BA,Private,2025-11-24
+CLI0798,Caio Santos,798.986.894-32,2003-09-26,Salvador,BA,Universitário,2021-05-10
+CLI0799,Karina Carvalho,799.794.584-54,1995-02-10,Belo Horizonte,MG,Universitário,2018-10-22
+CLI0800,Daniel Rodrigues,800.431.870-84,1964-11-08,Curitiba,PR,Private,2023-02-18
+CLI0801,João Rodrigues,801.314.323-35,1960-10-26,Belo Horizonte,MG,Private,2024-06-15
+CLI0802,Juliana Santos,802.198.464-70,1976-02-12,Belo Horizonte,MG,Varejo,2019-04-26
+CLI0803,Eduarda Martins,803.350.134-25,1981-08-10,Brasília,DF,Universitário,2023-06-25
+CLI0804,Enzo Araujo,804.985.937-93,1994-04-12,Belo Horizonte,MG,Private,2025-02-03
+CLI0805,Carla Souza,805.600.756-95,2005-09-24,Fortaleza,CE,Premium,2018-04-05
+CLI0806,Mariana Melo,806.760.819-65,1986-10-07,Fortaleza,CE,Premium,2019-02-12
+CLI0807,Mariana Silva,807.503.669-78,2003-10-31,Salvador,BA,Varejo,2023-10-27
+CLI0808,Bruna Souza,808.285.982-86,1976-02-22,Rio de Janeiro,RJ,Varejo,2024-03-22
+CLI0809,Bruno Rodrigues,809.688.311-93,1974-06-18,Fortaleza,CE,Varejo,2024-04-22
+CLI0810,Lucas Rocha,810.275.533-94,1960-01-03,Rio de Janeiro,RJ,Premium,2021-05-16
+CLI0811,Bruna Rocha,811.555.243-83,2003-12-31,São Paulo,SP,Private,2023-11-11
+CLI0812,Bruna Santos,812.342.137-34,1972-09-16,Campinas,SP,Private,2020-05-31
+CLI0813,Isabela Rodrigues,813.846.737-64,1966-09-02,Belo Horizonte,MG,Private,2020-12-03
+CLI0814,Caio Rodrigues,814.648.308-19,1984-03-02,Recife,PE,Premium,2022-03-05
+CLI0815,Nicolas Rodrigues,815.423.906-65,1993-12-30,Campinas,SP,Varejo,2024-10-08
+CLI0816,Carla Costa,816.755.191-56,1989-12-02,Brasília,DF,Private,2019-08-23
+CLI0817,Henrique Martins,817.207.901-25,1975-10-07,Curitiba,PR,Private,2024-08-08
+CLI0818,Sabrina Lima,818.722.201-16,1975-04-27,Brasília,DF,Private,2022-05-15
+CLI0819,Patrícia Dias,819.230.365-11,1973-12-13,Belo Horizonte,MG,Premium,2019-08-08
+CLI0820,Caio Pereira,820.794.723-63,2001-01-25,São Paulo,SP,Premium,2022-12-03
+CLI0821,Isabela Carvalho,821.633.835-39,1987-05-19,Salvador,BA,Varejo,2021-06-05
+CLI0822,Carla Ferreira,822.689.158-20,1985-08-23,Rio de Janeiro,RJ,Universitário,2018-02-13
+CLI0823,Patrícia Barbosa,823.801.793-78,1971-03-09,Recife,PE,Universitário,2018-02-26
+CLI0824,Henrique Barbosa,824.800.723-15,2000-04-01,São Paulo,SP,Premium,2025-07-25
+CLI0825,Carla Ribeiro,825.959.236-75,1991-09-11,Brasília,DF,Varejo,2022-09-28
+CLI0826,João Gomes,826.594.400-43,1979-02-11,Rio de Janeiro,RJ,Varejo,2025-01-29
+CLI0827,Juliana Araujo,827.732.968-72,1965-02-27,Campinas,SP,Private,2018-01-25
+CLI0828,Mariana Ribeiro,828.109.203-65,2004-02-22,Salvador,BA,Premium,2018-12-14
+CLI0829,Daniel Melo,829.107.259-94,1982-06-10,Brasília,DF,Premium,2023-04-12
+CLI0830,Daniel Araujo,830.772.959-66,1974-07-08,Recife,PE,Premium,2021-12-19
+CLI0831,Gabriela Gomes,831.141.236-60,1997-10-10,Recife,PE,Private,2018-05-10
+CLI0832,Daniel Carvalho,832.600.663-73,1971-06-07,Fortaleza,CE,Private,2022-06-26
+CLI0833,Daniel Souza,833.911.121-26,1973-12-14,Brasília,DF,Private,2023-08-11
+CLI0834,Vanessa Silva,834.544.591-47,1985-04-26,São Paulo,SP,Universitário,2018-12-05
+CLI0835,Henrique Lima,835.885.217-43,1982-03-11,Recife,PE,Universitário,2020-03-23
+CLI0836,Gabriela Dias,836.744.749-29,1980-07-30,Rio de Janeiro,RJ,Varejo,2019-06-26
+CLI0837,Nicolas Silva,837.731.304-21,1964-07-27,Recife,PE,Universitário,2022-07-27
+CLI0838,Bruno Barbosa,838.537.759-16,1987-04-19,Curitiba,PR,Varejo,2021-01-07
+CLI0839,Henrique Costa,839.148.286-15,1960-01-18,Salvador,BA,Varejo,2025-05-29
+CLI0840,Nicolas Ferreira,840.358.603-56,1989-12-27,Fortaleza,CE,Private,2019-04-02
+CLI0841,Karina Ribeiro,841.859.929-56,1993-05-03,Rio de Janeiro,RJ,Premium,2025-04-17
+CLI0842,Aline Nascimento,842.223.142-85,1977-01-31,Rio de Janeiro,RJ,Premium,2025-11-26
+CLI0843,Sabrina Nascimento,843.451.408-70,1978-02-14,Fortaleza,CE,Premium,2018-06-29
+CLI0844,Igor Ribeiro,844.559.744-25,1999-02-15,Porto Alegre,RS,Varejo,2023-06-01
+CLI0845,Felipe Nascimento,845.380.813-26,1985-12-26,Recife,PE,Varejo,2024-05-08
+CLI0846,Bruna Rocha,846.991.625-19,1974-11-06,Curitiba,PR,Universitário,2023-09-18
+CLI0847,Vanessa Lima,847.311.288-10,1974-05-09,Recife,PE,Premium,2024-08-22
+CLI0848,João Pereira,848.403.825-44,1970-09-07,Brasília,DF,Premium,2020-07-06
+CLI0849,Aline Rodrigues,849.384.236-44,1964-08-15,São Paulo,SP,Premium,2020-05-10
+CLI0850,Carla Rocha,850.370.839-27,1996-08-19,Salvador,BA,Private,2021-08-22
+CLI0851,Henrique Lima,851.280.362-12,1969-07-19,São Paulo,SP,Universitário,2025-05-02
+CLI0852,Karina Lima,852.308.695-90,1995-06-24,Campinas,SP,Premium,2023-01-02
+CLI0853,Eduarda Melo,853.195.607-33,2001-03-19,Curitiba,PR,Premium,2019-12-23
+CLI0854,Felipe Ferreira,854.937.503-97,1976-11-07,Belo Horizonte,MG,Varejo,2019-08-11
+CLI0855,Daniel Barbosa,855.240.844-11,1968-12-11,Rio de Janeiro,RJ,Universitário,2022-04-22
+CLI0856,Eduarda Nascimento,856.113.911-11,1969-07-16,São Paulo,SP,Private,2025-12-07
+CLI0857,Guilherme Ferreira,857.414.439-71,1973-11-11,Rio de Janeiro,RJ,Premium,2018-08-17
+CLI0858,Sabrina Gomes,858.205.623-63,1972-09-21,Brasília,DF,Varejo,2020-07-07
+CLI0859,Lucas Gomes,859.331.800-59,1970-01-31,São Paulo,SP,Universitário,2019-11-26
+CLI0860,Daniel Ribeiro,860.186.144-87,1973-07-22,Porto Alegre,RS,Premium,2022-10-22
+CLI0861,Eduarda Gomes,861.739.937-46,1991-04-03,Brasília,DF,Varejo,2021-01-15
+CLI0862,Fernanda Silva,862.982.252-93,1973-02-24,Porto Alegre,RS,Private,2019-08-29
+CLI0863,Daniel Dias,863.537.844-45,1972-12-23,Recife,PE,Varejo,2021-08-16
+CLI0864,Patrícia Carvalho,864.716.912-91,1989-11-30,Recife,PE,Premium,2025-05-02
+CLI0865,Sabrina Rocha,865.604.645-78,1980-08-23,Curitiba,PR,Universitário,2018-12-09
+CLI0866,Caio Oliveira,866.340.470-10,1978-03-28,Campinas,SP,Varejo,2022-01-24
+CLI0867,Bruno Ribeiro,867.469.969-27,1986-06-09,Brasília,DF,Universitário,2019-08-14
+CLI0868,Débora Rodrigues,868.220.812-28,1993-11-11,Recife,PE,Varejo,2025-10-22
+CLI0869,Patrícia Nascimento,869.991.261-13,1973-03-06,Recife,PE,Private,2019-08-02
+CLI0870,Eduarda Ferreira,870.581.861-27,1986-11-14,Campinas,SP,Universitário,2022-08-13
+CLI0871,Daniel Rodrigues,871.161.757-14,1975-07-28,Salvador,BA,Premium,2018-02-14
+CLI0872,Caio Pereira,872.533.260-44,1968-03-31,Fortaleza,CE,Universitário,2019-05-28
+CLI0873,Mariana Ferreira,873.942.863-81,1966-12-04,Curitiba,PR,Universitário,2023-05-10
+CLI0874,Gabriela Lima,874.211.206-19,1992-07-16,Recife,PE,Private,2018-04-25
+CLI0875,Carla Almeida,875.711.111-49,1976-11-03,Curitiba,PR,Premium,2025-02-27
+CLI0876,Thiago Melo,876.146.149-50,1968-05-12,Rio de Janeiro,RJ,Private,2018-02-04
+CLI0877,Rafael Almeida,877.422.869-60,1991-12-04,Salvador,BA,Premium,2025-11-18
+CLI0878,Thiago Martins,878.588.700-14,1986-01-10,Brasília,DF,Premium,2019-09-13
+CLI0879,Igor Almeida,879.926.797-93,1972-08-20,Fortaleza,CE,Premium,2023-08-17
+CLI0880,Otávio Rodrigues,880.447.397-56,1998-08-28,Brasília,DF,Varejo,2025-12-29
+CLI0881,Eduarda Dias,881.742.609-22,1961-05-04,Recife,PE,Premium,2021-06-21
+CLI0882,Felipe Gomes,882.265.169-45,1992-08-05,Rio de Janeiro,RJ,Private,2019-01-01
+CLI0883,Patrícia Lima,883.881.997-66,1972-08-07,Rio de Janeiro,RJ,Varejo,2024-05-18
+CLI0884,Otávio Ribeiro,884.624.965-89,1988-02-20,Porto Alegre,RS,Private,2018-12-08
+CLI0885,Vanessa Santos,885.858.909-41,1960-09-17,Recife,PE,Premium,2019-03-08
+CLI0886,Mariana Araujo,886.785.195-54,2001-10-17,Recife,PE,Universitário,2025-03-16
+CLI0887,Daniel Oliveira,887.284.849-23,1995-08-12,Brasília,DF,Universitário,2020-03-28
+CLI0888,Gabriela Melo,888.217.385-68,1963-06-08,Salvador,BA,Premium,2023-04-09
+CLI0889,Vanessa Martins,889.163.927-56,1998-08-02,Belo Horizonte,MG,Universitário,2020-05-24
+CLI0890,Eduarda Oliveira,890.380.514-20,1986-10-06,Recife,PE,Universitário,2022-09-16
+CLI0891,Guilherme Santos,891.194.538-53,1986-08-20,Brasília,DF,Premium,2020-03-24
+CLI0892,Lucas Dias,892.498.942-11,1977-10-24,Fortaleza,CE,Varejo,2025-06-28
+CLI0893,Ana Rodrigues,893.569.251-73,1988-05-21,Campinas,SP,Varejo,2025-07-23
+CLI0894,Aline Araujo,894.754.692-22,1963-04-10,São Paulo,SP,Premium,2020-02-08
+CLI0895,Gabriela Ribeiro,895.314.295-96,1961-04-15,Recife,PE,Private,2022-01-30
+CLI0896,Caio Melo,896.764.566-62,1996-10-25,Brasília,DF,Private,2021-12-13
+CLI0897,Juliana Ferreira,897.569.538-57,1975-11-14,Brasília,DF,Premium,2024-02-02
+CLI0898,Carla Souza,898.191.765-12,1996-11-23,Recife,PE,Varejo,2023-07-27
+CLI0899,Aline Araujo,899.615.695-14,1986-01-03,Campinas,SP,Universitário,2020-05-17
+CLI0900,Lucas Araujo,900.522.940-92,1995-07-05,Recife,PE,Varejo,2022-03-15
+CLI0901,João Carvalho,901.789.347-10,1997-03-11,Curitiba,PR,Varejo,2018-03-05
+CLI0902,Karina Ferreira,902.685.540-40,1995-02-10,Brasília,DF,Premium,2024-11-29
+CLI0903,Eduarda Martins,903.845.277-61,1988-07-16,Recife,PE,Premium,2022-11-27
+CLI0904,Guilherme Lima,904.957.666-30,1988-12-03,Belo Horizonte,MG,Premium,2019-01-17
+CLI0905,Ana Nascimento,905.824.656-20,1994-04-22,Rio de Janeiro,RJ,Varejo,2019-06-19
+CLI0906,Gabriela Rocha,906.960.351-58,1983-05-15,Salvador,BA,Varejo,2021-01-31
+CLI0907,Aline Dias,907.987.205-24,2001-03-10,Rio de Janeiro,RJ,Varejo,2019-03-15
+CLI0908,Juliana Almeida,908.500.203-72,1961-12-20,Belo Horizonte,MG,Universitário,2018-10-29
+CLI0909,Gabriela Carvalho,909.484.421-91,2000-06-13,Fortaleza,CE,Premium,2020-01-07
+CLI0910,Karina Ribeiro,910.595.728-86,1960-06-13,Campinas,SP,Premium,2023-11-08
+CLI0911,Vanessa Silva,911.648.123-76,2005-11-28,Porto Alegre,RS,Premium,2020-06-04
+CLI0912,Carla Rodrigues,912.374.380-71,1977-11-15,Curitiba,PR,Varejo,2021-11-28
+CLI0913,Nicolas Barbosa,913.509.297-42,1975-07-08,Brasília,DF,Premium,2025-09-15
+CLI0914,Felipe Almeida,914.839.599-65,2000-01-10,Recife,PE,Universitário,2024-09-08
+CLI0915,Vanessa Martins,915.539.304-82,1991-08-30,Porto Alegre,RS,Private,2025-02-04
+CLI0916,Thiago Carvalho,916.400.718-92,1991-08-08,São Paulo,SP,Universitário,2018-05-03
+CLI0917,Fernanda Ferreira,917.466.351-19,1979-04-22,Rio de Janeiro,RJ,Private,2022-03-04
+CLI0918,Gabriela Araujo,918.681.914-51,1980-11-14,São Paulo,SP,Varejo,2022-04-29
+CLI0919,Daniel Rocha,919.384.833-87,1966-09-17,Porto Alegre,RS,Universitário,2025-08-26
+CLI0920,Patrícia Santos,920.381.531-25,1971-02-18,Salvador,BA,Universitário,2019-12-02
+CLI0921,Thiago Silva,921.391.118-92,1960-06-01,Campinas,SP,Universitário,2021-03-10
+CLI0922,Karina Silva,922.171.581-22,1997-03-28,São Paulo,SP,Private,2021-01-30
+CLI0923,Carla Rocha,923.893.420-73,1964-03-22,Salvador,BA,Universitário,2021-05-07
+CLI0924,Ana Pereira,924.148.945-11,1972-06-12,Rio de Janeiro,RJ,Varejo,2021-08-15
+CLI0925,Débora Ribeiro,925.935.650-10,1964-09-16,Recife,PE,Private,2018-06-26
+CLI0926,Isabela Ferreira,926.241.697-68,1970-10-03,Rio de Janeiro,RJ,Premium,2021-07-31
+CLI0927,Aline Araujo,927.784.225-76,1981-07-30,Belo Horizonte,MG,Universitário,2025-06-01
+CLI0928,Caio Oliveira,928.461.671-41,1978-06-21,Fortaleza,CE,Varejo,2018-11-04
+CLI0929,Otávio Martins,929.292.599-23,1990-07-17,Fortaleza,CE,Premium,2024-08-15
+CLI0930,Caio Araujo,930.771.257-74,1969-06-24,Salvador,BA,Premium,2020-06-15
+CLI0931,Enzo Martins,931.292.170-45,1997-12-15,Salvador,BA,Premium,2025-09-11
+CLI0932,Henrique Silva,932.571.291-44,1962-07-25,Rio de Janeiro,RJ,Universitário,2025-06-04
+CLI0933,Juliana Rocha,933.186.462-65,1979-01-09,Brasília,DF,Premium,2022-06-14
+CLI0934,Bruno Martins,934.849.532-34,1986-05-17,São Paulo,SP,Premium,2022-07-08
+CLI0935,Rafael Carvalho,935.211.797-16,1982-05-02,Belo Horizonte,MG,Varejo,2020-06-18
+CLI0936,Isabela Pereira,936.735.816-61,1995-02-28,Campinas,SP,Universitário,2019-02-19
+CLI0937,Gabriela Ferreira,937.904.308-54,1985-11-01,Curitiba,PR,Private,2018-01-13
+CLI0938,Felipe Costa,938.797.171-31,1976-10-21,Campinas,SP,Private,2023-02-08
+CLI0939,Nicolas Costa,939.121.281-43,1966-11-27,Belo Horizonte,MG,Premium,2025-08-14
+CLI0940,Patrícia Pereira,940.583.212-15,1961-07-23,Salvador,BA,Private,2020-07-24
+CLI0941,Daniel Gomes,941.923.853-52,2000-08-09,Brasília,DF,Universitário,2021-12-07
+CLI0942,Guilherme Ribeiro,942.408.827-52,2003-06-15,Fortaleza,CE,Varejo,2021-01-10
+CLI0943,Nicolas Pereira,943.775.245-55,2004-08-29,Brasília,DF,Varejo,2020-09-27
+CLI0944,Juliana Martins,944.754.210-45,2000-04-21,Recife,PE,Premium,2020-12-22
+CLI0945,Thiago Carvalho,945.382.416-34,1963-09-08,Salvador,BA,Private,2024-11-13
+CLI0946,João Souza,946.108.610-97,1973-03-14,Campinas,SP,Universitário,2025-08-21
+CLI0947,João Melo,947.395.166-47,1961-05-25,Belo Horizonte,MG,Universitário,2018-06-17
+CLI0948,Nicolas Ribeiro,948.776.954-10,1964-06-23,Rio de Janeiro,RJ,Private,2019-07-19
+CLI0949,Carla Lima,949.246.850-35,1998-10-05,Salvador,BA,Varejo,2021-04-06
+CLI0950,Mariana Souza,950.367.409-86,1987-11-17,Salvador,BA,Premium,2024-04-28
+CLI0951,Bruna Almeida,951.356.238-63,1977-11-24,Recife,PE,Private,2021-06-03
+CLI0952,Daniel Rodrigues,952.639.552-98,1988-02-07,Fortaleza,CE,Private,2023-04-03
+CLI0953,Otávio Silva,953.672.127-63,1967-12-07,Salvador,BA,Premium,2024-11-24
+CLI0954,Bruno Martins,954.228.512-95,1960-07-14,Campinas,SP,Universitário,2023-10-23
+CLI0955,Bruno Lima,955.949.765-23,1989-12-01,Fortaleza,CE,Varejo,2021-04-05
+CLI0956,Caio Almeida,956.628.247-81,2004-06-08,São Paulo,SP,Premium,2020-07-04
+CLI0957,Fernanda Melo,957.738.804-35,1970-04-16,Belo Horizonte,MG,Varejo,2018-01-01
+CLI0958,Patrícia Silva,958.952.617-66,1995-01-19,Brasília,DF,Varejo,2019-05-14
+CLI0959,Guilherme Rocha,959.366.941-88,1999-05-25,Porto Alegre,RS,Varejo,2022-11-06
+CLI0960,Felipe Barbosa,960.859.816-79,1977-12-22,Belo Horizonte,MG,Universitário,2023-05-22
+CLI0961,Lucas Lima,961.500.495-99,1969-08-18,Porto Alegre,RS,Universitário,2022-09-04
+CLI0962,Ana Dias,962.410.134-92,1999-11-16,Porto Alegre,RS,Varejo,2021-12-23
+CLI0963,Ana Ferreira,963.466.612-74,1978-11-28,Belo Horizonte,MG,Private,2025-12-02
+CLI0964,Otávio Rodrigues,964.385.903-94,1987-03-06,Belo Horizonte,MG,Universitário,2018-10-07
+CLI0965,Thiago Barbosa,965.894.774-77,1983-04-04,Fortaleza,CE,Premium,2025-10-29
+CLI0966,Bruno Silva,966.972.850-30,1980-10-14,Salvador,BA,Varejo,2025-06-17
+CLI0967,Enzo Pereira,967.890.927-40,1969-06-16,Rio de Janeiro,RJ,Premium,2022-04-23
+CLI0968,Bruno Oliveira,968.552.881-57,1962-08-23,Rio de Janeiro,RJ,Premium,2021-08-08
+CLI0969,Aline Dias,969.669.304-35,1982-08-26,Rio de Janeiro,RJ,Universitário,2022-11-28
+CLI0970,Carla Dias,970.124.744-95,1968-08-18,Belo Horizonte,MG,Premium,2018-05-17
+CLI0971,Enzo Carvalho,971.681.659-19,1990-07-26,Belo Horizonte,MG,Premium,2025-08-26
+CLI0972,Rafael Ribeiro,972.465.733-81,1972-05-14,Brasília,DF,Varejo,2022-12-03
+CLI0973,Eduarda Barbosa,973.405.203-25,2004-09-27,Recife,PE,Premium,2018-07-30
+CLI0974,Juliana Lima,974.499.820-55,1966-02-04,Curitiba,PR,Premium,2021-03-25
+CLI0975,Mariana Nascimento,975.158.659-99,1969-12-12,Rio de Janeiro,RJ,Universitário,2020-12-13
+CLI0976,Eduarda Almeida,976.660.936-52,1965-08-04,Recife,PE,Premium,2023-07-15
+CLI0977,Lucas Oliveira,977.526.712-88,1967-03-25,Rio de Janeiro,RJ,Universitário,2019-06-15
+CLI0978,Nicolas Melo,978.410.900-39,1961-12-03,São Paulo,SP,Varejo,2018-04-18
+CLI0979,Sabrina Melo,979.153.496-58,1971-03-27,Curitiba,PR,Universitário,2025-11-12
+CLI0980,Lucas Almeida,980.451.547-17,1981-05-14,Fortaleza,CE,Premium,2019-01-12
+CLI0981,Fernanda Silva,981.994.837-41,1965-02-06,Campinas,SP,Varejo,2018-08-21
+CLI0982,João Rodrigues,982.720.507-71,1970-12-24,São Paulo,SP,Varejo,2018-11-09
+CLI0983,Patrícia Ribeiro,983.979.325-66,1987-02-27,Porto Alegre,RS,Private,2024-03-08
+CLI0984,Caio Rocha,984.615.206-16,1991-02-05,Brasília,DF,Universitário,2025-11-29
+CLI0985,Juliana Rodrigues,985.961.633-39,1987-05-11,Campinas,SP,Premium,2019-05-18
+CLI0986,Aline Araujo,986.216.121-73,1963-01-11,Belo Horizonte,MG,Private,2021-02-12
+CLI0987,Isabela Nascimento,987.493.607-12,1994-04-28,Campinas,SP,Universitário,2022-12-24
+CLI0988,Bruna Gomes,988.132.654-54,1962-05-01,Belo Horizonte,MG,Private,2020-12-11
+CLI0989,Débora Nascimento,989.544.986-64,1965-02-14,Campinas,SP,Varejo,2024-03-16
+CLI0990,Nicolas Dias,990.836.681-76,1983-05-02,Porto Alegre,RS,Premium,2022-04-11
+CLI0991,Juliana Silva,991.387.918-97,1984-08-13,Fortaleza,CE,Varejo,2020-10-20
+CLI0992,Lucas Lima,992.775.356-93,1961-02-08,Campinas,SP,Varejo,2021-06-11
+CLI0993,Otávio Araujo,993.117.550-11,2001-11-05,Campinas,SP,Varejo,2022-01-09
+CLI0994,Isabela Nascimento,994.664.421-18,1999-07-07,Curitiba,PR,Premium,2020-11-22
+CLI0995,Henrique Ferreira,995.250.992-89,1964-06-12,Porto Alegre,RS,Premium,2019-04-14
+CLI0996,Bruno Rocha,996.834.333-17,1983-03-29,Brasília,DF,Private,2018-03-08
+CLI0997,Lucas Souza,997.179.619-66,1970-02-25,Salvador,BA,Varejo,2020-08-28
+CLI0998,Eduarda Silva,998.434.721-56,1990-01-19,Recife,PE,Universitário,2025-04-24
+CLI0999,Felipe Ribeiro,999.145.397-29,1962-04-16,Salvador,BA,Varejo,2024-10-30
+CLI1000,Gabriela Martins,1000.950.696-14,1973-06-18,Brasília,DF,Universitário,2025-04-13
+CLI1001,Thiago Barbosa,1001.688.745-80,1997-07-04,Rio de Janeiro,RJ,Varejo,2023-12-02
+CLI1002,Gabriela Dias,1002.400.349-52,1981-10-22,Brasília,DF,Private,2020-08-03
+CLI1003,Otávio Carvalho,1003.470.181-55,2005-05-12,Fortaleza,CE,Varejo,2022-01-23
+CLI1004,Thiago Rodrigues,1004.650.350-62,1972-05-23,Fortaleza,CE,Private,2021-03-21
+CLI1005,Nicolas Barbosa,1005.251.689-73,1977-10-09,Salvador,BA,Premium,2023-02-03
+CLI1006,Débora Souza,1006.229.990-14,1998-09-14,Porto Alegre,RS,Varejo,2025-09-27
+CLI1007,Rafael Barbosa,1007.497.532-55,1971-06-08,Belo Horizonte,MG,Universitário,2025-10-25
+CLI1008,Débora Santos,1008.175.856-55,2000-04-09,Rio de Janeiro,RJ,Universitário,2025-01-27
+CLI1009,Enzo Melo,1009.816.237-33,2005-09-12,Fortaleza,CE,Varejo,2019-09-16
+CLI1010,Karina Araujo,1010.280.620-85,1985-01-21,Salvador,BA,Varejo,2020-08-09
+CLI1011,João Costa,1011.493.426-32,1972-11-05,Porto Alegre,RS,Varejo,2020-05-12
+CLI1012,Felipe Souza,1012.394.380-72,1999-05-18,Campinas,SP,Premium,2019-11-25
+CLI1013,Vanessa Souza,1013.337.782-45,1972-08-25,Porto Alegre,RS,Varejo,2020-04-27
+CLI1014,Ana Melo,1014.952.942-13,1993-02-25,Belo Horizonte,MG,Premium,2021-02-28
+CLI1015,Guilherme Araujo,1015.402.212-25,1999-11-14,Campinas,SP,Universitário,2023-07-14
+CLI1016,Fernanda Oliveira,1016.862.912-38,1966-09-02,Porto Alegre,RS,Private,2019-10-04
+CLI1017,Caio Costa,1017.139.543-22,1988-06-26,Brasília,DF,Premium,2024-04-05
+CLI1018,Henrique Rodrigues,1018.700.485-38,1977-07-21,São Paulo,SP,Private,2023-04-10
+CLI1019,João Rodrigues,1019.303.750-21,1979-03-20,Belo Horizonte,MG,Varejo,2022-11-14
+CLI1020,Caio Lima,1020.728.489-90,1981-01-21,Curitiba,PR,Private,2023-06-07
+CLI1021,Guilherme Pereira,1021.996.399-95,2003-07-08,Brasília,DF,Universitário,2025-01-24
+CLI1022,Igor Gomes,1022.529.557-51,1982-03-12,Fortaleza,CE,Universitário,2019-04-20
+CLI1023,Lucas Martins,1023.821.231-71,2003-11-20,Belo Horizonte,MG,Universitário,2025-09-15
+CLI1024,Sabrina Costa,1024.367.791-50,1996-11-22,Brasília,DF,Universitário,2022-12-16
+CLI1025,Patrícia Pereira,1025.447.751-15,1987-09-05,Recife,PE,Universitário,2022-08-06
+CLI1026,Eduarda Nascimento,1026.652.120-12,1994-01-07,Brasília,DF,Varejo,2025-11-26
+CLI1027,Aline Santos,1027.631.315-56,1977-10-20,Salvador,BA,Premium,2024-01-04
+CLI1028,Karina Carvalho,1028.320.666-41,1961-03-22,Porto Alegre,RS,Varejo,2018-03-24
+CLI1029,Bruno Ferreira,1029.389.408-13,1980-08-19,Brasília,DF,Premium,2018-05-19
+CLI1030,Helena Oliveira,1030.178.175-74,1997-04-07,Recife,PE,Varejo,2018-03-02
+CLI1031,Débora Dias,1031.911.500-34,1988-01-03,Brasília,DF,Private,2022-10-08
+CLI1032,Aline Dias,1032.582.485-47,1998-07-14,Porto Alegre,RS,Varejo,2020-06-29
+CLI1033,Juliana Rocha,1033.618.350-58,1961-07-18,Recife,PE,Universitário,2022-06-01
+CLI1034,Mariana Pereira,1034.557.478-71,1969-10-10,Rio de Janeiro,RJ,Private,2021-09-23
+CLI1035,Daniel Rocha,1035.273.312-72,1982-06-04,Belo Horizonte,MG,Varejo,2019-08-02
+CLI1036,Bruno Melo,1036.358.521-49,1990-04-24,Brasília,DF,Premium,2018-05-30
+CLI1037,Helena Silva,1037.374.806-36,2003-11-05,Salvador,BA,Universitário,2021-07-06
+CLI1038,Juliana Souza,1038.535.816-19,1993-09-14,Fortaleza,CE,Premium,2018-02-25
+CLI1039,Gabriela Araujo,1039.990.216-14,1998-01-20,Belo Horizonte,MG,Universitário,2019-12-01
+CLI1040,Mariana Silva,1040.403.220-65,1986-05-25,Belo Horizonte,MG,Private,2023-11-11
+CLI1041,Eduarda Gomes,1041.635.801-36,1993-04-22,Salvador,BA,Private,2023-04-18
+CLI1042,Karina Carvalho,1042.283.253-70,1966-01-06,Belo Horizonte,MG,Varejo,2021-07-01
+CLI1043,Karina Souza,1043.162.739-69,1974-01-13,Curitiba,PR,Varejo,2021-12-06
+CLI1044,João Carvalho,1044.698.846-49,1992-12-12,Salvador,BA,Universitário,2020-11-09
+CLI1045,Thiago Rodrigues,1045.205.848-37,1985-02-12,Brasília,DF,Premium,2020-12-12
+CLI1046,Thiago Dias,1046.719.383-88,2002-06-21,Brasília,DF,Premium,2019-11-20
+CLI1047,Carla Nascimento,1047.250.246-31,2002-08-28,São Paulo,SP,Varejo,2021-08-17
+CLI1048,Bruna Melo,1048.434.409-74,1970-07-10,Belo Horizonte,MG,Premium,2024-04-13
+CLI1049,Lucas Gomes,1049.958.634-50,1967-01-06,Recife,PE,Premium,2019-11-12
+CLI1050,Patrícia Lima,1050.801.223-81,1999-01-23,Belo Horizonte,MG,Private,2019-12-31
+CLI1051,Enzo Ribeiro,1051.845.534-37,1977-02-18,São Paulo,SP,Universitário,2022-03-13
+CLI1052,Ana Dias,1052.417.436-22,1993-02-03,São Paulo,SP,Private,2023-08-22
+CLI1053,Aline Melo,1053.507.144-99,1982-09-13,São Paulo,SP,Private,2025-01-05
+CLI1054,Vanessa Araujo,1054.602.277-70,1969-04-27,São Paulo,SP,Varejo,2022-02-22
+CLI1055,Helena Rodrigues,1055.184.529-25,1965-01-10,São Paulo,SP,Universitário,2025-02-24
+CLI1056,Karina Costa,1056.826.273-85,1992-11-09,Brasília,DF,Varejo,2025-06-14
+CLI1057,Gabriela Barbosa,1057.251.846-44,1967-07-14,Recife,PE,Premium,2022-12-22
+CLI1058,Isabela Rocha,1058.459.220-53,2001-10-30,Brasília,DF,Varejo,2024-05-08
+CLI1059,Débora Oliveira,1059.290.425-85,1961-10-20,Fortaleza,CE,Premium,2018-02-12
+CLI1060,João Almeida,1060.865.873-26,1987-11-09,Rio de Janeiro,RJ,Varejo,2022-04-03
+CLI1061,Nicolas Pereira,1061.955.292-44,1977-11-15,Porto Alegre,RS,Premium,2021-04-23
+CLI1062,Lucas Barbosa,1062.560.949-90,1975-04-18,Rio de Janeiro,RJ,Varejo,2024-07-25
+CLI1063,Caio Carvalho,1063.455.761-97,1985-11-24,Recife,PE,Premium,2021-11-02
+CLI1064,Gabriela Araujo,1064.367.132-24,1976-09-21,Porto Alegre,RS,Universitário,2019-07-27
+CLI1065,Bruna Dias,1065.134.430-99,1969-05-20,Fortaleza,CE,Private,2018-02-02
+CLI1066,Juliana Ribeiro,1066.413.266-69,1976-09-13,Salvador,BA,Varejo,2022-12-04
+CLI1067,Débora Martins,1067.584.954-41,1982-08-29,Campinas,SP,Private,2024-09-27
+CLI1068,Nicolas Carvalho,1068.892.375-83,1995-12-14,Porto Alegre,RS,Varejo,2019-11-03
+CLI1069,Thiago Rodrigues,1069.233.779-52,1964-10-28,Brasília,DF,Varejo,2021-06-20
+CLI1070,Ana Rodrigues,1070.305.276-48,1987-08-04,Salvador,BA,Varejo,2020-01-27
+CLI1071,Carla Pereira,1071.257.801-81,1993-07-29,Curitiba,PR,Varejo,2023-05-10
+CLI1072,Bruna Martins,1072.951.574-41,1968-08-05,Brasília,DF,Universitário,2019-06-11
+CLI1073,Mariana Costa,1073.389.939-96,1998-02-03,Salvador,BA,Universitário,2023-12-28
+CLI1074,Enzo Pereira,1074.477.470-53,2004-12-26,Campinas,SP,Varejo,2024-11-05
+CLI1075,Aline Pereira,1075.241.611-34,1963-12-20,Campinas,SP,Premium,2021-05-21
+CLI1076,Mariana Melo,1076.135.367-63,1976-02-08,Belo Horizonte,MG,Premium,2022-06-20
+CLI1077,Fernanda Oliveira,1077.454.802-22,1996-04-14,Brasília,DF,Varejo,2019-10-21
+CLI1078,Aline Martins,1078.532.889-16,1987-03-07,Recife,PE,Universitário,2020-11-25
+CLI1079,Enzo Melo,1079.829.443-78,1992-09-24,Rio de Janeiro,RJ,Varejo,2020-01-03
+CLI1080,Eduarda Silva,1080.445.824-85,1983-02-17,Recife,PE,Premium,2023-10-11
+CLI1081,Bruno Araujo,1081.388.140-25,2003-12-04,Campinas,SP,Universitário,2022-02-12
+CLI1082,Enzo Silva,1082.655.373-32,1986-04-22,Salvador,BA,Private,2022-09-05
+CLI1083,Vanessa Souza,1083.465.849-14,1995-07-19,São Paulo,SP,Premium,2019-12-19
+CLI1084,Lucas Araujo,1084.805.732-41,2001-02-15,Belo Horizonte,MG,Varejo,2018-11-10
+CLI1085,Mariana Barbosa,1085.842.180-53,1987-02-03,Salvador,BA,Universitário,2022-06-30
+CLI1086,Daniel Almeida,1086.684.367-48,1981-11-13,Porto Alegre,RS,Varejo,2022-03-13
+CLI1087,Débora Ferreira,1087.383.613-95,1964-02-07,Campinas,SP,Universitário,2020-01-13
+CLI1088,Isabela Lima,1088.573.713-91,1988-07-17,Recife,PE,Varejo,2020-06-25
+CLI1089,Carla Nascimento,1089.394.845-87,2001-04-29,Curitiba,PR,Universitário,2025-02-13
+CLI1090,Karina Costa,1090.427.454-66,1973-08-13,Fortaleza,CE,Universitário,2023-08-06
+CLI1091,Isabela Martins,1091.133.776-83,1967-01-19,Curitiba,PR,Universitário,2024-04-18
+CLI1092,Otávio Araujo,1092.130.259-89,1974-12-16,Brasília,DF,Private,2024-05-02
+CLI1093,Sabrina Melo,1093.340.484-78,1971-10-25,Recife,PE,Universitário,2024-10-22
+CLI1094,Felipe Ferreira,1094.885.896-61,1996-08-25,Recife,PE,Private,2020-06-10
+CLI1095,Karina Ribeiro,1095.745.208-95,1988-07-04,Recife,PE,Universitário,2020-07-11
+CLI1096,Juliana Ferreira,1096.509.395-10,1989-12-20,Fortaleza,CE,Universitário,2025-05-11
+CLI1097,Thiago Carvalho,1097.528.520-34,1962-08-09,Belo Horizonte,MG,Premium,2019-07-22
+CLI1098,Karina Nascimento,1098.355.270-82,2002-05-03,Rio de Janeiro,RJ,Varejo,2022-02-25
+CLI1099,Helena Ferreira,1099.568.477-40,1975-09-20,São Paulo,SP,Universitário,2025-12-29
+CLI1100,Thiago Araujo,1100.570.350-97,1999-10-20,Porto Alegre,RS,Premium,2019-12-26
+CLI1101,Helena Ferreira,1101.350.573-18,1960-08-13,Fortaleza,CE,Varejo,2025-08-25
+CLI1102,Fernanda Carvalho,1102.366.833-78,1970-11-08,Fortaleza,CE,Varejo,2022-12-02
+CLI1103,João Martins,1103.948.942-15,1992-08-07,Fortaleza,CE,Universitário,2023-09-27
+CLI1104,Débora Ferreira,1104.475.522-94,1990-06-27,Rio de Janeiro,RJ,Premium,2020-09-22
+CLI1105,Aline Oliveira,1105.569.826-72,1981-12-15,Fortaleza,CE,Private,2021-11-03
+CLI1106,Vanessa Santos,1106.879.243-28,1985-11-16,Fortaleza,CE,Varejo,2020-06-24
+CLI1107,Caio Ferreira,1107.681.749-49,2002-08-22,Salvador,BA,Universitário,2025-07-20
+CLI1108,Isabela Pereira,1108.128.971-37,1987-03-07,Belo Horizonte,MG,Premium,2024-07-21
+CLI1109,Patrícia Nascimento,1109.274.452-92,1973-12-25,São Paulo,SP,Private,2023-11-14
+CLI1110,Felipe Melo,1110.488.114-95,1965-10-22,Fortaleza,CE,Private,2020-07-09
+CLI1111,Vanessa Souza,1111.765.301-55,2004-09-30,Porto Alegre,RS,Universitário,2024-05-21
+CLI1112,Lucas Santos,1112.508.741-22,1989-07-24,Brasília,DF,Varejo,2021-01-16
+CLI1113,Fernanda Santos,1113.557.680-76,1982-03-31,Brasília,DF,Premium,2020-11-14
+CLI1114,Bruno Nascimento,1114.372.665-45,1968-03-12,Curitiba,PR,Premium,2018-09-18
+CLI1115,Henrique Pereira,1115.699.879-84,2002-10-26,Belo Horizonte,MG,Universitário,2019-02-07
+CLI1116,Gabriela Melo,1116.219.552-20,2002-09-15,Salvador,BA,Premium,2019-02-14
+CLI1117,João Dias,1117.109.695-65,1970-01-02,Brasília,DF,Universitário,2025-03-17
+CLI1118,Isabela Carvalho,1118.715.377-73,1975-11-02,Campinas,SP,Private,2023-09-09
+CLI1119,Helena Rocha,1119.354.449-45,2005-02-17,Fortaleza,CE,Private,2025-01-07
+CLI1120,Patrícia Ferreira,1120.283.167-65,1987-05-01,Belo Horizonte,MG,Varejo,2022-12-21
+CLI1121,Gabriela Souza,1121.881.337-37,1987-07-24,Salvador,BA,Private,2021-08-03
+CLI1122,Thiago Rodrigues,1122.431.260-34,1995-07-19,Porto Alegre,RS,Premium,2019-10-09
+CLI1123,Aline Nascimento,1123.907.526-44,1980-07-08,Campinas,SP,Private,2023-04-18
+CLI1124,Guilherme Costa,1124.560.415-64,1995-04-22,Salvador,BA,Universitário,2018-01-24
+CLI1125,Aline Rodrigues,1125.567.885-45,1961-09-30,Recife,PE,Premium,2020-05-04
+CLI1126,Karina Rocha,1126.673.856-35,1979-04-15,Salvador,BA,Universitário,2021-01-27
+CLI1127,Débora Melo,1127.838.707-70,1964-02-16,Rio de Janeiro,RJ,Universitário,2025-09-18
+CLI1128,Bruno Souza,1128.157.754-53,1984-10-06,Curitiba,PR,Private,2022-11-30
+CLI1129,Karina Carvalho,1129.944.255-29,1986-10-23,Porto Alegre,RS,Premium,2024-04-20
+CLI1130,Caio Silva,1130.243.890-18,1988-03-01,Campinas,SP,Private,2023-01-01
+CLI1131,Otávio Ribeiro,1131.441.303-96,1983-03-28,Curitiba,PR,Private,2024-10-08
+CLI1132,Fernanda Melo,1132.917.149-77,1965-05-29,Rio de Janeiro,RJ,Private,2018-03-08
+CLI1133,Fernanda Rocha,1133.603.389-83,1989-12-10,Campinas,SP,Varejo,2018-11-06
+CLI1134,Thiago Araujo,1134.724.765-34,1966-07-22,Rio de Janeiro,RJ,Universitário,2021-02-08
+CLI1135,Carla Ferreira,1135.763.689-53,2000-09-25,Fortaleza,CE,Universitário,2018-03-29
+CLI1136,Ana Pereira,1136.430.537-29,1983-03-23,Campinas,SP,Premium,2024-07-21
+CLI1137,Igor Dias,1137.256.293-28,1978-06-29,Salvador,BA,Private,2020-01-14
+CLI1138,Carla Costa,1138.991.422-39,1978-09-25,São Paulo,SP,Premium,2021-05-25
+CLI1139,Juliana Almeida,1139.890.463-13,1972-04-26,Belo Horizonte,MG,Universitário,2019-05-20
+CLI1140,Mariana Santos,1140.557.549-61,1977-10-26,Fortaleza,CE,Premium,2022-04-08
+CLI1141,Felipe Barbosa,1141.692.841-76,1970-12-01,Campinas,SP,Premium,2020-05-08
+CLI1142,Gabriela Almeida,1142.192.918-74,1992-04-13,Campinas,SP,Universitário,2020-11-11
+CLI1143,Ana Martins,1143.922.530-61,1968-12-22,Brasília,DF,Private,2022-01-16
+CLI1144,Henrique Oliveira,1144.766.759-59,2002-04-15,Recife,PE,Varejo,2021-01-30
+CLI1145,Thiago Silva,1145.231.631-29,1972-07-30,Salvador,BA,Universitário,2018-06-09
+CLI1146,Nicolas Ferreira,1146.278.631-29,1976-04-17,Porto Alegre,RS,Private,2019-03-25
+CLI1147,Mariana Ribeiro,1147.961.371-89,1988-10-20,Belo Horizonte,MG,Varejo,2018-04-16
+CLI1148,Bruno Rocha,1148.486.880-86,1975-03-25,São Paulo,SP,Premium,2019-02-15
+CLI1149,Nicolas Oliveira,1149.215.587-69,1997-03-28,São Paulo,SP,Universitário,2019-07-05
+CLI1150,Eduarda Costa,1150.772.652-56,1968-08-24,São Paulo,SP,Universitário,2023-07-12
+CLI1151,Fernanda Rodrigues,1151.330.775-20,1968-07-03,Campinas,SP,Universitário,2021-03-02
+CLI1152,Caio Araujo,1152.784.704-76,1983-12-06,Curitiba,PR,Premium,2021-09-05
+CLI1153,Débora Martins,1153.747.149-35,1976-05-05,Recife,PE,Varejo,2019-08-09
+CLI1154,Thiago Melo,1154.595.978-54,1976-11-04,Curitiba,PR,Universitário,2023-01-26
+CLI1155,Daniel Lima,1155.771.886-75,1990-04-07,Curitiba,PR,Private,2020-02-03
+CLI1156,Bruna Souza,1156.784.976-53,1983-08-01,Fortaleza,CE,Varejo,2022-02-05
+CLI1157,Daniel Pereira,1157.568.949-24,1970-10-16,Recife,PE,Private,2019-06-02
+CLI1158,Mariana Barbosa,1158.299.245-97,1979-11-26,Recife,PE,Varejo,2020-03-24
+CLI1159,Fernanda Rocha,1159.471.652-39,1974-12-17,Salvador,BA,Private,2019-10-13
+CLI1160,Helena Almeida,1160.385.150-61,1986-08-07,Campinas,SP,Universitário,2023-11-08
+CLI1161,Karina Rodrigues,1161.838.407-10,1966-09-19,Recife,PE,Private,2025-12-11
+CLI1162,Enzo Carvalho,1162.243.247-71,1974-05-18,Campinas,SP,Premium,2022-05-22
+CLI1163,Henrique Ribeiro,1163.172.331-45,1972-08-06,Belo Horizonte,MG,Universitário,2019-05-21
+CLI1164,Enzo Costa,1164.111.752-25,1987-12-01,Belo Horizonte,MG,Varejo,2025-01-18
+CLI1165,Guilherme Souza,1165.654.860-88,2000-10-05,Campinas,SP,Premium,2018-10-16
+CLI1166,Mariana Lima,1166.215.741-69,1998-03-18,Salvador,BA,Premium,2025-12-17
+CLI1167,Rafael Souza,1167.190.849-87,1992-07-11,Fortaleza,CE,Premium,2025-06-16
+CLI1168,Guilherme Lima,1168.357.755-75,1989-07-02,Recife,PE,Universitário,2025-06-24
+CLI1169,Ana Souza,1169.830.925-72,1981-10-11,Porto Alegre,RS,Universitário,2020-06-25
+CLI1170,Sabrina Nascimento,1170.957.679-58,1994-04-28,Rio de Janeiro,RJ,Varejo,2024-09-30
+CLI1171,Daniel Pereira,1171.469.694-96,1997-11-04,Rio de Janeiro,RJ,Universitário,2018-06-13
+CLI1172,Mariana Carvalho,1172.785.126-37,1976-03-19,Fortaleza,CE,Varejo,2025-01-26
+CLI1173,Débora Araujo,1173.969.359-55,1990-11-12,Salvador,BA,Private,2020-10-15
+CLI1174,Gabriela Rocha,1174.889.984-80,1988-11-16,Salvador,BA,Universitário,2021-11-28
+CLI1175,Karina Ribeiro,1175.731.651-39,1988-05-25,Belo Horizonte,MG,Private,2019-02-19
+CLI1176,Enzo Martins,1176.307.371-72,1991-06-15,Recife,PE,Private,2022-11-29
+CLI1177,Karina Silva,1177.214.294-84,1987-11-10,Salvador,BA,Private,2024-04-12
+CLI1178,Helena Lima,1178.249.833-53,1991-09-28,Rio de Janeiro,RJ,Universitário,2019-06-29
+CLI1179,Karina Pereira,1179.553.945-15,1982-01-22,Recife,PE,Premium,2025-06-27
+CLI1180,Henrique Pereira,1180.550.763-37,1973-01-15,Curitiba,PR,Varejo,2021-04-30
+CLI1181,Guilherme Araujo,1181.524.669-80,1977-03-31,Curitiba,PR,Universitário,2020-02-02
+CLI1182,Débora Lima,1182.823.915-56,1983-08-24,Campinas,SP,Universitário,2022-02-25
+CLI1183,Karina Rocha,1183.465.178-98,1972-01-25,Salvador,BA,Private,2025-11-17
+CLI1184,Sabrina Costa,1184.207.926-87,1980-06-09,Belo Horizonte,MG,Private,2025-11-15
+CLI1185,Otávio Lima,1185.688.956-16,2001-04-16,Brasília,DF,Universitário,2023-07-30
+CLI1186,Igor Ribeiro,1186.588.988-28,1965-09-20,Belo Horizonte,MG,Private,2018-09-25
+CLI1187,Nicolas Rodrigues,1187.505.320-94,2000-07-23,Porto Alegre,RS,Private,2024-01-15
+CLI1188,Eduarda Rocha,1188.797.700-50,1960-08-10,Curitiba,PR,Varejo,2025-12-26
+CLI1189,Rafael Carvalho,1189.847.265-34,1982-04-27,Salvador,BA,Premium,2020-01-13
+CLI1190,Thiago Martins,1190.924.517-58,2002-07-24,Rio de Janeiro,RJ,Premium,2021-11-07
+CLI1191,Caio Carvalho,1191.358.611-21,1976-07-22,Belo Horizonte,MG,Private,2022-07-03
+CLI1192,Ana Nascimento,1192.162.670-17,1993-06-23,Rio de Janeiro,RJ,Varejo,2019-11-22
+CLI1193,Ana Costa,1193.493.413-13,1993-08-17,São Paulo,SP,Varejo,2019-12-08
+CLI1194,Helena Rodrigues,1194.714.483-83,1975-11-15,Belo Horizonte,MG,Universitário,2025-12-03
+CLI1195,Vanessa Santos,1195.650.912-25,1987-12-17,Belo Horizonte,MG,Private,2019-03-18
+CLI1196,Gabriela Nascimento,1196.258.727-53,2000-10-15,Brasília,DF,Universitário,2023-01-09
+CLI1197,Henrique Ribeiro,1197.244.345-72,1976-11-23,Rio de Janeiro,RJ,Universitário,2018-06-20
+CLI1198,Helena Barbosa,1198.193.779-93,1988-10-03,Fortaleza,CE,Universitário,2024-02-16
+CLI1199,Enzo Almeida,1199.399.741-64,1996-04-07,Curitiba,PR,Universitário,2022-03-25
+CLI1200,João Melo,1200.905.889-46,1964-12-11,Rio de Janeiro,RJ,Varejo,2020-02-10
+CLI1201,Aline Costa,1201.856.149-78,1962-07-05,Rio de Janeiro,RJ,Varejo,2021-05-25
+CLI1202,Rafael Ribeiro,1202.797.815-15,1979-03-30,Brasília,DF,Varejo,2023-02-16
+CLI1203,Carla Almeida,1203.607.311-83,1961-05-25,Belo Horizonte,MG,Varejo,2022-04-12
+CLI1204,Felipe Martins,1204.946.333-57,1996-01-23,Porto Alegre,RS,Varejo,2019-10-01
+CLI1205,Igor Carvalho,1205.796.684-90,1987-10-15,Belo Horizonte,MG,Premium,2025-04-30
+CLI1206,Isabela Almeida,1206.936.897-72,1982-09-26,São Paulo,SP,Varejo,2025-01-10
+CLI1207,Bruna Pereira,1207.172.752-24,1970-05-05,Recife,PE,Premium,2023-06-25
+CLI1208,Bruna Martins,1208.391.649-46,1985-07-17,Belo Horizonte,MG,Private,2019-03-21
+CLI1209,Sabrina Melo,1209.305.230-76,1963-03-15,Rio de Janeiro,RJ,Universitário,2023-05-16
+CLI1210,Nicolas Nascimento,1210.479.548-28,1999-08-28,Recife,PE,Varejo,2025-06-08
+CLI1211,Enzo Almeida,1211.842.425-15,1961-04-10,Brasília,DF,Premium,2021-10-30
+CLI1212,Mariana Martins,1212.256.398-74,1965-09-16,Belo Horizonte,MG,Premium,2020-01-24
+CLI1213,Helena Araujo,1213.171.963-41,1985-10-26,Curitiba,PR,Premium,2019-08-11
+CLI1214,Vanessa Ferreira,1214.841.429-57,1963-06-13,Rio de Janeiro,RJ,Premium,2019-03-02
+CLI1215,Guilherme Martins,1215.887.680-25,1980-02-22,Curitiba,PR,Varejo,2024-04-27
+CLI1216,João Nascimento,1216.496.560-40,2004-01-04,Fortaleza,CE,Private,2021-11-14
+CLI1217,Sabrina Ribeiro,1217.329.247-46,1975-08-23,Fortaleza,CE,Universitário,2020-11-19
+CLI1218,Bruno Araujo,1218.520.827-79,1980-05-12,São Paulo,SP,Universitário,2019-05-28
+CLI1219,Igor Carvalho,1219.571.851-67,1999-10-28,Salvador,BA,Universitário,2023-03-14
+CLI1220,Henrique Almeida,1220.829.295-82,1977-06-16,Recife,PE,Private,2023-03-13
+CLI1221,Lucas Gomes,1221.318.502-28,2002-03-09,Brasília,DF,Varejo,2024-02-02
+CLI1222,Karina Rocha,1222.260.775-59,1998-09-26,Campinas,SP,Premium,2022-12-20
+CLI1223,Isabela Dias,1223.887.259-92,1996-01-20,São Paulo,SP,Premium,2019-09-10
+CLI1224,Karina Nascimento,1224.881.727-77,1963-03-02,Belo Horizonte,MG,Varejo,2018-09-25
+CLI1225,Helena Oliveira,1225.420.465-35,1973-07-05,Rio de Janeiro,RJ,Premium,2021-06-13
+CLI1226,Karina Ferreira,1226.396.410-22,1974-05-03,Salvador,BA,Premium,2019-10-31
+CLI1227,Felipe Rocha,1227.665.743-70,1985-03-25,Recife,PE,Premium,2019-04-10
+CLI1228,Igor Martins,1228.584.488-71,1975-04-17,Fortaleza,CE,Varejo,2024-07-28
+CLI1229,Otávio Silva,1229.603.787-82,1990-11-05,Salvador,BA,Private,2018-12-15
+CLI1230,Daniel Almeida,1230.749.428-47,1967-06-15,Belo Horizonte,MG,Private,2024-10-05
+CLI1231,Felipe Ribeiro,1231.971.358-34,1985-02-21,Fortaleza,CE,Varejo,2023-06-29
+CLI1232,Nicolas Costa,1232.141.379-94,2001-02-04,Curitiba,PR,Varejo,2021-09-25
+CLI1233,Débora Dias,1233.119.409-58,1977-11-28,Brasília,DF,Universitário,2022-04-06
+CLI1234,Fernanda Barbosa,1234.974.902-64,1996-07-12,Porto Alegre,RS,Private,2019-06-27
+CLI1235,Patrícia Gomes,1235.373.185-67,1967-08-10,Salvador,BA,Private,2023-09-16
+CLI1236,Henrique Oliveira,1236.281.482-18,1973-10-25,Belo Horizonte,MG,Premium,2018-12-24
+CLI1237,Helena Nascimento,1237.172.259-84,2001-05-03,Rio de Janeiro,RJ,Private,2025-06-16
+CLI1238,Carla Oliveira,1238.103.543-97,1980-11-28,Belo Horizonte,MG,Premium,2018-07-24
+CLI1239,Patrícia Almeida,1239.825.607-87,1976-09-09,Rio de Janeiro,RJ,Universitário,2021-03-25
+CLI1240,Carla Ferreira,1240.302.369-28,1976-12-26,São Paulo,SP,Varejo,2025-11-18
+CLI1241,Felipe Martins,1241.750.956-85,1986-08-14,Rio de Janeiro,RJ,Universitário,2023-09-07
+CLI1242,Rafael Silva,1242.770.799-42,1985-04-01,Porto Alegre,RS,Premium,2018-09-22
+CLI1243,Vanessa Carvalho,1243.181.790-67,1961-01-28,São Paulo,SP,Varejo,2021-07-28
+CLI1244,Thiago Lima,1244.844.959-50,2000-06-10,Salvador,BA,Private,2023-05-22
+CLI1245,Sabrina Almeida,1245.333.701-31,1963-10-31,Salvador,BA,Private,2022-08-06
+CLI1246,Eduarda Rodrigues,1246.855.868-59,1997-08-23,Recife,PE,Varejo,2019-07-26
+CLI1247,Lucas Silva,1247.544.910-94,1975-07-02,Salvador,BA,Premium,2024-08-25
+CLI1248,Karina Almeida,1248.122.609-60,1974-03-15,São Paulo,SP,Private,2024-02-29
+CLI1249,Nicolas Carvalho,1249.972.263-72,1965-05-12,Porto Alegre,RS,Private,2019-03-11
+CLI1250,Rafael Melo,1250.922.321-63,2004-01-02,Fortaleza,CE,Varejo,2021-06-15
+CLI1251,Vanessa Souza,1251.713.232-77,1985-04-16,Belo Horizonte,MG,Private,2022-03-10
+CLI1252,Ana Araujo,1252.478.527-41,1978-10-16,Salvador,BA,Private,2025-09-20
+CLI1253,Aline Melo,1253.905.387-81,1990-07-27,Curitiba,PR,Private,2025-10-31
+CLI1254,Caio Dias,1254.724.342-41,2003-11-01,Salvador,BA,Universitário,2018-03-21
+CLI1255,Enzo Rodrigues,1255.738.429-20,2004-01-17,Salvador,BA,Universitário,2024-10-04
+CLI1256,Fernanda Lima,1256.828.246-56,1965-04-18,Porto Alegre,RS,Universitário,2020-10-07
+CLI1257,Guilherme Nascimento,1257.594.675-28,1984-06-20,Curitiba,PR,Private,2023-06-09
+CLI1258,João Santos,1258.853.299-77,2005-03-24,Brasília,DF,Private,2020-10-13
+CLI1259,Isabela Almeida,1259.247.403-13,1962-08-02,Recife,PE,Universitário,2018-11-19
+CLI1260,Vanessa Araujo,1260.876.421-23,1984-07-16,Belo Horizonte,MG,Universitário,2021-02-04
+CLI1261,Felipe Dias,1261.231.430-12,1971-02-12,Curitiba,PR,Varejo,2021-08-30
+CLI1262,Sabrina Silva,1262.743.544-92,1989-01-21,Salvador,BA,Universitário,2019-12-31
+CLI1263,Karina Dias,1263.874.682-15,2005-11-27,Salvador,BA,Varejo,2019-06-25
+CLI1264,Caio Pereira,1264.194.872-56,1992-01-13,Belo Horizonte,MG,Private,2018-11-29
+CLI1265,Mariana Rocha,1265.163.637-63,1995-07-11,Recife,PE,Premium,2024-02-24
+CLI1266,Henrique Santos,1266.760.799-81,1962-03-04,Fortaleza,CE,Varejo,2025-03-18
+CLI1267,Enzo Pereira,1267.256.991-27,2004-11-28,Curitiba,PR,Private,2021-08-15
+CLI1268,Ana Carvalho,1268.663.169-15,1977-12-14,Recife,PE,Varejo,2020-05-05
+CLI1269,Caio Oliveira,1269.695.476-75,1974-09-23,Curitiba,PR,Universitário,2020-05-21
+CLI1270,Rafael Martins,1270.263.954-35,1982-12-28,Campinas,SP,Private,2020-03-12
+CLI1271,Daniel Gomes,1271.562.129-67,2005-11-30,Salvador,BA,Universitário,2020-04-18
+CLI1272,Enzo Dias,1272.853.865-48,1979-03-25,Rio de Janeiro,RJ,Private,2022-01-18
+CLI1273,Gabriela Barbosa,1273.124.417-11,1979-06-01,Fortaleza,CE,Premium,2021-09-29
+CLI1274,Vanessa Ferreira,1274.603.591-81,1985-08-07,Recife,PE,Premium,2018-11-15
+CLI1275,Vanessa Santos,1275.977.111-45,1960-01-01,Campinas,SP,Private,2022-12-28
+CLI1276,Aline Almeida,1276.533.859-57,1966-10-29,Belo Horizonte,MG,Private,2022-09-07
+CLI1277,João Rodrigues,1277.369.567-36,1970-10-17,São Paulo,SP,Varejo,2023-05-06
+CLI1278,Isabela Silva,1278.819.676-71,1965-09-04,Curitiba,PR,Premium,2020-06-01
+CLI1279,Bruno Melo,1279.542.950-69,1996-12-31,Rio de Janeiro,RJ,Premium,2018-02-24
+CLI1280,Caio Gomes,1280.836.590-35,1983-12-24,Rio de Janeiro,RJ,Varejo,2025-07-12
+CLI1281,Henrique Araujo,1281.929.101-93,1963-12-16,Porto Alegre,RS,Universitário,2024-04-08
+CLI1282,Lucas Oliveira,1282.712.476-68,2002-05-22,Curitiba,PR,Premium,2022-03-09
+CLI1283,Karina Ribeiro,1283.516.278-84,1996-01-17,Salvador,BA,Private,2023-03-30
+CLI1284,Bruna Rocha,1284.517.468-65,1967-10-03,Belo Horizonte,MG,Private,2019-07-18
+CLI1285,Otávio Rocha,1285.982.796-31,1963-11-02,Salvador,BA,Private,2023-09-06
+CLI1286,Helena Dias,1286.242.935-36,1995-07-23,Belo Horizonte,MG,Varejo,2022-09-13
+CLI1287,Rafael Souza,1287.689.104-42,1974-10-10,Rio de Janeiro,RJ,Premium,2025-09-02
+CLI1288,Rafael Martins,1288.324.690-54,1996-08-08,Rio de Janeiro,RJ,Varejo,2020-07-13
+CLI1289,Igor Barbosa,1289.919.210-73,1972-12-13,Fortaleza,CE,Varejo,2025-10-17
+CLI1290,Guilherme Almeida,1290.124.116-13,1986-07-15,Recife,PE,Varejo,2020-04-28
+CLI1291,Carla Lima,1291.563.221-64,1992-01-28,Belo Horizonte,MG,Universitário,2018-02-13
+CLI1292,Vanessa Dias,1292.589.750-88,1963-10-04,Recife,PE,Universitário,2018-05-10
+CLI1293,Caio Melo,1293.981.916-59,1968-10-16,Fortaleza,CE,Universitário,2025-09-21
+CLI1294,Bruno Melo,1294.877.188-70,1982-08-15,Fortaleza,CE,Varejo,2018-12-06
+CLI1295,Mariana Costa,1295.347.718-70,1963-01-30,Curitiba,PR,Private,2021-06-22
+CLI1296,Ana Rodrigues,1296.707.983-96,1962-07-14,Fortaleza,CE,Universitário,2018-10-11
+CLI1297,Fernanda Rocha,1297.769.841-16,1982-09-18,Brasília,DF,Varejo,2025-10-30
+CLI1298,João Nascimento,1298.439.536-24,1973-11-20,Fortaleza,CE,Varejo,2020-03-26
+CLI1299,Enzo Ferreira,1299.891.485-15,1987-02-13,Fortaleza,CE,Premium,2020-07-04
+CLI1300,Daniel Ferreira,1300.242.235-87,1962-02-14,Fortaleza,CE,Universitário,2023-07-26
+CLI1301,Ana Barbosa,1301.810.477-91,1969-07-16,Salvador,BA,Universitário,2023-04-25
+CLI1302,Igor Ribeiro,1302.586.510-74,1981-10-27,Recife,PE,Premium,2019-05-11
+CLI1303,Bruna Almeida,1303.556.775-79,1993-06-28,São Paulo,SP,Private,2023-05-12
+CLI1304,Henrique Almeida,1304.250.407-27,1995-01-19,Belo Horizonte,MG,Varejo,2022-03-04
+CLI1305,Rafael Lima,1305.699.643-11,1987-03-19,São Paulo,SP,Premium,2021-08-01
+CLI1306,Patrícia Almeida,1306.201.276-59,1966-05-12,Curitiba,PR,Premium,2025-06-25
+CLI1307,Helena Oliveira,1307.589.625-19,1974-10-11,Belo Horizonte,MG,Premium,2025-01-11
+CLI1308,Nicolas Santos,1308.870.542-15,1988-10-01,Salvador,BA,Universitário,2018-04-24
+CLI1309,Otávio Nascimento,1309.956.987-38,1971-06-04,Curitiba,PR,Universitário,2024-11-23
+CLI1310,Vanessa Barbosa,1310.394.609-19,1998-10-28,Recife,PE,Varejo,2022-09-06
+CLI1311,Lucas Lima,1311.502.387-69,1990-08-20,Rio de Janeiro,RJ,Private,2024-01-02
+CLI1312,Patrícia Costa,1312.193.808-72,1990-09-20,Fortaleza,CE,Varejo,2020-10-27
+CLI1313,Vanessa Barbosa,1313.333.420-51,1981-06-24,Porto Alegre,RS,Premium,2021-11-28
+CLI1314,Isabela Nascimento,1314.534.785-94,1976-11-23,Salvador,BA,Premium,2025-09-20
+CLI1315,Gabriela Araujo,1315.695.632-32,1970-07-07,Porto Alegre,RS,Private,2025-02-28
+CLI1316,Henrique Martins,1316.595.834-44,2001-03-09,Salvador,BA,Private,2019-08-23
+CLI1317,Mariana Rocha,1317.502.103-18,1976-12-12,Porto Alegre,RS,Private,2023-07-21
+CLI1318,Gabriela Lima,1318.152.537-90,2003-12-02,Campinas,SP,Varejo,2023-05-06
+CLI1319,Felipe Souza,1319.470.878-16,1963-09-06,Recife,PE,Varejo,2021-02-10
+CLI1320,Gabriela Santos,1320.776.680-17,1960-11-18,Belo Horizonte,MG,Varejo,2021-10-14
+CLI1321,Henrique Pereira,1321.325.733-87,1983-12-06,Campinas,SP,Private,2020-08-26
+CLI1322,Fernanda Martins,1322.308.654-88,1961-07-25,Salvador,BA,Premium,2019-01-09
+CLI1323,Daniel Souza,1323.352.965-62,1979-10-28,Campinas,SP,Premium,2023-02-26
+CLI1324,Bruna Gomes,1324.545.693-86,1994-09-10,Curitiba,PR,Universitário,2020-05-24
+CLI1325,Caio Araujo,1325.553.253-59,1994-02-08,Curitiba,PR,Varejo,2024-01-27
+CLI1326,Karina Silva,1326.611.619-88,1994-10-19,Fortaleza,CE,Universitário,2024-10-20
+CLI1327,Felipe Martins,1327.312.323-50,1991-09-10,Curitiba,PR,Universitário,2021-01-27
+CLI1328,Bruna Dias,1328.349.760-99,1965-10-20,Curitiba,PR,Universitário,2025-12-30
+CLI1329,Mariana Silva,1329.602.546-67,1998-01-19,São Paulo,SP,Varejo,2022-11-27
+CLI1330,Patrícia Ferreira,1330.272.324-84,1977-07-23,Salvador,BA,Varejo,2022-04-12
+CLI1331,Caio Ferreira,1331.194.730-99,1964-06-28,Salvador,BA,Private,2018-11-21
+CLI1332,Helena Ferreira,1332.334.519-49,1974-12-13,Belo Horizonte,MG,Varejo,2020-08-07
+CLI1333,João Rocha,1333.581.533-31,1981-03-12,Rio de Janeiro,RJ,Varejo,2020-03-11
+CLI1334,Enzo Araujo,1334.666.879-57,1976-01-19,Rio de Janeiro,RJ,Premium,2023-12-26
+CLI1335,Helena Ferreira,1335.884.378-75,1961-11-09,Belo Horizonte,MG,Varejo,2022-06-02
+CLI1336,Helena Nascimento,1336.954.476-83,1985-01-20,Belo Horizonte,MG,Universitário,2020-10-03
+CLI1337,Felipe Nascimento,1337.872.143-18,1993-11-10,Fortaleza,CE,Premium,2018-01-03
+CLI1338,Igor Barbosa,1338.577.762-76,1991-10-02,Fortaleza,CE,Universitário,2020-10-26
+CLI1339,Rafael Melo,1339.229.924-14,1978-07-24,Brasília,DF,Varejo,2024-09-22
+CLI1340,Mariana Gomes,1340.482.124-50,2003-09-17,Rio de Janeiro,RJ,Premium,2018-03-07
+CLI1341,Helena Dias,1341.909.876-27,1987-02-03,Curitiba,PR,Universitário,2020-09-28
+CLI1342,Caio Araujo,1342.480.309-69,1971-09-13,Fortaleza,CE,Universitário,2018-07-30
+CLI1343,João Ribeiro,1343.154.458-69,1994-09-05,Curitiba,PR,Universitário,2018-11-16
+CLI1344,Carla Ribeiro,1344.439.298-49,2005-06-17,Brasília,DF,Premium,2018-02-15
+CLI1345,Bruno Silva,1345.621.323-90,1993-04-22,Rio de Janeiro,RJ,Varejo,2023-01-11
+CLI1346,Lucas Santos,1346.920.629-84,1971-01-23,Fortaleza,CE,Universitário,2023-06-20
+CLI1347,Bruna Rocha,1347.846.866-82,2005-05-22,Recife,PE,Varejo,2019-09-21
+CLI1348,Eduarda Almeida,1348.195.731-59,1984-09-27,Fortaleza,CE,Universitário,2020-06-21
+CLI1349,Gabriela Carvalho,1349.682.298-63,1973-08-09,São Paulo,SP,Universitário,2024-02-19
+CLI1350,Helena Santos,1350.371.844-71,1965-12-05,Curitiba,PR,Premium,2023-04-03
+CLI1351,Daniel Oliveira,1351.785.570-53,1993-05-20,Belo Horizonte,MG,Universitário,2020-11-23
+CLI1352,Bruna Dias,1352.632.798-45,1982-01-02,Salvador,BA,Premium,2018-04-02
+CLI1353,Patrícia Martins,1353.152.705-48,1983-02-11,Recife,PE,Varejo,2019-08-30
+CLI1354,Otávio Rodrigues,1354.200.814-79,2005-05-19,Curitiba,PR,Private,2022-08-18
+CLI1355,Carla Pereira,1355.266.738-71,1965-12-13,Recife,PE,Private,2018-08-22
+CLI1356,Lucas Souza,1356.415.341-72,2004-02-16,Belo Horizonte,MG,Universitário,2024-08-07
+CLI1357,Henrique Nascimento,1357.923.268-53,1974-04-13,Curitiba,PR,Private,2024-08-27
+CLI1358,Sabrina Carvalho,1358.604.194-99,1973-08-17,Rio de Janeiro,RJ,Varejo,2018-01-09
+CLI1359,Guilherme Ribeiro,1359.795.802-99,1992-01-19,Fortaleza,CE,Varejo,2018-06-15
+CLI1360,Bruno Nascimento,1360.100.941-34,1975-03-31,Rio de Janeiro,RJ,Universitário,2023-07-02
+CLI1361,Guilherme Nascimento,1361.391.241-18,2001-06-23,Rio de Janeiro,RJ,Private,2019-10-07
+CLI1362,Bruno Martins,1362.972.446-95,1974-08-09,Rio de Janeiro,RJ,Universitário,2023-01-28
+CLI1363,João Martins,1363.528.926-40,1987-10-01,Salvador,BA,Private,2020-05-12
+CLI1364,Eduarda Souza,1364.559.229-29,1966-08-03,Belo Horizonte,MG,Private,2021-09-24
+CLI1365,Nicolas Souza,1365.759.784-95,1987-02-21,Salvador,BA,Premium,2023-04-23
+CLI1366,Bruno Lima,1366.498.291-73,2001-08-01,Recife,PE,Universitário,2025-12-14
+CLI1367,Bruna Costa,1367.869.680-99,1976-07-03,Salvador,BA,Varejo,2019-11-04
+CLI1368,Eduarda Santos,1368.243.345-75,2004-06-09,Fortaleza,CE,Private,2020-04-08
+CLI1369,Caio Costa,1369.919.729-57,1990-04-01,Belo Horizonte,MG,Varejo,2019-03-05
+CLI1370,Bruna Barbosa,1370.380.643-60,1977-08-23,Brasília,DF,Universitário,2018-06-11
+CLI1371,Sabrina Araujo,1371.145.391-52,1961-08-10,Fortaleza,CE,Universitário,2024-08-10
+CLI1372,Juliana Araujo,1372.723.685-39,1988-04-10,Fortaleza,CE,Premium,2023-01-15
+CLI1373,Bruna Dias,1373.360.504-43,1960-05-20,Porto Alegre,RS,Premium,2018-06-16
+CLI1374,Carla Lima,1374.648.933-79,1997-05-22,Curitiba,PR,Varejo,2023-08-18
+CLI1375,Patrícia Dias,1375.318.646-94,1985-10-18,Porto Alegre,RS,Varejo,2020-08-19
+CLI1376,Bruna Carvalho,1376.181.436-92,1982-01-12,Salvador,BA,Universitário,2018-03-26
+CLI1377,Bruna Gomes,1377.787.363-63,1974-07-09,Rio de Janeiro,RJ,Universitário,2020-04-15
+CLI1378,Carla Rodrigues,1378.994.224-10,1981-06-28,Porto Alegre,RS,Varejo,2021-01-11
+CLI1379,Daniel Barbosa,1379.884.955-78,2001-09-28,Belo Horizonte,MG,Varejo,2023-05-26
+CLI1380,Felipe Martins,1380.925.293-79,1982-06-15,Rio de Janeiro,RJ,Varejo,2024-12-15
+CLI1381,Eduarda Costa,1381.264.634-98,1977-06-02,Rio de Janeiro,RJ,Universitário,2025-01-30
+CLI1382,Daniel Barbosa,1382.894.931-61,1979-01-19,Recife,PE,Premium,2020-02-18
+CLI1383,Débora Pereira,1383.954.772-73,2001-01-27,Campinas,SP,Universitário,2021-08-12
+CLI1384,Thiago Ribeiro,1384.117.780-57,1990-05-22,São Paulo,SP,Universitário,2018-01-31
+CLI1385,Eduarda Souza,1385.708.633-81,1970-06-14,Salvador,BA,Premium,2023-04-24
+CLI1386,Henrique Gomes,1386.649.941-64,1986-04-29,Salvador,BA,Varejo,2019-03-13
+CLI1387,Caio Lima,1387.935.488-29,1985-03-06,São Paulo,SP,Private,2022-08-15
+CLI1388,Nicolas Silva,1388.126.391-51,1976-07-29,Salvador,BA,Varejo,2019-07-17
+CLI1389,Daniel Souza,1389.370.886-52,1988-07-22,Brasília,DF,Varejo,2020-01-19
+CLI1390,Guilherme Rocha,1390.872.654-20,1986-08-30,Rio de Janeiro,RJ,Private,2019-02-16
+CLI1391,João Carvalho,1391.195.773-52,1984-02-20,Recife,PE,Varejo,2019-07-15
+CLI1392,Patrícia Ribeiro,1392.515.654-23,1983-09-17,Campinas,SP,Premium,2024-08-17
+CLI1393,Carla Costa,1393.272.289-93,1969-04-26,Brasília,DF,Varejo,2023-04-11
+CLI1394,Nicolas Silva,1394.797.635-44,1976-10-28,Belo Horizonte,MG,Universitário,2024-02-21
+CLI1395,Gabriela Barbosa,1395.399.452-27,1996-04-16,Curitiba,PR,Universitário,2024-06-26
+CLI1396,Ana Souza,1396.515.704-34,1982-09-10,Rio de Janeiro,RJ,Premium,2024-06-19
+CLI1397,Bruna Pereira,1397.235.828-15,1980-09-16,Belo Horizonte,MG,Premium,2018-07-10
+CLI1398,Daniel Dias,1398.102.767-36,1969-12-08,Belo Horizonte,MG,Varejo,2022-08-21
+CLI1399,Eduarda Souza,1399.989.477-51,1996-11-18,Rio de Janeiro,RJ,Universitário,2025-05-25
+CLI1400,Gabriela Martins,1400.461.292-95,1981-10-12,Curitiba,PR,Universitário,2023-06-26
+CLI1401,Nicolas Araujo,1401.262.162-17,2001-02-26,Porto Alegre,RS,Private,2020-04-14
+CLI1402,Enzo Silva,1402.584.904-77,1965-11-09,Belo Horizonte,MG,Universitário,2021-11-25
+CLI1403,Caio Lima,1403.959.588-59,1984-03-10,Porto Alegre,RS,Premium,2023-05-22
+CLI1404,Mariana Pereira,1404.664.621-92,1972-12-24,São Paulo,SP,Varejo,2021-01-01
+CLI1405,Helena Barbosa,1405.918.417-61,1961-10-27,Salvador,BA,Varejo,2024-05-12
+CLI1406,Aline Melo,1406.641.103-29,1961-10-03,Porto Alegre,RS,Private,2025-09-25
+CLI1407,Patrícia Almeida,1407.291.211-49,1998-02-11,Brasília,DF,Private,2025-10-21
+CLI1408,Daniel Martins,1408.583.739-35,1981-12-20,Recife,PE,Private,2018-07-07
+CLI1409,Patrícia Pereira,1409.541.675-12,1966-11-04,Salvador,BA,Varejo,2024-05-03
+CLI1410,Daniel Rocha,1410.551.835-27,1979-10-20,São Paulo,SP,Premium,2020-06-13
+CLI1411,Juliana Dias,1411.518.223-45,2000-05-10,Salvador,BA,Premium,2019-01-18
+CLI1412,Bruno Melo,1412.805.383-79,1974-12-26,Rio de Janeiro,RJ,Varejo,2023-06-29
+CLI1413,Daniel Oliveira,1413.615.696-39,1984-11-28,Curitiba,PR,Varejo,2022-10-16
+CLI1414,Débora Souza,1414.742.685-12,1984-09-10,Fortaleza,CE,Premium,2019-12-06
+CLI1415,Gabriela Almeida,1415.302.235-47,2001-05-06,Belo Horizonte,MG,Varejo,2025-06-03
+CLI1416,Aline Gomes,1416.954.803-65,1973-10-22,São Paulo,SP,Varejo,2019-10-14
+CLI1417,Bruno Rocha,1417.279.800-63,1969-09-26,Fortaleza,CE,Varejo,2019-10-08
+CLI1418,Caio Barbosa,1418.830.668-96,1989-08-11,Rio de Janeiro,RJ,Universitário,2019-10-07
+CLI1419,Otávio Carvalho,1419.276.725-66,1985-01-17,Campinas,SP,Private,2020-12-01
+CLI1420,Enzo Rocha,1420.576.193-84,1970-05-07,São Paulo,SP,Premium,2018-08-09
+CLI1421,Sabrina Melo,1421.504.765-84,1972-02-17,Curitiba,PR,Varejo,2023-10-23
+CLI1422,Henrique Rocha,1422.665.185-53,1968-05-23,Belo Horizonte,MG,Private,2020-12-05
+CLI1423,Nicolas Melo,1423.970.958-36,1972-07-14,Salvador,BA,Premium,2025-11-02
+CLI1424,Débora Costa,1424.571.268-97,1984-10-15,Campinas,SP,Private,2018-05-03
+CLI1425,Enzo Silva,1425.983.929-13,1967-07-03,São Paulo,SP,Private,2019-11-07
+CLI1426,Fernanda Souza,1426.549.902-78,1993-05-01,Campinas,SP,Varejo,2025-01-27
+CLI1427,Karina Martins,1427.788.217-74,1986-01-02,Campinas,SP,Private,2020-12-04
+CLI1428,João Melo,1428.634.886-19,1973-07-05,Belo Horizonte,MG,Premium,2021-03-29
+CLI1429,Mariana Melo,1429.141.619-65,2001-12-03,Brasília,DF,Varejo,2018-06-30
+CLI1430,Lucas Costa,1430.190.470-76,1984-09-04,Porto Alegre,RS,Premium,2022-07-18
+CLI1431,Eduarda Lima,1431.623.333-51,1993-02-25,Recife,PE,Varejo,2022-02-08
+CLI1432,Aline Melo,1432.154.516-36,1981-07-26,Campinas,SP,Universitário,2024-10-02
+CLI1433,Fernanda Silva,1433.890.739-91,1976-07-29,Campinas,SP,Premium,2018-09-22
+CLI1434,Guilherme Barbosa,1434.227.669-77,1960-06-11,Rio de Janeiro,RJ,Private,2025-01-06
+CLI1435,Sabrina Melo,1435.610.354-76,1977-05-23,Porto Alegre,RS,Universitário,2020-02-08
+CLI1436,Caio Martins,1436.733.794-47,1975-05-01,Porto Alegre,RS,Private,2022-07-28
+CLI1437,Enzo Rodrigues,1437.477.839-77,1998-08-28,Porto Alegre,RS,Premium,2019-03-03
+CLI1438,João Martins,1438.260.463-57,1986-01-26,Rio de Janeiro,RJ,Varejo,2020-02-04
+CLI1439,Karina Rocha,1439.799.291-47,1977-03-12,Recife,PE,Varejo,2025-07-01
+CLI1440,Rafael Dias,1440.934.643-74,1962-01-07,Recife,PE,Premium,2019-03-23
+CLI1441,Guilherme Lima,1441.439.842-27,2001-10-11,Salvador,BA,Varejo,2025-07-22
+CLI1442,Henrique Almeida,1442.321.313-55,1977-06-07,São Paulo,SP,Private,2024-08-01
+CLI1443,Mariana Pereira,1443.926.244-23,1968-01-30,Salvador,BA,Varejo,2025-12-23
+CLI1444,Henrique Dias,1444.193.746-96,1977-10-05,Rio de Janeiro,RJ,Universitário,2020-06-06
+CLI1445,Bruno Carvalho,1445.975.135-19,1967-07-11,Belo Horizonte,MG,Universitário,2021-09-03
+CLI1446,Ana Ferreira,1446.313.940-13,1962-08-21,Brasília,DF,Varejo,2021-10-02
+CLI1447,Henrique Martins,1447.441.583-91,2004-08-14,Recife,PE,Private,2021-03-07
+CLI1448,Mariana Ribeiro,1448.724.911-54,1972-01-06,Recife,PE,Varejo,2018-11-09
+CLI1449,Daniel Rocha,1449.399.331-39,1995-08-13,Porto Alegre,RS,Universitário,2021-11-05
+CLI1450,Vanessa Nascimento,1450.617.251-19,1981-07-17,Recife,PE,Universitário,2021-01-31
+CLI1451,Isabela Santos,1451.812.863-47,1971-09-01,Salvador,BA,Universitário,2018-06-25
+CLI1452,Nicolas Santos,1452.631.810-22,1970-06-14,Salvador,BA,Premium,2022-10-14
+CLI1453,Helena Santos,1453.632.308-56,1995-01-15,São Paulo,SP,Universitário,2024-10-24
+CLI1454,Karina Almeida,1454.202.279-37,1982-10-15,São Paulo,SP,Private,2021-12-28
+CLI1455,Nicolas Dias,1455.211.597-90,2003-07-15,São Paulo,SP,Universitário,2024-04-18
+CLI1456,João Santos,1456.218.347-48,1960-06-11,Curitiba,PR,Universitário,2020-03-05
+CLI1457,Nicolas Santos,1457.317.339-92,1993-07-31,Salvador,BA,Varejo,2018-08-07
+CLI1458,Thiago Dias,1458.824.166-47,1985-08-20,São Paulo,SP,Premium,2018-03-06
+CLI1459,Mariana Nascimento,1459.823.686-89,1997-09-29,Fortaleza,CE,Universitário,2025-05-14
+CLI1460,Carla Barbosa,1460.402.248-78,1992-11-07,Campinas,SP,Universitário,2025-02-21
+CLI1461,João Silva,1461.890.612-49,1977-06-11,Campinas,SP,Premium,2020-02-19
+CLI1462,Mariana Dias,1462.673.156-62,1962-01-22,Curitiba,PR,Universitário,2019-09-27
+CLI1463,Igor Silva,1463.757.552-32,1979-05-15,Recife,PE,Private,2024-04-19
+CLI1464,Aline Pereira,1464.632.241-94,1961-07-27,Brasília,DF,Private,2018-01-13
+CLI1465,Eduarda Dias,1465.724.544-53,1962-09-08,Salvador,BA,Premium,2022-07-22
+CLI1466,Fernanda Rocha,1466.491.686-58,1990-12-04,Belo Horizonte,MG,Universitário,2025-01-25
+CLI1467,Ana Rocha,1467.593.928-64,1968-10-24,Rio de Janeiro,RJ,Premium,2020-02-19
+CLI1468,Isabela Almeida,1468.895.373-61,1973-05-12,Salvador,BA,Premium,2024-08-03
+CLI1469,Aline Santos,1469.975.130-31,2002-12-02,Porto Alegre,RS,Premium,2018-01-05
+CLI1470,Bruno Souza,1470.953.881-59,2005-03-16,Recife,PE,Premium,2018-11-04
+CLI1471,Guilherme Silva,1471.149.167-58,1965-01-08,Rio de Janeiro,RJ,Private,2018-11-25
+CLI1472,Helena Barbosa,1472.300.992-84,1999-10-09,Salvador,BA,Universitário,2025-01-12
+CLI1473,Aline Lima,1473.376.117-73,1999-07-14,Belo Horizonte,MG,Universitário,2024-09-18
+CLI1474,Enzo Carvalho,1474.787.233-86,1972-04-22,Fortaleza,CE,Private,2018-03-21
+CLI1475,Débora Melo,1475.493.148-30,1965-12-28,Brasília,DF,Private,2018-04-04
+CLI1476,Gabriela Araujo,1476.337.191-26,1988-03-09,Brasília,DF,Private,2019-12-03
+CLI1477,Otávio Rocha,1477.181.575-11,1978-05-20,Curitiba,PR,Premium,2025-08-09
+CLI1478,Henrique Barbosa,1478.785.425-26,2001-12-17,São Paulo,SP,Universitário,2024-02-15
+CLI1479,Daniel Almeida,1479.323.558-19,1986-08-15,Campinas,SP,Private,2020-12-19
+CLI1480,Bruno Rodrigues,1480.984.505-47,2005-10-11,Belo Horizonte,MG,Varejo,2019-01-23
+CLI1481,Otávio Almeida,1481.798.356-23,1995-09-27,Recife,PE,Universitário,2023-12-29
+CLI1482,Juliana Ferreira,1482.176.114-30,1968-04-11,Fortaleza,CE,Universitário,2024-08-09
+CLI1483,Aline Almeida,1483.367.631-63,1975-05-25,Brasília,DF,Private,2023-07-06
+CLI1484,Helena Rocha,1484.348.997-24,1975-11-25,Fortaleza,CE,Private,2022-07-31
+CLI1485,Débora Silva,1485.604.904-99,1998-06-17,São Paulo,SP,Universitário,2025-08-20
+CLI1486,Henrique Martins,1486.630.898-28,1961-05-21,Fortaleza,CE,Private,2018-01-10
+CLI1487,Felipe Pereira,1487.744.457-51,1974-04-14,Recife,PE,Varejo,2022-05-31
+CLI1488,Juliana Souza,1488.803.371-61,1973-06-27,São Paulo,SP,Varejo,2023-11-12
+CLI1489,Karina Dias,1489.507.567-86,1963-07-16,Belo Horizonte,MG,Private,2020-08-21
+CLI1490,Felipe Rodrigues,1490.138.971-52,1963-01-16,Porto Alegre,RS,Premium,2025-06-05
+CLI1491,Rafael Gomes,1491.763.233-48,1990-04-19,Brasília,DF,Varejo,2025-04-05
+CLI1492,Carla Ribeiro,1492.283.340-79,1996-01-13,Brasília,DF,Universitário,2022-05-19
+CLI1493,Juliana Nascimento,1493.562.381-58,1966-12-30,Fortaleza,CE,Varejo,2025-01-15
+CLI1494,Helena Nascimento,1494.688.546-74,2004-08-10,Campinas,SP,Premium,2019-06-15
+CLI1495,Débora Santos,1495.909.758-78,1988-07-20,Salvador,BA,Varejo,2022-06-21
+CLI1496,Bruna Ribeiro,1496.873.499-58,1989-10-09,Curitiba,PR,Universitário,2024-05-20
+CLI1497,Isabela Rocha,1497.280.897-53,1993-08-07,São Paulo,SP,Private,2020-10-25
+CLI1498,Lucas Nascimento,1498.401.290-91,1982-02-15,Fortaleza,CE,Premium,2025-08-31
+CLI1499,Guilherme Pereira,1499.987.299-79,1969-04-01,Brasília,DF,Private,2022-07-17
+CLI1500,Felipe Costa,1500.498.271-83,1975-06-02,Salvador,BA,Universitário,2024-08-10

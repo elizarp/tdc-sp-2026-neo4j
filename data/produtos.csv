@@ -1,0 +1,11 @@
+produto_id,nome,categoria,tipo_id
+PR01,Cartão Gold,Cartão,TP01
+PR02,Cartão Platinum,Cartão,TP01
+PR03,Empréstimo Pessoal,Crédito,TP02
+PR04,Financiamento Veicular,Crédito,TP02
+PR05,Seguro de Vida,Seguro,TP03
+PR06,Seguro Viagem,Seguro,TP03
+PR07,Seguro Residencial,Seguro,TP03
+PR08,CDB Rende Mais,Investimento,TP04
+PR09,Fundo Multimercado,Investimento,TP04
+PR10,Consórcio Imóvel,Consórcio,TP05

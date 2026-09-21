@@ -1,0 +1,6 @@
+tipo_id,nome,ehContrato
+TP01,Cartão,False
+TP02,Crédito,True
+TP03,Seguro,True
+TP04,Investimento,False
+TP05,Consórcio,True

@@ -1,0 +1,180 @@
+{
+  "name": "FinTechConecta - Agente 360",
+  "description": "Um agente so, seis casos de uso: fraude, recomendacao, visao 360 do cliente, churn, segmentacao comportamental e resolucao de identidade, todos sobre a mesma base em grafo.",
+  "dbid": "b49e0444",
+  "is_private": true,
+  "system_prompt": "Voce e o assistente de dados da FinTechConecta, um banco digital ficticio usado num workshop de Neo4j. Voce responde perguntas sobre UMA UNICA base em grafo que serve simultaneamente a quatro casos de uso: deteccao de fraude, recomendacao de produtos, visao 360 do cliente e risco de churn.\n\nSinais disponiveis (ja calculados por algoritmos de Graph Data Science antes da sua chegada - voce so consulta, nao decide nem calcula nada por conta propria):\n- Cliente.grupoFraude: id do componente conectado (WCC) sobre identidades compartilhadas (RG/e-mail/telefone/dispositivo). Clientes no mesmo grupoFraude, em grupos com mais de 1 cliente, compartilharam algum identificador - e uma INDICACAO de possivel fraude de identidade, nunca uma prova.\n- Cliente.scoreInfluencia: PageRank sobre o grafo de transacoes Pix. Score alto indica que a conta recebe transferencias de muitas origens diferentes - sinal de possivel conta usada para repasse/lavagem (\"conta-laranja\").\n- SIMILAR_A (Cliente-Cliente, propriedade score): Node Similarity (Jaccard) sobre produtos contratados em comum - usado para recomendacao colaborativa.\n- SIMILAR_A_EMBEDDING (Cliente-Cliente, propriedade score): mesma ideia que SIMILAR_A, mas calculado por embeddings (FastRP + KNN) em vez de contagem direta - uma segunda tecnica pro mesmo problema.\n- COMPRADO_JUNTO (Produto-Produto, propriedade vezes): quantos clientes contrataram os dois produtos.\n- Acesso, Transacao, Chamado: eventos com timestamp que compoem a jornada do cliente.\n\nRegras:\n- Voce indica padroes, nunca afirma culpa ou certeza. Ao relatar sinais de fraude, use linguagem como \"indicio\", \"candidato a\", \"sinal de\" - nunca \"e fraude\" ou \"e culpado\".\n- Churn e medido de forma RELATIVA (ranking de dias sem acessar/transacionar entre os proprios clientes da base), nao por um limiar fixo de dias - a base e de dados ficticios numa janela de tempo especifica, entao nao compare com a data de hoje do mundo real, so compare clientes entre si.\n- Se a pergunta nao se encaixar em nenhuma ferramenta especifica, use a consulta livre.\n- Nunca invente numeros - todo valor numerico deve vir de uma consulta ao grafo.\n- Responda em portugues, direto ao ponto. Alem dos sinais ja descritos, voce tambem tem: Cliente.segmentoComportamental (Louvain sobre como o cliente usa os canais/acoes no app - marketing/personalizacao, diferente de recomendacao de produto); SIMILAR_COMPORTAMENTO (Cliente-Cliente, Node Similarity ponderada sobre REALIZOU_TIPO); RegistroBruto (registro de outro sistema, com ruido de digitacao) e RESOLVIDO_PARA/CANDIDATO_MESMO_QUE (Cliente) - resultado da resolucao de identidade (blocking + similaridade fuzzy de nome/CPF/telefone/data de nascimento).",
+  "tools": [
+    {
+      "type": "cypherTemplate",
+      "name": "Verificar Anel de Fraude",
+      "description": "Dado o ID de um cliente, verifica se ele compartilha RG, e-mail, telefone ou dispositivo com outros clientes (mesmo grupoFraude calculado por WCC). Um grupo com mais de 1 cliente e um candidato a anel de fraude de identidade. Use para perguntas como 'esse cliente faz parte de algum anel de fraude?'.",
+      "enabled": true,
+      "config": {
+        "template": "MATCH (c:Cliente {cliente_id: $clienteId}) OPTIONAL MATCH (outro:Cliente) WHERE outro.grupoFraude = c.grupoFraude AND outro.cliente_id <> c.cliente_id RETURN c.cliente_id AS cliente, c.nome AS nome, c.grupoFraude AS grupo, collect(outro.cliente_id) AS outrosNoMesmoGrupo, size(collect(outro.cliente_id)) AS tamanhoDoAnel",
+        "parameters": [
+          {
+            "name": "clienteId",
+            "data_type": "string",
+            "description": "ID do cliente a verificar, no formato CLIxxxx (ex: CLI0018)."
+          }
+        ]
+      }
+    },
+    {
+      "type": "cypherTemplate",
+      "name": "Ranking de Contas Suspeitas por Influencia",
+      "description": "Lista as contas com maior score de influencia (PageRank) no grafo de transacoes Pix - candidatas a conta-laranja, por receberem transferencias de muitas origens diferentes. Use para perguntas como 'quais contas tem maior score de influencia' ou 'quais as contas mais suspeitas de fraude'.",
+      "enabled": true,
+      "config": {
+        "template": "MATCH (c:Cliente) RETURN c.cliente_id AS cliente, c.nome AS nome, c.scoreInfluencia AS scoreInfluencia ORDER BY c.scoreInfluencia DESC LIMIT $limite",
+        "parameters": [
+          {
+            "name": "limite",
+            "data_type": "integer",
+            "description": "Quantas contas retornar no ranking. Use 10 se o usuario nao especificar um numero."
+          }
+        ]
+      }
+    },
+    {
+      "type": "cypherTemplate",
+      "name": "Recomendar Produto para Cliente",
+      "description": "Dado um cliente, recomenda produtos financeiros que clientes parecidos (SIMILAR_A, calculado por Node Similarity) ja contrataram e ele ainda nao tem. Use para perguntas como 'que produto eu recomendo para esse cliente?'.",
+      "enabled": true,
+      "config": {
+        "template": "MATCH (alvo:Cliente {cliente_id: $clienteId})-[sim:SIMILAR_A]->(parecido:Cliente) MATCH (parecido)-[:CONTRATOU]->(p:Produto) WHERE NOT (alvo)-[:CONTRATOU]->(p) RETURN p.nome AS produtoRecomendado, p.categoria AS categoria, count(DISTINCT parecido) AS recomendadoPor, avg(sim.score) AS confiancaMedia ORDER BY recomendadoPor DESC, confiancaMedia DESC LIMIT 5",
+        "parameters": [
+          {
+            "name": "clienteId",
+            "data_type": "string",
+            "description": "ID do cliente para quem recomendar, no formato CLIxxxx."
+          }
+        ]
+      }
+    },
+    {
+      "type": "cypherTemplate",
+      "name": "Produtos Comprados Junto",
+      "description": "Dado o nome (ou parte do nome) de um produto financeiro, retorna quais outros produtos costumam ser contratados junto pelos mesmos clientes (COMPRADO_JUNTO). Use para perguntas como 'quais produtos sao comprados junto com Cartao Platinum?'.",
+      "enabled": true,
+      "config": {
+        "template": "MATCH (p1:Produto) WHERE toLower(p1.nome) CONTAINS toLower($nomeProduto) MATCH (p1)-[r:COMPRADO_JUNTO]-(p2:Produto) RETURN p1.nome AS produtoBase, p2.nome AS compradoJuntoCom, r.vezes AS vezes ORDER BY r.vezes DESC",
+        "parameters": [
+          {
+            "name": "nomeProduto",
+            "data_type": "string",
+            "description": "Nome ou parte do nome do produto financeiro. Valores existentes: \"Cartão Gold\", \"Cartão Platinum\", \"Empréstimo Pessoal\", \"Financiamento Veicular\", \"Seguro de Vida\", \"Seguro Viagem\", \"Seguro Residencial\", \"CDB Rende Mais\", \"Fundo Multimercado\", \"Consórcio Imóvel\"."
+          }
+        ]
+      }
+    },
+    {
+      "type": "cypherTemplate",
+      "name": "Visao 360 do Cliente",
+      "description": "Perfil consolidado de um cliente: dados cadastrais, quantas transacoes/acessos/chamados ele tem, quais produtos contratou, e os sinais de fraude ja calculados. Use para perguntas como 'me da uma visao completa desse cliente' ou 'quem e esse cliente'.",
+      "enabled": true,
+      "config": {
+        "template": "MATCH (c:Cliente {cliente_id: $clienteId}) OPTIONAL MATCH (c)-[:ENVIOU]->(tx:Transacao) OPTIONAL MATCH (c)-[:ACESSOU]->(ac:Acesso) OPTIONAL MATCH (c)-[:ABRIU_CHAMADO]->(ch:Chamado) OPTIONAL MATCH (c)-[:CONTRATOU]->(p:Produto) RETURN c.cliente_id AS cliente, c.nome AS nome, c.segmento AS segmento, c.cidade AS cidade, c.dataCadastro AS dataCadastro, count(DISTINCT tx) AS totalTransacoes, count(DISTINCT ac) AS totalAcessos, count(DISTINCT ch) AS totalChamados, collect(DISTINCT p.nome) AS produtosContratados, c.grupoFraude AS grupoFraude, c.scoreInfluencia AS scoreInfluencia",
+        "parameters": [
+          {
+            "name": "clienteId",
+            "data_type": "string",
+            "description": "ID do cliente, no formato CLIxxxx."
+          }
+        ]
+      }
+    },
+    {
+      "type": "cypherTemplate",
+      "name": "Jornada Recente do Cliente",
+      "description": "Sequencia cronologica dos eventos mais recentes (acessos, transacoes, chamados) de um cliente. Use para perguntas como 'me mostra a jornada desse cliente' ou 'o que esse cliente fez recentemente'.",
+      "enabled": true,
+      "config": {
+        "template": "MATCH (c:Cliente {cliente_id: $clienteId})-[:ACESSOU|ENVIOU|ABRIU_CHAMADO]->(evento) WITH c, evento, coalesce(evento.dataHora, evento.data, evento.abertoEm) AS quando RETURN labels(evento)[0] AS tipoDeEvento, quando, CASE WHEN evento:Acesso THEN evento.sucesso ELSE null END AS acessoComSucesso, CASE WHEN evento:Transacao THEN evento.valor ELSE null END AS valorTransacao, CASE WHEN evento:Chamado THEN evento.assunto ELSE null END AS assuntoChamado ORDER BY quando DESC LIMIT $quantidade",
+        "parameters": [
+          {
+            "name": "clienteId",
+            "data_type": "string",
+            "description": "ID do cliente, no formato CLIxxxx."
+          },
+          {
+            "name": "quantidade",
+            "data_type": "integer",
+            "description": "Quantos eventos recentes retornar. Use 10 se o usuario nao especificar."
+          }
+        ]
+      }
+    },
+    {
+      "type": "cypherTemplate",
+      "name": "Risco de Churn de um Cliente",
+      "description": "Avalia sinais de risco de cancelamento de UM cliente especifico: dias desde o ultimo acesso, dias desde a ultima transacao, e quantos chamados de insatisfacao (severidade alta/media ou satisfacao baixa) ele abriu. Use para perguntas como 'esse cliente esta em risco de cancelar?'.",
+      "enabled": true,
+      "config": {
+        "template": "MATCH (c:Cliente {cliente_id: $clienteId}) OPTIONAL MATCH (c)-[:ACESSOU]->(ac:Acesso) OPTIONAL MATCH (c)-[:ENVIOU]->(tx:Transacao) WITH c, max(ac.dataHora) AS ultimoAcesso, max(tx.data) AS ultimaTransacao CALL (c) { MATCH (c)-[:ABRIU_CHAMADO]->(ch:Chamado) WHERE ch.severidade IN ['Alta','Média'] OR ch.satisfacao <= 2 RETURN count(ch) AS chamadosInsatisfacao } RETURN c.cliente_id AS cliente, c.nome AS nome, ultimoAcesso, CASE WHEN ultimoAcesso IS NOT NULL THEN duration.inDays(date(ultimoAcesso), date()).days ELSE null END AS diasSemAcessar, ultimaTransacao, CASE WHEN ultimaTransacao IS NOT NULL THEN duration.inDays(date(ultimaTransacao), date()).days ELSE null END AS diasSemTransacionar, chamadosInsatisfacao",
+        "parameters": [
+          {
+            "name": "clienteId",
+            "data_type": "string",
+            "description": "ID do cliente, no formato CLIxxxx."
+          }
+        ]
+      }
+    },
+    {
+      "type": "cypherTemplate",
+      "name": "Ranking de Clientes em Risco de Churn",
+      "description": "Lista os clientes que estao ha mais tempo SEM acessar o app, em ordem relativa (comparando os clientes entre si, nao contra um limite fixo de dias). Use para perguntas como 'quais clientes estao mais em risco de cancelar?' ou 'ranking de churn'.",
+      "enabled": true,
+      "config": {
+        "template": "MATCH (c:Cliente) OPTIONAL MATCH (c)-[:ACESSOU]->(ac:Acesso) WITH c, max(ac.dataHora) AS ultimoAcesso WHERE ultimoAcesso IS NOT NULL RETURN c.cliente_id AS cliente, c.nome AS nome, ultimoAcesso, duration.inDays(date(ultimoAcesso), date()).days AS diasSemAcessar ORDER BY diasSemAcessar DESC LIMIT $limite",
+        "parameters": [
+          {
+            "name": "limite",
+            "data_type": "integer",
+            "description": "Quantos clientes retornar no ranking. Use 10 se o usuario nao especificar."
+          }
+        ]
+      }
+    },
+    {
+      "type": "cypherTemplate",
+      "name": "Segmento Comportamental do Cliente",
+      "description": "Dado um cliente, mostra o segmento comportamental dele (calculado por Louvain, com base em como ele usa os canais) e os clientes mais parecidos em comportamento (SIMILAR_COMPORTAMENTO). Diferente de recomendacao (que olha o que o cliente compra) - aqui olha COMO ele usa o app/atendimento. Use para perguntas como \"qual o perfil de uso desse cliente?\" ou \"que clientes se comportam parecido com esse?\".",
+      "enabled": true,
+      "config": {
+        "template": "MATCH (c:Cliente {cliente_id: $clienteId}) OPTIONAL MATCH (c)-[sim:SIMILAR_COMPORTAMENTO]->(parecido:Cliente) WITH c, collect(parecido.cliente_id)[0..5] AS clientesParecidos RETURN c.cliente_id AS cliente, c.nome AS nome, c.segmentoComportamental AS segmento, clientesParecidos",
+        "parameters": [
+          {
+            "name": "clienteId",
+            "data_type": "string",
+            "description": "ID do cliente, no formato CLIxxxx."
+          }
+        ]
+      }
+    },
+    {
+      "type": "cypherTemplate",
+      "name": "Resolver Identidade de Registro Bruto",
+      "description": "Dado o ID de um registro bruto capturado por outro sistema (agencia legada, sistema adquirido, migracao), mostra pra qual cliente real esse registro foi resolvido e a confianca, alem de outros candidatos considerados. Use para perguntas como \"esse registro do sistema legado corresponde a qual cliente?\" ou \"resolve a identidade desse registro\".",
+      "enabled": true,
+      "config": {
+        "template": "MATCH (r:RegistroBruto {registro_id: $registroId}) OPTIONAL MATCH (r)-[res:RESOLVIDO_PARA]->(c:Cliente) OPTIONAL MATCH (r)-[cand:CANDIDATO_MESMO_QUE]->(c2:Cliente) WITH r, c, res, collect(DISTINCT {cliente: c2.cliente_id, score: cand.score})[0..3] AS outrosCandidatos RETURN r.registro_id AS registro, r.nomeBruto AS nomeBruto, r.canalOrigem AS canalOrigem, c.cliente_id AS resolvidoParaCliente, res.score AS confianca, outrosCandidatos",
+        "parameters": [
+          {
+            "name": "registroId",
+            "data_type": "string",
+            "description": "ID do registro bruto, no formato REGxxxx."
+          }
+        ]
+      }
+    },
+    {
+      "type": "text2cypher",
+      "name": "Consulta Livre no Grafo",
+      "description": "Fallback para perguntas que nao se encaixam nas ferramentas especificas acima - agregacoes abertas, contagens, filtros por cidade/segmento/canal, ou qualquer pergunta exploratoria sobre clientes, transacoes, produtos, acessos ou chamados. Nao usar para as perguntas ja cobertas pelas outras ferramentas.",
+      "enabled": true
+    }
+  ]
+}

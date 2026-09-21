@@ -1,0 +1,17 @@
+# OS / editor junk
+.DS_Store
+.vscode/
+.idea/
+
+# Claude Code local settings (personal, not project-shared)
+.claude/settings.local.json
+
+# Python
+__pycache__/
+*.pyc
+
+# Gabarito: a verdade injetada nos dados fake, só para o palestrante validar
+# os resultados de GDS durante o ensaio. NÃO publicar — spoiler total pra
+# quem for fazer o workshop (anéis de fraude, contas-laranja, resolução de
+# identidade, tudo ali). Ver data/README.md.
+data/gabarito.json
