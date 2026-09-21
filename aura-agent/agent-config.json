@@ -75,7 +75,7 @@
       "description": "Perfil consolidado de um cliente: dados cadastrais, quantas transacoes/acessos/chamados ele tem, quais produtos contratou, e os sinais de fraude ja calculados. Use para perguntas como 'me da uma visao completa desse cliente' ou 'quem e esse cliente'.",
       "enabled": true,
       "config": {
-        "template": "MATCH (c:Cliente {cliente_id: $clienteId}) OPTIONAL MATCH (c)-[:ENVIOU]->(tx:Transacao) OPTIONAL MATCH (c)-[:ACESSOU]->(ac:Acesso) OPTIONAL MATCH (c)-[:ABRIU_CHAMADO]->(ch:Chamado) OPTIONAL MATCH (c)-[:CONTRATOU]->(p:Produto) RETURN c.cliente_id AS cliente, c.nome AS nome, c.segmento AS segmento, c.cidade AS cidade, c.dataCriacao AS dataCriacao, c.dataAlteracao AS dataAlteracao, count(DISTINCT tx) AS totalTransacoes, count(DISTINCT ac) AS totalAcessos, count(DISTINCT ch) AS totalChamados, collect(DISTINCT p.nome) AS produtosContratados, c.grupoFraude AS grupoFraude, c.scoreInfluencia AS scoreInfluencia",
+        "template": "MATCH (c:Cliente {cliente_id: $clienteId}) OPTIONAL MATCH (c)-[:ENVIOU]->(tx:Transacao) OPTIONAL MATCH (c)-[:ACESSOU]->(ac:Acesso) OPTIONAL MATCH (c)-[:ABRIU_CHAMADO]->(ch:Chamado) OPTIONAL MATCH (c)-[:CONTRATOU]->(p:Produto) RETURN c.cliente_id AS cliente, c.nome AS nome, c.segmento AS segmento, c.cidade AS cidade, c.dataCriacao AS dataCriacao, count(DISTINCT tx) AS totalTransacoes, count(DISTINCT ac) AS totalAcessos, count(DISTINCT ch) AS totalChamados, collect(DISTINCT p.nome) AS produtosContratados, c.grupoFraude AS grupoFraude, c.scoreInfluencia AS scoreInfluencia",
         "parameters": [
           {
             "name": "clienteId",
@@ -177,6 +177,22 @@
       "enabled": true,
       "config": {
         "template": "MATCH (c:Cliente {cliente_id: $clienteId})-[:ABRIU_CHAMADO]->(ch:Chamado) OPTIONAL MATCH (ch)-[:SOBRE_TRANSACAO]->(t:Transacao) RETURN ch.chamado_id AS chamado, ch.canal AS canal, ch.assunto AS assunto, ch.severidade AS severidade, ch.status AS status, ch.abertoEm AS abertoEm, ch.satisfacao AS satisfacao, t.transacao_id AS transacaoContestada ORDER BY ch.abertoEm DESC",
+        "parameters": [
+          {
+            "name": "clienteId",
+            "data_type": "string",
+            "description": "ID do cliente, no formato CLIxxxx."
+          }
+        ]
+      }
+    },
+    {
+      "type": "cypherTemplate",
+      "name": "Historico de Identidade do Cliente",
+      "description": "Lista o historico de RG, e-mail e telefone de um cliente, com a data em que cada um passou a valer. Se o cliente ja trocou algum desses dados, aparecem 2+ entradas naquele campo. Use para perguntas como \"esse cliente ja mudou de telefone/e-mail/RG?\" ou \"mostra o historico cadastral desse cliente\".",
+      "enabled": true,
+      "config": {
+        "template": "MATCH (c:Cliente {cliente_id: $clienteId}) CALL (c) { MATCH (c)-[rel:POSSUI_RG]->(rg:RG) RETURN collect({numero: rg.numero, desde: rel.desde}) AS historicoRg } CALL (c) { MATCH (c)-[rel:POSSUI_EMAIL]->(email:Email) RETURN collect({endereco: email.endereco, desde: rel.desde}) AS historicoEmail } CALL (c) { MATCH (c)-[rel:POSSUI_TELEFONE]->(tel:Telefone) RETURN collect({numero: tel.ddd + '-' + tel.numero, desde: rel.desde}) AS historicoTelefone } RETURN c.cliente_id AS cliente, c.nome AS nome, historicoRg, historicoEmail, historicoTelefone",
         "parameters": [
           {
             "name": "clienteId",

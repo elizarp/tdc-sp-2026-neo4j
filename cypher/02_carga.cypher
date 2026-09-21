@@ -15,8 +15,19 @@
 // localização e as identidades soltas (RG/e-mail/telefone) que viram anéis de
 // fraude quando repetidas entre clientes. clientes.csv é a fonte única do
 // cadastro (não tem mais rgs.csv/emails.csv/telefones.csv/localizacoes.csv
-// separados) — dataCriacao é quando o cadastro nasceu, dataAlteracao é a
-// última vez que algum dado foi atualizado (pode ser igual a dataCriacao).
+// separados) — dataCriacao é quando o cadastro nasceu.
+//
+// Um cliente pode ter MAIS DE UMA LINHA em clientes.csv (uma por alteração
+// cadastral — troca de RG/e-mail/telefone ao longo do tempo). As linhas vêm
+// em ordem cronológica por cliente, então:
+//   - As propriedades do nó Cliente usam SET normal — a última linha
+//     processada "vence", refletindo o estado atual.
+//   - Os relacionamentos de identidade (POSSUI_RG/EMAIL/TELEFONE) usam
+//     `ON CREATE SET` — a data "desde" só é gravada na 1ª vez que aquele par
+//     (cliente, identidade) aparece. Se o campo mudou entre as linhas, é um
+//     nó de identidade NOVO (o antigo continua no grafo, ligado ao cliente,
+//     como histórico); se não mudou, o MERGE só reencontra o mesmo
+//     relacionamento e não sobrescreve a data original.
 // ============================================================
 LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/elizarp/tdc-sp-2026-neo4j/main/data/clientes.csv' AS row
 CALL (row) {
@@ -27,8 +38,7 @@ CALL (row) {
       c.cidade = row.cidade,
       c.estado = row.estado,
       c.segmento = row.segmento,
-      c.dataCriacao = date(row.dataCriacao),
-      c.dataAlteracao = date(row.dataAlteracao)
+      c.dataCriacao = date(row.dataCriacao)
 
   MERGE (l:Localizacao {location_id: 'LOC_' + toUpper(replace(row.cidade, ' ', '_'))})
   SET l.cidade = row.cidade,
@@ -40,19 +50,19 @@ CALL (row) {
   MERGE (rg:RG {rg_id: row.rg_id})
   SET rg.numero = row.rg_numero
   MERGE (c)-[relRg:POSSUI_RG]->(rg)
-  SET relRg.desde = date(row.rg_desde)
+  ON CREATE SET relRg.desde = date(row.dataAlteracao)
 
   MERGE (email:Email {email_id: row.email_id})
   SET email.endereco = row.email_endereco,
       email.dominio = row.email_dominio
   MERGE (c)-[relEmail:POSSUI_EMAIL]->(email)
-  SET relEmail.desde = date(row.email_desde)
+  ON CREATE SET relEmail.desde = date(row.dataAlteracao)
 
   MERGE (tel:Telefone {telefone_id: row.telefone_id})
   SET tel.numero = row.telefone_numero,
       tel.ddd = row.telefone_ddd
   MERGE (c)-[relTel:POSSUI_TELEFONE]->(tel)
-  SET relTel.desde = date(row.telefone_desde)
+  ON CREATE SET relTel.desde = date(row.dataAlteracao)
 } IN TRANSACTIONS OF 1000 ROWS;
 
 // ============================================================

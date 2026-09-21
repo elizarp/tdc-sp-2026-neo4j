@@ -34,7 +34,7 @@ OUT_DIR = os.path.dirname(os.path.abspath(__file__))
 REF_DATE = date(2026, 3, 1)
 JANELA_EVENTOS_DIAS = 180  # acessos/transações/chamados distribuídos nesta janela
 
-N_CLIENTES = 1500
+N_CLIENTES = 1300
 TARGET_TOTAL_NODES = 195_000
 
 FRAUD_RING_COUNT = 18
@@ -44,6 +44,10 @@ N_ORANGE_ACCOUNTS = 6
 
 N_REGISTROS_BRUTOS_DUPLICADOS = 90
 N_REGISTROS_BRUTOS_NEGATIVOS = 25
+
+# % de clientes (fora dos anéis de fraude) que alteram RG/e-mail/telefone
+# depois do cadastro original — gera uma 2ª linha em clientes.csv pra eles.
+TAXA_ALTERACAO_CADASTRAL = 0.20
 
 # Proporção do orçamento de eventos por categoria (o resto vai para AcaoApp).
 PCT_ACESSO = 0.28
@@ -343,6 +347,39 @@ def main():
         "longitude": c["_lon"],
     } for c in clientes]
 
+    # --- Alterações cadastrais: cliente muda RG/e-mail/telefone com o tempo -----
+    # Gera uma SEGUNDA linha em clientes.csv pra quem for sorteado, com o campo
+    # alterado apontando pra um novo nó de identidade — a data da alteração fica
+    # no RELACIONAMENTO (Cliente-[:POSSUI_RG/EMAIL/TELEFONE]->identidade), não
+    # no nó Cliente. Fora do pool de anéis de fraude de propósito, pra não
+    # confundir a narrativa de identidade compartilhada.
+    ring_members = set()
+    for r in aneis:
+        ring_members.update(r["clientes"])
+    candidatos_alteracao = [cid for cid in todos_ids if cid not in ring_members]
+    n_alteracoes = round(len(todos_ids) * TAXA_ALTERACAO_CADASTRAL)
+    clientes_alterados = set(random.sample(candidatos_alteracao,
+                                            min(n_alteracoes, len(candidatos_alteracao))))
+    alteracoes_cadastrais = {}
+    for cid in clientes_alterados:
+        campo = random.choice(["rg", "email", "telefone"])
+        data_criacao = date.fromisoformat(clientes_by_id[cid]["dataCriacao"])
+        data_alteracao = rand_date(data_criacao, REF_DATE)
+        if campo == "rg":
+            novo_valor = {"rg_id": f"RG{cid[3:]}B", "rg_numero": f"{random.randint(10000000,99999999)}"}
+        elif campo == "email":
+            nome_slug = clientes_by_id[cid]["nome"].lower().replace(" ", ".")
+            endereco = f"{nome_slug}{random.randint(1,999)}@{random.choice(EMAIL_DOMAINS)}"
+            novo_valor = {"email_id": f"EM{cid[3:]}B", "email_endereco": endereco,
+                          "email_dominio": endereco.split("@")[1]}
+        else:
+            novo_valor = {"telefone_id": f"TEL{cid[3:]}B",
+                          "telefone_numero": f"9{random.randint(1000,9999)}-{random.randint(1000,9999)}",
+                          "telefone_ddd": str(random.choice([11, 21, 31, 41, 51, 61, 71, 81, 85]))}
+        alteracoes_cadastrais[cid] = {
+            "campo": campo, "data_alteracao": data_alteracao, "novo_valor": novo_valor,
+        }
+
     # --- Registros brutos (fase 4 — resolução de identidade) --------------------
     # Metade "duplicados" de clientes reais com ruído de captura (nomes
     # abreviados/com typo, CPF mascarado, telefone sem DDD...), metade
@@ -392,9 +429,13 @@ def main():
         resolucao_gabarito[registro_id] = None
 
     # --- Orçamento de nós: overhead fixo primeiro, resto pros eventos -----------
-    n_rg = len({v["rg_id"] for v in rgs.values()})
-    n_email = len({v["email_id"] for v in emails.values()})
-    n_tel = len({v["telefone_id"] for v in telefones.values()})
+    # Inclui os nós de identidade extras criados pelas alterações cadastrais.
+    n_rg = len({v["rg_id"] for v in rgs.values()}
+               | {a["novo_valor"]["rg_id"] for a in alteracoes_cadastrais.values() if a["campo"] == "rg"})
+    n_email = len({v["email_id"] for v in emails.values()}
+                  | {a["novo_valor"]["email_id"] for a in alteracoes_cadastrais.values() if a["campo"] == "email"})
+    n_tel = len({v["telefone_id"] for v in telefones.values()}
+                | {a["novo_valor"]["telefone_id"] for a in alteracoes_cadastrais.values() if a["campo"] == "telefone"})
     n_dev = len({v["device_id"] for v in dispositivos.values()})
     n_loc = len({r["location_id"] for r in localizacoes})
     base_overhead = (N_CLIENTES + n_rg + n_email + n_tel + n_dev + n_loc
@@ -525,25 +566,20 @@ def main():
             })
 
     # --- Cadastro do cliente (RG/e-mail/telefone/localização num só arquivo) -----
-    # Feito por último de propósito: nada depois daqui consome random, então
-    # unificar essas colunas num único registro por cliente (em vez de 4
-    # arquivos separados) não desloca nenhuma decisão já tomada acima (anéis
-    # de fraude, personas, transações, etc. já estão 100% fechados nesse ponto)
-    # — o grafo final não muda.
+    # Uma linha por estado do cadastro — a maioria dos clientes tem 1 linha só;
+    # quem está em `alteracoes_cadastrais` ganha uma 2ª linha, com o campo
+    # alterado apontando pra uma identidade nova e dataAlteracao = quando isso
+    # aconteceu. A fase 3 usa `MERGE ... ON CREATE SET` no relacionamento
+    # (Cliente-[:POSSUI_RG/EMAIL/TELEFONE]), então a data de "desde" fica no
+    # relacionamento — a 1ª vez que aquele par (cliente, identidade) aparece —
+    # e não é sobrescrita pela 2ª linha quando o campo NÃO mudou.
     cadastro_clientes = []
     for c in clientes:
         cid = c["cliente_id"]
         rg = rgs[cid]
         email = emails[cid]
         tel = telefones[cid]
-        data_criacao = date.fromisoformat(c["dataCriacao"])
-        # ~25% dos clientes tiveram algum dado alterado depois do cadastro
-        # original (troca de telefone/e-mail/endereço) — dataAlteracao > dataCriacao.
-        if random.random() < 0.25:
-            data_alteracao = rand_date(data_criacao, REF_DATE)
-        else:
-            data_alteracao = data_criacao
-        cadastro_clientes.append({
+        base = {
             "cliente_id": cid,
             "nome": c["nome"],
             "cpf": c["cpf"],
@@ -554,19 +590,22 @@ def main():
             "latitude": c["_lat"],
             "longitude": c["_lon"],
             "dataCriacao": c["dataCriacao"],
-            "dataAlteracao": data_alteracao.isoformat(),
-            "rg_id": rg["rg_id"],
-            "rg_numero": rg["numero"],
-            "rg_desde": rand_date(date(2018, 1, 1), date(2025, 12, 31)).isoformat(),
-            "email_id": email["email_id"],
-            "email_endereco": email["endereco"],
-            "email_dominio": email["dominio"],
-            "email_desde": rand_date(date(2018, 1, 1), date(2025, 12, 31)).isoformat(),
-            "telefone_id": tel["telefone_id"],
-            "telefone_numero": tel["numero"],
-            "telefone_ddd": tel["ddd"],
-            "telefone_desde": rand_date(date(2018, 1, 1), date(2025, 12, 31)).isoformat(),
+        }
+        linha1 = dict(base)
+        linha1.update({
+            "dataAlteracao": c["dataCriacao"],
+            "rg_id": rg["rg_id"], "rg_numero": rg["numero"],
+            "email_id": email["email_id"], "email_endereco": email["endereco"], "email_dominio": email["dominio"],
+            "telefone_id": tel["telefone_id"], "telefone_numero": tel["numero"], "telefone_ddd": tel["ddd"],
         })
+        cadastro_clientes.append(linha1)
+
+        alteracao = alteracoes_cadastrais.get(cid)
+        if alteracao:
+            linha2 = dict(linha1)
+            linha2["dataAlteracao"] = alteracao["data_alteracao"].isoformat()
+            linha2.update(alteracao["novo_valor"])
+            cadastro_clientes.append(linha2)
 
     # --- Escreve CSVs -------------------------------------------------------------
     print("Gerando CSVs em", OUT_DIR)
@@ -574,10 +613,11 @@ def main():
     write_csv("clientes.csv",
                ["cliente_id", "nome", "cpf", "dataNascimento", "cidade", "estado", "segmento",
                 "latitude", "longitude", "dataCriacao", "dataAlteracao",
-                "rg_id", "rg_numero", "rg_desde",
-                "email_id", "email_endereco", "email_dominio", "email_desde",
-                "telefone_id", "telefone_numero", "telefone_ddd", "telefone_desde"],
+                "rg_id", "rg_numero",
+                "email_id", "email_endereco", "email_dominio",
+                "telefone_id", "telefone_numero", "telefone_ddd"],
                cadastro_clientes)
+    print(f"  ({len(alteracoes_cadastrais)} clientes com 2ª linha por alteração cadastral)")
 
     write_csv("dispositivos.csv",
                ["cliente_id", "device_id", "modelo", "sistemaOperacional", "primeiroAcesso", "ultimoAcesso"],
@@ -626,6 +666,10 @@ def main():
         "perfis_por_cliente": {c["cliente_id"]: c["_perfil"] for c in clientes if c["_perfil"]},
         "personas_por_cliente": {c["cliente_id"]: c["_persona"] for c in clientes},
         "resolucao_registros_brutos": resolucao_gabarito,
+        "alteracoes_cadastrais": {
+            cid: {"campo": a["campo"], "data_alteracao": a["data_alteracao"].isoformat()}
+            for cid, a in alteracoes_cadastrais.items()
+        },
     }
     with open(os.path.join(OUT_DIR, "gabarito.json"), "w", encoding="utf-8") as f:
         json.dump(gabarito, f, ensure_ascii=False, indent=2)

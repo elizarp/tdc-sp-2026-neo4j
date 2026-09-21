@@ -11,12 +11,19 @@ Todos os arquivos ficam prontos para `LOAD CSV` direto (fase 3), com os nomes de
 alinhados às propriedades do modelo de dados (documentação local, fora deste repositório).
 
 **`clientes.csv` é o cadastro completo do cliente num arquivo só** — não tem mais
-`rgs.csv`/`emails.csv`/`telefones.csv`/`localizacoes.csv` separados. Cada linha é o registro de um
-cliente, com `dataCriacao` (quando o cadastro nasceu) e `dataAlteracao` (a última vez que algum
-dado foi atualizado — igual a `dataCriacao` se nunca mudou nada). RG/e-mail/telefone/localização
+`rgs.csv`/`emails.csv`/`telefones.csv`/`localizacoes.csv` separados. RG/e-mail/telefone/localização
 viraram colunas prefixadas (`rg_*`, `email_*`, `telefone_*`) do mesmo jeito que já eram
-identificáveis antes, só que juntos — a fase 3 faz tudo (`Cliente`, `Localizacao`, `RG`, `Email`,
+identificáveis antes, só que juntas — a fase 3 faz tudo (`Cliente`, `Localizacao`, `RG`, `Email`,
 `Telefone`) num único `LOAD CSV`, na mesma transação por linha.
+
+**Um cliente pode ter mais de uma linha.** A maioria tem 1 linha só; ~20% dos clientes (fora dos
+anéis de fraude) tem 2 — a original (`dataAlteracao` = `dataCriacao`) e uma com **um** dos campos
+`rg`/`email`/`telefone` trocado por um valor novo e `dataAlteracao` mais recente. `nome`, `cpf`,
+`dataNascimento`, `cidade`, `estado`, `segmento`, `latitude`, `longitude` e `dataCriacao` se
+repetem iguais nas duas linhas — só o campo alterado (e a data) muda. A fase 3 usa
+`MERGE ... ON CREATE SET` no relacionamento de identidade, então o RG/e-mail/telefone antigo
+continua no grafo como histórico (ver
+[00-modelo-dados.md § Histórico cadastral](../docs/00-modelo-dados.md#histórico-cadastral)).
 
 ## Orçamento de nós: ~195.000 (teto do AuraDB Free é 200.000)
 
@@ -27,18 +34,19 @@ Acesso/AcaoApp/Transacao/Chamado por proporção fixa — o total nunca estoura,
 
 | Arquivo | Linhas | Colunas | Vira no grafo |
 |---|---|---|---|
-| `clientes.csv` | 1.500 | `cliente_id, nome, cpf, dataNascimento, cidade, estado, segmento, latitude, longitude, dataCriacao, dataAlteracao, rg_id, rg_numero, rg_desde, email_id, email_endereco, email_dominio, email_desde, telefone_id, telefone_numero, telefone_ddd, telefone_desde` | `(:Cliente)`, `(:Cliente)-[:LOCALIZADO_EM]->(:Localizacao)`, `(:Cliente)-[:POSSUI_RG]->(:RG)`, `(:Cliente)-[:POSSUI_EMAIL]->(:Email)`, `(:Cliente)-[:POSSUI_TELEFONE]->(:Telefone)` — **o cadastro inteiro do cliente num arquivo só** (ver nota abaixo) |
-| `dispositivos.csv` | 1.500 | `cliente_id, device_id, modelo, sistemaOperacional, primeiroAcesso, ultimoAcesso` | `(:Cliente)-[:USA_DISPOSITIVO {primeiroAcesso, ultimoAcesso}]->(:Dispositivo)` — fica separado do cadastro de propósito: dispositivo é dado de *uso*, não algo que o cliente declara no cadastro |
-| `transacoes.csv` | ~24.400 | `transacao_id, clienteOrigemId, clienteDestinoId, valor, data, tipo` | `(:Cliente)-[:ENVIOU]->(:Transacao)-[:PARA]->(:Cliente)` |
+| `clientes.csv` | 1.560 (1.300 clientes, 260 com 2ª linha) | `cliente_id, nome, cpf, dataNascimento, cidade, estado, segmento, latitude, longitude, dataCriacao, dataAlteracao, rg_id, rg_numero, email_id, email_endereco, email_dominio, telefone_id, telefone_numero, telefone_ddd` | `(:Cliente)`, `(:Cliente)-[:LOCALIZADO_EM]->(:Localizacao)`, `(:Cliente)-[:POSSUI_RG]->(:RG)`, `(:Cliente)-[:POSSUI_EMAIL]->(:Email)`, `(:Cliente)-[:POSSUI_TELEFONE]->(:Telefone)` — **o cadastro inteiro do cliente, com histórico** (ver nota acima) |
+| `dispositivos.csv` | 1.300 | `cliente_id, device_id, modelo, sistemaOperacional, primeiroAcesso, ultimoAcesso` | `(:Cliente)-[:USA_DISPOSITIVO {primeiroAcesso, ultimoAcesso}]->(:Dispositivo)` — fica separado do cadastro de propósito: dispositivo é dado de *uso*, não algo que o cliente declara no cadastro |
+| `transacoes.csv` | ~24.500 | `transacao_id, clienteOrigemId, clienteDestinoId, valor, data, tipo` | `(:Cliente)-[:ENVIOU]->(:Transacao)-[:PARA]->(:Cliente)` |
 | `tipos_produto.csv` | 5 | `tipo_id, nome, ehContrato` | `(:TipoProduto)` |
 | `produtos.csv` | 10 | `produto_id, nome, categoria, tipo_id` | `(:Produto)-[:DO_TIPO]->(:TipoProduto)` (`tipo_id` só serve pra montar o relacionamento) |
-| `contratacoes.csv` | ~3.000 | `cliente_id, produto_id, vezes, valorTotal, ultimoUso` | `(:Cliente)-[:CONTRATOU {vezes, valorTotal, ultimoUso}]->(:Produto)` |
-| `acessos.csv` | ~52.500 | `acesso_id, cliente_id, dataHora, canal, sucesso, duracaoSegundos` | `(:Cliente)-[:ACESSOU]->(:Acesso)` |
-| `acoes_app.csv` | ~107.000 | `acao_id, acesso_id, tipo, dataHora, produto_id` | `(:Acesso)-[:REALIZOU_ACAO]->(:AcaoApp)`, e `(:AcaoApp)-[:SOBRE_PRODUTO]->(:Produto)` quando `produto_id` não é vazio |
-| `chamados.csv` | ~3.750 | `chamado_id, cliente_id, canal, assunto, severidade, status, abertoEm, resolvidoEm, tempoResolucaoHoras, satisfacao, transacaoDisputadaId` | `(:Cliente)-[:ABRIU_CHAMADO]->(:Chamado)`, e `(:Chamado)-[:SOBRE_TRANSACAO]->(:Transacao)` quando `transacaoDisputadaId` não é vazio |
+| `contratacoes.csv` | ~2.700 | `cliente_id, produto_id, vezes, valorTotal, ultimoUso` | `(:Cliente)-[:CONTRATOU {vezes, valorTotal, ultimoUso}]->(:Produto)` |
+| `acessos.csv` | ~52.700 | `acesso_id, cliente_id, dataHora, canal, sucesso, duracaoSegundos` | `(:Cliente)-[:ACESSOU]->(:Acesso)` |
+| `acoes_app.csv` | ~107.300 | `acao_id, acesso_id, tipo, dataHora, produto_id` | `(:Acesso)-[:REALIZOU_ACAO]->(:AcaoApp)`, e `(:AcaoApp)-[:SOBRE_PRODUTO]->(:Produto)` quando `produto_id` não é vazio |
+| `chamados.csv` | ~3.760 | `chamado_id, cliente_id, canal, assunto, severidade, status, abertoEm, resolvidoEm, tempoResolucaoHoras, satisfacao, transacaoDisputadaId` | `(:Cliente)-[:ABRIU_CHAMADO]->(:Chamado)`, e `(:Chamado)-[:SOBRE_TRANSACAO]->(:Transacao)` quando `transacaoDisputadaId` não é vazio |
 | `registros_brutos.csv` | 115 | `registro_id, nomeBruto, cpfBruto, telefoneBruto, dataNascimentoBruto, cidadeBruto, canalOrigem` | `(:RegistroBruto)` — **sem** link com `Cliente` na carga (isso é o que a resolução de identidade, fase 4, descobre) |
 
-**Total real após dedupe de identidades: 195.000 nós** (verificado por recontagem independente).
+**Total real após dedupe de identidades: 195.000 nós, 1.300 clientes** (verificado por recontagem
+independente).
 
 `(:Cliente)-[:SIMILAR_A]->(:Cliente)`, `(:Produto)-[:COMPRADO_JUNTO]->(:Produto)`,
 `(evento)-[:PROXIMO_EVENTO]->(evento)` (a jornada), `(:TipoAcao)` + `(:Cliente)-[:REALIZOU_TIPO]->(:TipoAcao)`
@@ -69,9 +77,10 @@ identidade) **não** têm CSV — são calculados na fase 3/4 (GDS e agregação
   `operacional_puro`): cada cliente tem uma, e ela vies a o canal de `Acesso`, o canal de `Chamado` e
   o tipo de `AcaoApp` — sinal real pra segmentação (Node Similarity/Louvain), diferente do perfil de
   *contratação* acima (uma é comportamento de uso, a outra é o que o cliente compra).
-- **Cadastro alterado** (~25% dos clientes): `dataAlteracao` posterior a `dataCriacao`, simulando
-  que o cliente atualizou algum dado depois do cadastro original — realismo de "cadastro vivo",
-  sem duplicar linha por cliente (o CSV guarda só o estado atual, com as duas datas).
+- **Alteração cadastral** (260 clientes, 20% — fora dos anéis de fraude): 2ª linha em
+  `clientes.csv` com RG, e-mail **ou** telefone trocado (um campo por cliente) e `dataAlteracao`
+  posterior à `dataCriacao` — o dado antigo continua no grafo como histórico (ver
+  [00-modelo-dados.md § Histórico cadastral](../docs/00-modelo-dados.md#histórico-cadastral)).
 - **Registros brutos** (115: 90 duplicados + 25 negativos): os 90 duplicados são clientes reais
   capturados de novo com ruído — nome abreviado/com typo, CPF mascarado ou sem pontuação, telefone
   sem DDD ou com 1 dígito trocado, às vezes data de nascimento com dia/mês invertidos. Os 25

@@ -83,6 +83,12 @@ min reservados pra isso na agenda do workshop.
   `componentId`, `similarity`, `SIMILAR`) mesmo quando você passa outro nome — é só um detalhe
   cosmético da resposta da API AGA; o property/relacionamento realmente escrito no banco é o que
   você pediu (confirmado consultando o grafo direto depois).
+- **Cliente com histórico cadastral (fase 2) pode ter mais de um `POSSUI_TELEFONE`/`POSSUI_EMAIL`/
+  `POSSUI_RG`** — a query de resolução de identidade (bloco 08) fazia `MATCH (c)-[:POSSUI_TELEFONE]
+  ->(tel)` e usava o score de "qualquer" telefone que viesse por último no processamento, não o
+  melhor. Isso derrubou 3 dos 90 matches verdadeiros pra baixo do limiar de 0.8. Corrigido agregando
+  `max(simTel)` por par (registro, cliente) **antes** de calcular o score final — mesmo cuidado vale
+  pra qualquer campo que passe a ter histórico (múltiplos relacionamentos do mesmo tipo).
 
 ## Detalhes da resolução de identidade (bloco 08)
 
@@ -91,7 +97,9 @@ Fórmula de score: `0.45×simNome + 0.25×simCpf + 0.20×simTel + 0.10×simData`
   caixa alta.
 - `simCpf`: 1.0 se os dígitos do CPF do cliente **contêm** os dígitos do CPF bruto — cobre CPF
   mascarado (só um trecho visível) e CPF sem pontuação.
-- `simTel`: 1.0 se bate com ou sem DDD; 0.7 se Levenshtein > 0.85 (cobre 1 dígito trocado).
+- `simTel`: 1.0 se bate com ou sem DDD; 0.7 se Levenshtein > 0.85 (cobre 1 dígito trocado). Cliente
+  com telefone alterado (fase 2) tem 2 relacionamentos `POSSUI_TELEFONE` — a query pega o
+  `max(simTel)` entre eles, não "qualquer um" (ver lições do teste acima).
 - `simData`: 1.0 se a data bate exatamente (12% dos casos de teste tinham dia/mês trocados de
   propósito, e ainda resolveram certo — os outros 3 sinais compensam).
 - `CANDIDATO_MESMO_QUE` a partir de score ≥ 0.5 (todo candidato plausível); `RESOLVIDO_PARA` só o

@@ -14,7 +14,7 @@ Trade-off: um agente privado **não recebe endpoint de API/MCP** — a resposta 
 só funciona pelo **chat dentro do Aura Console** (Console → Agents → agente → conversar). Pra uma
 demo ao vivo isso não é uma limitação — é até melhor visualmente do que `curl`.
 
-## As 12 ferramentas
+## As 13 ferramentas
 
 | Ferramenta | Tipo | Caso de uso |
 |---|---|---|
@@ -25,6 +25,7 @@ demo ao vivo isso não é uma limitação — é até melhor visualmente do que 
 | Visão 360 do Cliente | cypherTemplate | Customer 360 |
 | Jornada Recente do Cliente | cypherTemplate | Jornada (`PROXIMO_EVENTO`) |
 | Ocorrências (Chamados) do Cliente | cypherTemplate | Customer 360 / atendimento (lista os `Chamado` do cliente) |
+| Histórico de Identidade do Cliente | cypherTemplate | Customer 360 (RG/e-mail/telefone atual + histórico, com a data de cada alteração) |
 | Risco de Churn de um Cliente | cypherTemplate | Churn (recência + insatisfação) |
 | Ranking de Clientes em Risco de Churn | cypherTemplate | Churn, agregado |
 | Segmento Comportamental do Cliente | cypherTemplate | Segmentação (Louvain + Node Similarity) |
@@ -54,19 +55,22 @@ que fica estável é a pergunta e qual ferramenta ela deve acionar.
 > **Atenção a IDs "grudados" no exemplo**: os CSVs são regenerados com seed fixa, mas **qualquer
 > mudança no código do gerador desloca a sequência determinística inteira** — nome, anel de
 > fraude, persona, tudo pode mudar pra um mesmo `cliente_id` de uma rodada pra outra. Já aconteceu
-> aqui (um `CLI0018` que era anel de fraude numa rodada virou cliente comum na rodada seguinte,
-> depois de eu adicionar as personas comportamentais ao gerador). **Sempre reconfira os IDs abaixo
-> contra `data/gabarito.json` depois de regenerar os dados** — não confie num ID citado de memória.
+> aqui: um cliente que era anel de fraude numa rodada virou cliente comum na rodada seguinte,
+> depois de eu adicionar as personas comportamentais ao gerador (e, numa rodada posterior ainda,
+> depois de adicionar o histórico cadastral, `CLI0018` voltou a aparecer num anel — só que num anel
+> diferente do original). **Sempre reconfira os IDs abaixo contra `data/gabarito.json` depois de
+> regenerar os dados** — não confie num ID citado de memória.
 
 | Pergunte isso | Ferramenta que deve ser acionada |
 |---|---|
-| "O cliente CLI0067 faz parte de algum anel de fraude?" | Verificar Anel de Fraude |
+| "O cliente CLI0020 faz parte de algum anel de fraude?" | Verificar Anel de Fraude |
 | "Quais as 5 contas com maior score de influência?" | Ranking de Contas Suspeitas por Influência |
-| "Que produto você recomenda para o cliente CLI0001?" | Recomendar Produto para Cliente |
+| "Que produto você recomenda para o cliente CLI0114?" | Recomendar Produto para Cliente |
 | "Quais produtos são comprados junto com o Cartão Platinum?" | Produtos Comprados Junto |
 | "Me dê uma visão completa do cliente CLI0001" | Visão 360 do Cliente |
 | "Mostre os 10 eventos mais recentes da jornada do cliente CLI0001" | Jornada Recente do Cliente |
 | "Quais ocorrências o cliente CLI0001 abriu?" | Ocorrências (Chamados) do Cliente |
+| "O cliente CLI0215 já mudou de e-mail? Mostra o histórico" | Histórico de Identidade do Cliente |
 | "O cliente CLI0001 está em risco de cancelar?" | Risco de Churn de um Cliente |
 | "Quais os 5 clientes com maior risco de churn?" | Ranking de Clientes em Risco de Churn |
 | "Qual o segmento comportamental do cliente CLI0001, e quem se parece com ele?" | Segmento Comportamental do Cliente |

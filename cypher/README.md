@@ -8,9 +8,13 @@
    9 blocos, na ordem certa de dependência (nó antes do relacionamento que aponta pra ele).
    Idempotente (`MERGE` em tudo — pode rodar de novo sem duplicar). O bloco 1 sozinho já carrega
    `Cliente` + `Localizacao` + `RG` + `Email` + `Telefone`, porque `clientes.csv` traz o cadastro
-   inteiro numa linha só (ver [data/README.md](../data/README.md)). O último bloco (`RegistroBruto`)
-   carrega sem link nenhum com `Cliente` de propósito — a resolução de identidade (fase 4) é quem
-   descobre esse link.
+   inteiro (ver [data/README.md](../data/README.md)) — **inclusive mais de uma linha por cliente**,
+   quando ele alterou RG/e-mail/telefone. Os relacionamentos de identidade usam
+   `MERGE ... ON CREATE SET` em vez de `SET` puro: a data "desde" só é gravada na 1ª vez que aquele
+   par (cliente, identidade) aparece, então uma 2ª linha do mesmo cliente não sobrescreve a data
+   original do que não mudou, e o dado antigo continua no grafo como histórico. O último bloco
+   (`RegistroBruto`) carrega sem link nenhum com `Cliente` de propósito — a resolução de identidade
+   (fase 4) é quem descobre esse link.
 3. **[03_jornada.cypher](03_jornada.cypher)** — encadeia `Transacao`/`Acesso`/`Chamado` por cliente
    em ordem cronológica via `PROXIMO_EVENTO`. Precisa rodar depois do passo 2.
 

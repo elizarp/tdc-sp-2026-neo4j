@@ -39,6 +39,11 @@ WITH r, c,
        ELSE 0.0
      END AS simTel,
      CASE WHEN r.dataNascimentoBruto = toString(c.dataNascimento) THEN 1.0 ELSE 0.0 END AS simData
+// Cliente com cadastro alterado (fase 2) pode ter mais de um POSSUI_TELEFONE
+// (histórico) — pega o MELHOR telefone do cliente pra esse registro, não
+// "qualquer um" (senão um telefone antigo/diferente pode arrastar o score
+// pra baixo por acaso da ordem de processamento).
+WITH r, c, simNome, simCpf, simData, max(simTel) AS simTel
 WITH r, c, simNome, simCpf, simTel, simData,
      (0.45 * simNome + 0.25 * simCpf + 0.20 * simTel + 0.10 * simData) AS score
 WHERE score >= 0.5
