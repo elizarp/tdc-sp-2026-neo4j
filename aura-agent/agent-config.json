@@ -16,7 +16,7 @@
           {
             "name": "clienteId",
             "data_type": "string",
-            "description": "ID do cliente a verificar, no formato CLIxxxx (ex: CLI0018)."
+            "description": "ID do cliente a verificar, no formato CLIxxxx."
           }
         ]
       }
