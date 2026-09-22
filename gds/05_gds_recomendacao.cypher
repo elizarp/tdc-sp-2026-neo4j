@@ -64,7 +64,7 @@ CALL gds.knn.filtered.write('recomendacaoGraph', {
 // --- Recomendação por conteúdo: produtos comprados juntos (Cypher puro) -----
 // Complementa o collaborative filtering acima: agregação direta em CONTRATOU,
 // sem GDS — mostra que nem tudo precisa de um algoritmo pra ter valor.
-// Com só 10 produtos e 1.500 clientes, TODO par de produtos passa de 5
+// Com só 10 produtos e 1.300 clientes, TODO par de produtos passa de 5
 // coocorrências (testado: 45/45 pares) — não filtra nada. >= 70 ficou testado
 // como o corte que isola os ~11 pares realmente puxados pelos perfis
 // injetados (ex.: Cartão Platinum+Seguro Viagem, Empréstimo+Financiamento).

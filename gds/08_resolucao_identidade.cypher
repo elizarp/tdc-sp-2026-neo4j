@@ -12,7 +12,7 @@
 // negativos (pessoas diferentes, de propósito) gerou falso positivo.
 // Ver gds/README.md.
 //
-// A essa escala (115 registros × 1.500 clientes = ~172k comparações) dá pra
+// A essa escala (115 registros × 1.300 clientes = ~150k comparações) dá pra
 // comparar todo par sem blocking prévio — em produção, com milhões de
 // registros, o primeiro filtro (mesma cidade/CPF parcial/telefone parecido)
 // seria feito ANTES de calcular similaridade fuzzy, não depois.

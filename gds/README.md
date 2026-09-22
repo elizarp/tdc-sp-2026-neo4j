@@ -106,12 +106,12 @@ Fórmula de score: `0.45×simNome + 0.25×simCpf + 0.20×simTel + 0.10×simData`
   melhor candidato por registro, e só se score ≥ 0.8 (a decisão automática).
 
 Em produção, blocking (mesma cidade/CPF parcial/telefone parecido) viria **antes** do cálculo de
-similaridade, pra não comparar todo registro com todo cliente — aqui, a essa escala (115×1.500 =
-~172k pares), comparar tudo é mais simples e ainda roda em ~4s.
+similaridade, pra não comparar todo registro com todo cliente — aqui, a essa escala (115×1.300 =
+~150k pares), comparar tudo é mais simples e ainda roda em ~4s.
 
 ## Próxima fase
 
-**Fase 5 — Agentes**: um único Aura Agent com 12 ferramentas cobrindo os 6 casos de uso (fraude,
+**Fase 5 — Agentes**: um único Aura Agent com 13 ferramentas cobrindo os 6 casos de uso (fraude,
 recomendação, Customer 360, jornada, churn, segmentação comportamental e resolução de identidade),
 no padrão do [aura-agent](https://github.com/elizarp/neo4j-agente-fraude/tree/main/aura-agent). Já
 criado e testado — ver `aura-agent/README.md`.
