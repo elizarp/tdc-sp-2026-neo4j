@@ -9,7 +9,7 @@
 // Louvain encontra 3 segmentos grandes com 56-73% de pureza — duas das 4
 // personas injetadas (`digital_nativo` e `operacional_puro`) têm preferências
 // de ação parecidas de propósito e acabam no mesmo segmento macro; é um
-// resultado honesto, não um bug. Ver gds/README.md.
+// resultado honesto, não um bug. Ver pipeline/README.md.
 
 // --- Passo 1: agrega AcaoApp.tipo em TipoAcao (Cypher puro, sem GDS) ---------
 // Cria o grafo bipartido Cliente-TipoAcao que a segmentação usa. TipoAcao não

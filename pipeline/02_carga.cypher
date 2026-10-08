@@ -109,7 +109,7 @@ CALL (row) {
   MATCH (destino:Cliente {cliente_id: row.clienteDestinoId})
   MERGE (t:Transacao {transacao_id: row.transacao_id})
   SET t.valor = toFloat(row.valor),
-      t.data = date(row.data),
+      t.data = datetime(row.data),
       t.tipo = row.tipo
   SET t:Pix
   MERGE (origem)-[:ENVIOU]->(t)
@@ -194,4 +194,23 @@ CALL (row) {
       r.dataNascimentoBruto = row.dataNascimentoBruto,
       r.cidadeBruto = row.cidadeBruto,
       r.canalOrigem = row.canalOrigem
+} IN TRANSACTIONS OF 1000 ROWS;
+
+// ============================================================
+// 10) ObrigacaoPagamento (+ POSSUI_OBRIGACAO, DO_PRODUTO) — parcelas de
+// produto-contrato (empréstimo/financiamento/seguro/consórcio), usadas na
+// fase 4 pra previsão de risco de inadimplência (Node Classification)
+// ============================================================
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/elizarp/tdc-sp-2026-neo4j/main/data/obrigacoes_pagamento.csv' AS row
+CALL (row) {
+  MATCH (c:Cliente {cliente_id: row.cliente_id})
+  MATCH (p:Produto {produto_id: row.produto_id})
+  MERGE (o:ObrigacaoPagamento {obrigacao_id: row.obrigacao_id})
+  SET o.dataVencimento = date(row.dataVencimento),
+      o.numeroParcela = toInteger(row.numeroParcela),
+      o.valorDevido = toFloat(row.valorDevido),
+      o.diasAtraso = toInteger(row.diasAtraso),
+      o.status = row.status
+  MERGE (c)-[:POSSUI_OBRIGACAO]->(o)
+  MERGE (o)-[:DO_PRODUTO]->(p)
 } IN TRANSACTIONS OF 1000 ROWS;

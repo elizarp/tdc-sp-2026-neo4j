@@ -3,8 +3,8 @@
 .vscode/
 .idea/
 
-# Claude Code local settings (personal, not project-shared)
-.claude/settings.local.json
+# Claude Code local config (personal, not project-shared)
+.claude/
 
 # Python
 __pycache__/

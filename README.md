@@ -1,9 +1,10 @@
 # 1 Grafo, N Casos de Uso
 
 Workshop do TDC São Paulo 2026 (23/09, 17:00–18:30): como uma única base em grafo Neo4j resolve
-seis casos de uso de negócio diferentes — detecção de fraude, recomendação de produtos, visão 360
-do cliente, jornada, churn, segmentação comportamental e resolução de identidade — trocando só o
-algoritmo de Graph Data Science que "olha" para o grafo, sem remodelar nada entre um caso e outro.
+sete casos de uso de negócio diferentes — detecção de fraude, recomendação de produtos, visão 360
+do cliente, jornada, churn, segmentação comportamental, resolução de identidade e previsão de risco
+de inadimplência — trocando só o algoritmo de Graph Data Science que "olha" para o grafo, sem
+remodelar nada entre um caso e outro.
 
 Base fictícia de uma fintech ("FinTechConecta"), ~195 mil nós, calibrada para caber no teto do
 AuraDB Free. Tudo neste repositório foi testado de ponta a ponta contra uma instância AuraDB Free
@@ -13,10 +14,9 @@ real, com o banco limpo e recarregado do zero.
 
 | Pasta | Conteúdo |
 |---|---|
-| [`data/`](data) | Gerador dos CSVs fake (`generate_dados.py`) + os CSVs em si, prontos pra `LOAD CSV` |
-| [`cypher/`](cypher) | Constraints + carga (`LOAD CSV`) + construção da jornada do cliente |
-| [`gds/`](gds) | Scripts de Graph Data Science (via Aura Graph Analytics) para os 6 casos de uso |
-| [`aura-agent/`](aura-agent) | Config do Aura Agent único que responde perguntas sobre os 6 casos de uso |
+| [`data/`](data) | Gerador dos CSVs fake (`gerador_dados.py`) + os CSVs em si, prontos pra `LOAD CSV` |
+| [`pipeline/`](pipeline) | Constraints + carga (`LOAD CSV`) + jornada + Graph Data Science para os 7 casos de uso, numerado 01-09 ponta a ponta |
+| [`aura-agent/`](aura-agent) | Config do Aura Agent único que responde perguntas sobre os 7 casos de uso |
 
 O modelo de dados, o plano do workshop e os slides ficam num diretório `docs/` local, fora deste
 repositório público.
@@ -72,14 +72,15 @@ no editor Query do Aura** — nessa ordem exata, porque cada bloco depende do an
 
 | Ordem | Arquivo | O que faz |
 |---|---|---|
-| 1 | [`cypher/01_constraints.cypher`](https://github.com/elizarp/tdc-sp-2026-neo4j/blob/main/cypher/01_constraints.cypher) | Cria as constraints de unicidade + índices auxiliares |
-| 2 | [`cypher/02_carga.cypher`](https://github.com/elizarp/tdc-sp-2026-neo4j/blob/main/cypher/02_carga.cypher) | `LOAD CSV` de todos os dados (10 blocos, ~90s) — direto do raw do GitHub |
-| 3 | [`cypher/03_jornada.cypher`](https://github.com/elizarp/tdc-sp-2026-neo4j/blob/main/cypher/03_jornada.cypher) | Encadeia `Acesso`/`Transacao`/`Chamado` em `PROXIMO_EVENTO` |
-| 4 | [`gds/04_gds_fraude.cypher`](https://github.com/elizarp/tdc-sp-2026-neo4j/blob/main/gds/04_gds_fraude.cypher) | WCC + PageRank — detecção de fraude |
-| 5 | [`gds/05_gds_recomendacao.cypher`](https://github.com/elizarp/tdc-sp-2026-neo4j/blob/main/gds/05_gds_recomendacao.cypher) | Node Similarity + FastRP/KNN — recomendação |
-| 6 | [`gds/06_gds_jornada.cypher`](https://github.com/elizarp/tdc-sp-2026-neo4j/blob/main/gds/06_gds_jornada.cypher) | BFS sobre a jornada — sequência de account takeover |
-| 7 (bônus) | [`gds/07_segmentacao_comportamental.cypher`](https://github.com/elizarp/tdc-sp-2026-neo4j/blob/main/gds/07_segmentacao_comportamental.cypher) | Louvain + Node Similarity ponderada |
-| 8 (bônus) | [`gds/08_resolucao_identidade.cypher`](https://github.com/elizarp/tdc-sp-2026-neo4j/blob/main/gds/08_resolucao_identidade.cypher) | Blocking + similaridade fuzzy |
+| 1 | [`pipeline/01_constraints.cypher`](https://github.com/elizarp/tdc-sp-2026-neo4j/blob/main/pipeline/01_constraints.cypher) | Cria as constraints de unicidade + índices auxiliares |
+| 2 | [`pipeline/02_carga.cypher`](https://github.com/elizarp/tdc-sp-2026-neo4j/blob/main/pipeline/02_carga.cypher) | `LOAD CSV` de todos os dados (10 blocos, ~90s) — direto do raw do GitHub |
+| 3 | [`pipeline/03_jornada.cypher`](https://github.com/elizarp/tdc-sp-2026-neo4j/blob/main/pipeline/03_jornada.cypher) | Encadeia `Acesso`/`Transacao`/`Chamado` em `PROXIMO_EVENTO` |
+| 4 | [`pipeline/04_gds_fraude.cypher`](https://github.com/elizarp/tdc-sp-2026-neo4j/blob/main/pipeline/04_gds_fraude.cypher) | WCC + PageRank — detecção de fraude |
+| 5 | [`pipeline/05_gds_recomendacao.cypher`](https://github.com/elizarp/tdc-sp-2026-neo4j/blob/main/pipeline/05_gds_recomendacao.cypher) | Node Similarity + FastRP/KNN — recomendação |
+| 6 | [`pipeline/06_gds_jornada.cypher`](https://github.com/elizarp/tdc-sp-2026-neo4j/blob/main/pipeline/06_gds_jornada.cypher) | BFS sobre a jornada — sequência de account takeover |
+| 7 (bônus) | [`pipeline/07_segmentacao_comportamental.cypher`](https://github.com/elizarp/tdc-sp-2026-neo4j/blob/main/pipeline/07_segmentacao_comportamental.cypher) | Louvain + Node Similarity ponderada |
+| 8 (bônus) | [`pipeline/08_resolucao_identidade.cypher`](https://github.com/elizarp/tdc-sp-2026-neo4j/blob/main/pipeline/08_resolucao_identidade.cypher) | Blocking + similaridade fuzzy |
+| 9 | [`pipeline/09_previsao_inadimplencia.cypher`](https://github.com/elizarp/tdc-sp-2026-neo4j/blob/main/pipeline/09_previsao_inadimplencia.cypher) | Node Classification (Random Forest) — previsão de risco de inadimplência |
 
 Pra cada linha da tabela, nessa ordem:
 1. Clique no link — abre o arquivo `.cypher` no GitHub.
@@ -90,8 +91,8 @@ Pra cada linha da tabela, nessa ordem:
    antes. A carga (bloco 2) é a etapa mais longa, ~90 segundos; o resto costuma levar poucos
    segundos cada.
 
-Detalhes de cada bloco, tempos reais medidos e o que esperar de resultado ficam nos `README.md` de
-[`cypher/`](cypher) e [`gds/`](gds).
+Detalhes de cada bloco, tempos reais medidos e o que esperar de resultado ficam no
+[`pipeline/README.md`](pipeline/README.md).
 
 ### 4. Verificar que funcionou
 
@@ -103,10 +104,10 @@ muito diferente, rode o bloco de carga de novo — tudo é idempotente (`MERGE`)
 
 ### 5. (Opcional) Regenerar os CSVs
 
-Só necessário se você alterar `data/generate_dados.py`. Os CSVs já vêm gerados no repositório:
+Só necessário se você alterar `data/gerador_dados.py`. Os CSVs já vêm gerados no repositório:
 
 ```bash
-cd data && python3 generate_dados.py
+cd data && python3 gerador_dados.py
 ```
 
 ## O que não está neste repositório (de propósito)
@@ -121,3 +122,9 @@ com os CSVs tiraria a graça de descobrir ao vivo. Ver [data/README.md](data/REA
 Eliézer Zarpelão — Sr. Solutions Engineer LATAM, Neo4j
 [linkedin.com/in/eliezerzarpelao](https://linkedin.com/in/eliezerzarpelao) ·
 eliezer.zarpelao@neo4j.com
+
+## Desenvolvimento assistido por IA
+
+O desenvolvimento deste repositório (gerador de dados, pipeline Cypher/GDS, config do Aura Agent e
+esta documentação) contou com assistência do [Claude Code](https://claude.com/claude-code).
+Licenciado sob [Apache License 2.0](LICENSE).

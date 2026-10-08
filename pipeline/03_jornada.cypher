@@ -7,7 +7,7 @@
 // de NEXT do schema real inspecionado via aura-mcp (ver docs/00-modelo-dados.md
 // § Jornada do cliente).
 //
-// Rodar em batches por cliente evita uma única transação gigante (1.500
+// Rodar em batches por cliente evita uma única transação gigante (1.300
 // clientes, ~190 eventos em média cada).
 
 MATCH (c:Cliente)

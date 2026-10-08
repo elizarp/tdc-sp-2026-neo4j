@@ -1,6 +1,6 @@
 # Fase 5 — Agente
 
-**Um agente só, seis casos de uso.** Criado e testado via API real (`api.neo4j.io`) sobre a
+**Um agente só, sete casos de uso.** Criado e testado via API real (`api.neo4j.io`) sobre a
 instância AuraDB Free `b49e0444`. Config completo em [agent-config.json](agent-config.json).
 
 ## Por que um agente privado
@@ -14,7 +14,7 @@ Trade-off: um agente privado **não recebe endpoint de API/MCP** — a resposta 
 só funciona pelo **chat dentro do Aura Console** (Console → Agents → agente → conversar). Pra uma
 demo ao vivo isso não é uma limitação — é até melhor visualmente do que `curl`.
 
-## As 13 ferramentas
+## As 16 ferramentas
 
 | Ferramenta | Tipo | Caso de uso |
 |---|---|---|
@@ -30,6 +30,9 @@ demo ao vivo isso não é uma limitação — é até melhor visualmente do que 
 | Ranking de Clientes em Risco de Churn | cypherTemplate | Churn, agregado |
 | Segmento Comportamental do Cliente | cypherTemplate | Segmentação (Louvain + Node Similarity) |
 | Resolver Identidade de Registro Bruto | cypherTemplate | Resolução de identidade |
+| Histórico de Obrigações de Pagamento | cypherTemplate | Inadimplência (parcelas de `ObrigacaoPagamento`) |
+| Risco de Inadimplência de um Cliente | cypherTemplate | Inadimplência (Node Classification, lookup pontual) |
+| Ranking de Clientes em Risco de Inadimplência | cypherTemplate | Inadimplência, agregado |
 | Consulta Livre no Grafo | text2cypher | Fallback pra tudo que não se encaixa acima |
 
 Todas as CypherTemplates foram testadas direto no banco antes de entrar no config (não só
@@ -75,6 +78,9 @@ que fica estável é a pergunta e qual ferramenta ela deve acionar.
 | "Quais os 5 clientes com maior risco de churn?" | Ranking de Clientes em Risco de Churn |
 | "Qual o segmento comportamental do cliente CLI0001, e quem se parece com ele?" | Segmento Comportamental do Cliente |
 | "Para qual cliente o registro REG0001 foi resolvido?" | Resolver Identidade de Registro Bruto |
+| "Mostra o histórico de pagamentos do cliente CLI0001" | Histórico de Obrigações de Pagamento |
+| "O cliente CLI0001 está em risco de inadimplência?" | Risco de Inadimplência de um Cliente |
+| "Quais os 10 clientes com maior risco de inadimplência?" | Ranking de Clientes em Risco de Inadimplência |
 | "Quantos clientes existem no segmento Premium?" | Consulta Livre no Grafo (Text2Cypher) — pergunta simples, sem ferramenta dedicada |
 | "Quais clientes que fazem parte de um anel de fraude também contrataram algum produto de Seguro e tiveram algum acesso malsucedido ao app?" | Consulta Livre no Grafo (Text2Cypher) — pergunta complexa cruzando `Cliente` (anel via RG/Email/Telefone/Dispositivo), `Produto`, `TipoProduto` e `Acesso`, combinando sinais de dois casos de uso numa pergunta só |
 

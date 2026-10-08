@@ -43,6 +43,9 @@ FOR (r:RegistroBruto) REQUIRE r.registro_id IS UNIQUE;
 CREATE CONSTRAINT tipo_acao_nome IF NOT EXISTS
 FOR (t:TipoAcao) REQUIRE t.nome IS UNIQUE;
 
+CREATE CONSTRAINT obrigacao_pagamento_id IF NOT EXISTS
+FOR (o:ObrigacaoPagamento) REQUIRE o.obrigacao_id IS UNIQUE;
+
 // Índices auxiliares — usados pela consulta de jornada (fase 3.3) e pelas
 // projeções de GDS (fase 4). Não são chaves de unicidade, só aceleram ORDER BY.
 CREATE INDEX transacao_data IF NOT EXISTS FOR (t:Transacao) ON (t.data);

@@ -2,7 +2,7 @@
 // Reaproveita a sessão 'workshop-session' criada em 04_gds_fraude.cypher (getOrCreate
 // é idempotente). Testado numa AuraDB Free real: pares SIMILAR_A de maior score
 // compartilham o perfil de contratação injetado em 42-43% dos casos, contra ~11%
-// esperado por acaso. Ver gds/README.md.
+// esperado por acaso. Ver pipeline/README.md.
 
 CALL gds.graph.drop('recomendacaoGraph', false) YIELD graphName;
 

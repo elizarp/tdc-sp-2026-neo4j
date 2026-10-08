@@ -7,7 +7,7 @@
 //
 // Testado de ponta a ponta numa AuraDB Free real: 18/18 anéis do gabarito bateram
 // com os componentes do WCC, e as 6/6 contas-laranja ficaram nas 6 primeiras
-// posições do PageRank. Ver gds/README.md.
+// posições do PageRank. Ver pipeline/README.md.
 
 CALL gds.graph.drop('identidadesGraph', false) YIELD graphName;
 CALL gds.graph.drop('pixGraph', false) YIELD graphName;

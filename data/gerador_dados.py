@@ -1,18 +1,19 @@
 #!/usr/bin/env python3
 """Fase 2 — gera os CSVs fake do workshop (sem dependências externas).
 
-Roda com: python3 generate_dados.py
+Roda com: python3 gerador_dados.py
 
 Gera, na mesma pasta:
   clientes.csv (cadastro completo: dados pessoais + RG/e-mail/telefone/
   localização, num único arquivo, com dataCriacao e dataAlteracao),
   dispositivos.csv, transacoes.csv, tipos_produto.csv, produtos.csv,
   contratacoes.csv, chamados.csv, acessos.csv, acoes_app.csv,
-  registros_brutos.csv
+  registros_brutos.csv, obrigacoes_pagamento.csv
 e o gabarito (data/gabarito.json) com a verdade injetada — anéis de fraude,
-contas-laranja, perfis de contratação, personas comportamentais e o mapa de
-resolução dos registros brutos — que NÃO deve ser carregado no grafo. Serve só
-para o palestrante validar os resultados de GDS durante o ensaio.
+contas-laranja, perfis de contratação, personas comportamentais, clientes
+inadimplentes e o mapa de resolução dos registros brutos — que NÃO deve ser
+carregado no grafo. Serve só para o palestrante validar os resultados de GDS
+durante o ensaio.
 
 Dimensionamento: calcula o overhead fixo (Cliente + identidades já deduplicadas
 pelos anéis de fraude + Localizacao + Produto/TipoProduto + Registros Brutos) e
@@ -32,7 +33,9 @@ random.seed(42)
 
 OUT_DIR = os.path.dirname(os.path.abspath(__file__))
 REF_DATE = date(2026, 3, 1)
-JANELA_EVENTOS_DIAS = 180  # acessos/transações/chamados distribuídos nesta janela
+EVENT_WINDOW_YEARS = 2  # ajustável de 1 a 3 — espaçamento mais realista dos eventos
+assert 1 <= EVENT_WINDOW_YEARS <= 3, "EVENT_WINDOW_YEARS deve estar entre 1 e 3"
+EVENT_WINDOW_DAYS = EVENT_WINDOW_YEARS * 365  # acessos/transações/chamados distribuídos nesta janela
 
 N_CLIENTES = 1300
 TARGET_TOTAL_NODES = 195_000
@@ -41,6 +44,14 @@ FRAUD_RING_COUNT = 18
 FRAUD_RING_SIZE_RANGE = (3, 6)
 FRAUD_POOL_SIZE = 150
 N_ORANGE_ACCOUNTS = 6
+
+# Previsão de risco de inadimplência: pool de clientes elegíveis a ter
+# ObrigacaoPagamento (parcelas de produto-contrato — empréstimo, financiamento,
+# seguro, consórcio), dos quais uma fração recebe o padrão de degradação
+# progressiva que serve de sinal pra um classificador supervisionado.
+POOL_INADIMPLENCIA_SIZE = 500
+N_CLIENTES_INADIMPLENTES = 250
+PARCELAS_OBRIGACAO = 12  # parcelas mensais por cliente no pool (1 ano)
 
 N_REGISTROS_BRUTOS_DUPLICADOS = 90
 N_REGISTROS_BRUTOS_NEGATIVOS = 25
@@ -380,6 +391,55 @@ def main():
             "campo": campo, "data_alteracao": data_alteracao, "novo_valor": novo_valor,
         }
 
+    # --- ObrigacaoPagamento + risco de inadimplência -----------------------------
+    # Pool independente dos anéis de fraude e das contas-laranja, pra não
+    # confundir as narrativas injetadas. Cada cliente do pool recebe 12 parcelas
+    # mensais (1 ano) de um produto tipo contrato (Empréstimo/Financiamento/
+    # Seguro/Consórcio); metade do pool paga em dia, a outra metade
+    # (N_CLIENTES_INADIMPLENTES) recebe atraso progressivo nos 9 primeiros meses
+    # culminando em inadimplência real nos últimos 3 — o sinal que um
+    # classificador supervisionado (fase 4, Node Classification) aprende a
+    # reconhecer.
+    contrato_by_tipo = {t: eh for t, _, eh in TIPOS_PRODUTO}
+    PRODUTOS_CONTRATO_IDS = [pid for pid, _, tid in PRODUTOS if contrato_by_tipo.get(tid)]
+    candidatos_obrigacao = [cid for cid in todos_ids
+                             if cid not in ring_members and cid not in orange_accounts]
+    pool_obrigacao = random.sample(candidatos_obrigacao,
+                                    min(POOL_INADIMPLENCIA_SIZE, len(candidatos_obrigacao)))
+    clientes_inadimplentes = set(random.sample(pool_obrigacao,
+                                                min(N_CLIENTES_INADIMPLENTES, len(pool_obrigacao))))
+
+    obrigacoes_pagamento = []
+    obrigacao_idx = 0
+    primeira_parcela = date(REF_DATE.year, REF_DATE.month, 1) - timedelta(days=365)
+    for cid in pool_obrigacao:
+        produto_id = random.choice(PRODUTOS_CONTRATO_IDS)
+        inadimplente = cid in clientes_inadimplentes
+        for parcela in range(1, PARCELAS_OBRIGACAO + 1):
+            obrigacao_idx += 1
+            data_vencimento = primeira_parcela + timedelta(days=30 * (parcela - 1))
+            if not inadimplente:
+                dias_atraso = 0 if random.random() < 0.9 else random.randint(1, 3)
+                status = "pago"
+            elif parcela <= 9:
+                # degradação progressiva: atraso cresce aos poucos nos 9 primeiros meses
+                dias_atraso = max(0, round(parcela * random.uniform(1.5, 3.0)))
+                status = "pago" if dias_atraso <= 5 else "atrasado"
+            else:
+                # últimos 3 meses: inadimplência de verdade
+                dias_atraso = random.randint(30, 90)
+                status = "inadimplente"
+            obrigacoes_pagamento.append({
+                "obrigacao_id": f"OP{obrigacao_idx:06d}",
+                "cliente_id": cid,
+                "produto_id": produto_id,
+                "dataVencimento": data_vencimento.isoformat(),
+                "numeroParcela": parcela,
+                "valorDevido": round(random.uniform(150, 2500), 2),
+                "diasAtraso": dias_atraso,
+                "status": status,
+            })
+
     # --- Registros brutos (fase 4 — resolução de identidade) --------------------
     # Metade "duplicados" de clientes reais com ruído de captura (nomes
     # abreviados/com typo, CPF mascarado, telefone sem DDD...), metade
@@ -439,7 +499,8 @@ def main():
     n_dev = len({v["device_id"] for v in dispositivos.values()})
     n_loc = len({r["location_id"] for r in localizacoes})
     base_overhead = (N_CLIENTES + n_rg + n_email + n_tel + n_dev + n_loc
-                      + len(TIPOS_PRODUTO) + len(PRODUTOS) + len(registros_brutos))
+                      + len(TIPOS_PRODUTO) + len(PRODUTOS) + len(registros_brutos)
+                      + len(obrigacoes_pagamento))
     events_budget = max(TARGET_TOTAL_NODES - base_overhead, 0)
 
     n_acesso = round(events_budget * PCT_ACESSO)
@@ -447,12 +508,12 @@ def main():
     n_chamado = round(events_budget * PCT_CHAMADO)
     n_acao = events_budget - n_acesso - n_transacao - n_chamado  # absorve o arredondamento
 
-    print(f"Overhead fixo (Cliente+identidades+Localizacao+Produto/Tipo+RegistroBruto): {base_overhead}")
+    print(f"Overhead fixo (Cliente+identidades+Localizacao+Produto/Tipo+RegistroBruto+ObrigacaoPagamento): {base_overhead}")
     print(f"Orçamento de eventos: {events_budget} "
           f"(Acesso={n_acesso}, AcaoApp={n_acao}, Transacao={n_transacao}, Chamado={n_chamado})")
     print(f"Total estimado de nós: {base_overhead + events_budget} (alvo: {TARGET_TOTAL_NODES})")
 
-    janela_ini = REF_DATE - timedelta(days=JANELA_EVENTOS_DIAS)
+    janela_ini = REF_DATE - timedelta(days=EVENT_WINDOW_DAYS)
 
     # --- Transações Pix -----------------------------------------------------------
     transacoes = []
@@ -471,7 +532,12 @@ def main():
             "clienteOrigemId": origem,
             "clienteDestinoId": destino,
             "valor": valor,
-            "data": rand_date(janela_ini, REF_DATE).isoformat(),
+            # datetime completo (não só a data) — homogêneo com Acesso.dataHora e
+            # Chamado.abertoEm, senão o UNION/ORDER BY de PROXIMO_EVENTO ordena
+            # errado (Cypher compara por tipo antes de valor quando os tipos
+            # divergem: date e datetime do mesmo dia não ficam necessariamente
+            # na ordem cronológica certa um em relação ao outro).
+            "data": rand_datetime(janela_ini, REF_DATE).isoformat(),
             "tipo": "Pix",
         })
         origem_por_cliente[origem].append(transacao_id)
@@ -659,6 +725,12 @@ def main():
                 "cidadeBruto", "canalOrigem"],
                registros_brutos)
 
+    write_csv("obrigacoes_pagamento.csv",
+               ["obrigacao_id", "cliente_id", "produto_id", "dataVencimento", "numeroParcela",
+                "valorDevido", "diasAtraso", "status"],
+               obrigacoes_pagamento)
+    print(f"  ({len(pool_obrigacao)} clientes no pool, {len(clientes_inadimplentes)} inadimplentes)")
+
     # --- Gabarito (não carregar no grafo) -----------------------------------------
     gabarito = {
         "aneis_de_fraude": aneis,
@@ -670,16 +742,17 @@ def main():
             cid: {"campo": a["campo"], "data_alteracao": a["data_alteracao"].isoformat()}
             for cid, a in alteracoes_cadastrais.items()
         },
+        "clientes_inadimplentes": sorted(clientes_inadimplentes),
     }
     with open(os.path.join(OUT_DIR, "gabarito.json"), "w", encoding="utf-8") as f:
         json.dump(gabarito, f, ensure_ascii=False, indent=2)
     print(f"  gabarito.json: {len(aneis)} anéis, {len(orange_accounts)} contas-laranja, "
           f"{len(registros_brutos)} registros brutos ({N_REGISTROS_BRUTOS_DUPLICADOS} duplicados, "
-          f"{N_REGISTROS_BRUTOS_NEGATIVOS} negativos)")
+          f"{N_REGISTROS_BRUTOS_NEGATIVOS} negativos), {len(clientes_inadimplentes)} clientes inadimplentes")
 
     total_real = (N_CLIENTES + n_rg + n_email + n_tel + n_dev + n_loc + len(TIPOS_PRODUTO)
                   + len(PRODUTOS) + len(transacoes) + len(acessos) + len(acoes) + len(chamados)
-                  + len(registros_brutos))
+                  + len(registros_brutos) + len(obrigacoes_pagamento))
     print(f"\nTotal real de nós (após dedupe de identidades): {total_real}")
 
 

@@ -10,7 +10,7 @@
 // dos 90 registros brutos que SÃO duplicados de um cliente real, 90/90
 // resolveram pro cliente certo (score >= 0.8) — e nenhum dos 25 registros
 // negativos (pessoas diferentes, de propósito) gerou falso positivo.
-// Ver gds/README.md.
+// Ver pipeline/README.md.
 //
 // A essa escala (115 registros × 1.300 clientes = ~150k comparações) dá pra
 // comparar todo par sem blocking prévio — em produção, com milhões de

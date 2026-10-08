@@ -2,7 +2,7 @@
 // Reaproveita a sessão 'workshop-session'. Testado numa AuraDB Free real: BFS a
 // partir de um Acesso malsucedido, filtrando por Pix de valor no caminho, acha
 // sequências como Acesso -> Transacao -> Transacao -> Transacao -> Transacao.
-// Ver gds/README.md.
+// Ver pipeline/README.md.
 
 CALL gds.graph.drop('jornadaGraph', false) YIELD graphName;
 

@@ -1,10 +1,10 @@
 # Fase 2 — CSVs fake
 
-Gerados por [`generate_dados.py`](generate_dados.py) (sem dependências externas, seed fixa = 42,
+Gerados por [`gerador_dados.py`](gerador_dados.py) (sem dependências externas, seed fixa = 42,
 reproduzível). Para regenerar:
 
 ```bash
-python3 generate_dados.py
+python3 gerador_dados.py
 ```
 
 Todos os arquivos ficam prontos para `LOAD CSV` direto (fase 3), com os nomes de coluna já
@@ -36,14 +36,15 @@ Acesso/AcaoApp/Transacao/Chamado por proporção fixa — o total nunca estoura,
 |---|---|---|---|
 | `clientes.csv` | 1.560 (1.300 clientes, 260 com 2ª linha) | `cliente_id, nome, cpf, dataNascimento, cidade, estado, segmento, latitude, longitude, dataCriacao, dataAlteracao, rg_id, rg_numero, email_id, email_endereco, email_dominio, telefone_id, telefone_numero, telefone_ddd` | `(:Cliente)`, `(:Cliente)-[:LOCALIZADO_EM]->(:Localizacao)`, `(:Cliente)-[:POSSUI_RG]->(:RG)`, `(:Cliente)-[:POSSUI_EMAIL]->(:Email)`, `(:Cliente)-[:POSSUI_TELEFONE]->(:Telefone)` — **o cadastro inteiro do cliente, com histórico** (ver nota acima) |
 | `dispositivos.csv` | 1.300 | `cliente_id, device_id, modelo, sistemaOperacional, primeiroAcesso, ultimoAcesso` | `(:Cliente)-[:USA_DISPOSITIVO {primeiroAcesso, ultimoAcesso}]->(:Dispositivo)` — fica separado do cadastro de propósito: dispositivo é dado de *uso*, não algo que o cliente declara no cadastro |
-| `transacoes.csv` | ~24.500 | `transacao_id, clienteOrigemId, clienteDestinoId, valor, data, tipo` | `(:Cliente)-[:ENVIOU]->(:Transacao)-[:PARA]->(:Cliente)` |
+| `transacoes.csv` | ~23.700 | `transacao_id, clienteOrigemId, clienteDestinoId, valor, data, tipo` | `(:Cliente)-[:ENVIOU]->(:Transacao)-[:PARA]->(:Cliente)` — `data` é `datetime` completo (hora real), homogêneo com `Acesso.dataHora`/`Chamado.abertoEm` |
 | `tipos_produto.csv` | 5 | `tipo_id, nome, ehContrato` | `(:TipoProduto)` |
 | `produtos.csv` | 10 | `produto_id, nome, categoria, tipo_id` | `(:Produto)-[:DO_TIPO]->(:TipoProduto)` (`tipo_id` só serve pra montar o relacionamento) |
 | `contratacoes.csv` | ~2.700 | `cliente_id, produto_id, vezes, valorTotal, ultimoUso` | `(:Cliente)-[:CONTRATOU {vezes, valorTotal, ultimoUso}]->(:Produto)` |
-| `acessos.csv` | ~52.700 | `acesso_id, cliente_id, dataHora, canal, sucesso, duracaoSegundos` | `(:Cliente)-[:ACESSOU]->(:Acesso)` |
-| `acoes_app.csv` | ~107.300 | `acao_id, acesso_id, tipo, dataHora, produto_id` | `(:Acesso)-[:REALIZOU_ACAO]->(:AcaoApp)`, e `(:AcaoApp)-[:SOBRE_PRODUTO]->(:Produto)` quando `produto_id` não é vazio |
-| `chamados.csv` | ~3.760 | `chamado_id, cliente_id, canal, assunto, severidade, status, abertoEm, resolvidoEm, tempoResolucaoHoras, satisfacao, transacaoDisputadaId` | `(:Cliente)-[:ABRIU_CHAMADO]->(:Chamado)`, e `(:Chamado)-[:SOBRE_TRANSACAO]->(:Transacao)` quando `transacaoDisputadaId` não é vazio |
+| `acessos.csv` | ~51.000 | `acesso_id, cliente_id, dataHora, canal, sucesso, duracaoSegundos` | `(:Cliente)-[:ACESSOU]->(:Acesso)` |
+| `acoes_app.csv` | ~103.800 | `acao_id, acesso_id, tipo, dataHora, produto_id` | `(:Acesso)-[:REALIZOU_ACAO]->(:AcaoApp)`, e `(:AcaoApp)-[:SOBRE_PRODUTO]->(:Produto)` quando `produto_id` não é vazio |
+| `chamados.csv` | ~3.650 | `chamado_id, cliente_id, canal, assunto, severidade, status, abertoEm, resolvidoEm, tempoResolucaoHoras, satisfacao, transacaoDisputadaId` | `(:Cliente)-[:ABRIU_CHAMADO]->(:Chamado)`, e `(:Chamado)-[:SOBRE_TRANSACAO]->(:Transacao)` quando `transacaoDisputadaId` não é vazio |
 | `registros_brutos.csv` | 115 | `registro_id, nomeBruto, cpfBruto, telefoneBruto, dataNascimentoBruto, cidadeBruto, canalOrigem` | `(:RegistroBruto)` — **sem** link com `Cliente` na carga (isso é o que a resolução de identidade, fase 4, descobre) |
+| `obrigacoes_pagamento.csv` | 6.000 (500 clientes × 12 parcelas) | `obrigacao_id, cliente_id, produto_id, dataVencimento, numeroParcela, valorDevido, diasAtraso, status` | `(:Cliente)-[:POSSUI_OBRIGACAO]->(:ObrigacaoPagamento)-[:DO_PRODUTO]->(:Produto)` |
 
 **Total real após dedupe de identidades: 195.000 nós, 1.300 clientes** (verificado por recontagem
 independente).
@@ -86,12 +87,17 @@ identidade) **não** têm CSV — são calculados na fase 3/4 (GDS e agregação
   sem DDD ou com 1 dígito trocado, às vezes data de nascimento com dia/mês invertidos. Os 25
   negativos são pessoas diferentes de propósito, pra testar se o algoritmo de resolução de
   identidade não erra por excesso de zelo.
+- **Risco de inadimplência** (`obrigacoes_pagamento.csv`, 500 clientes no pool × 12 parcelas
+  mensais): metade do pool (250, balanceado 50/50) recebe um padrão de degradação progressiva —
+  `diasAtraso` crescendo aos poucos nos 9 primeiros meses, culminando em `status="inadimplente"` nos
+  últimos 3 — enquanto a outra metade paga em dia. É o sinal real pra um classificador supervisionado
+  de Node Classification (Random Forest) treinado sobre atraso médio/tendência, não uma heurística.
 
 ## Jornada do cliente
 
 `Acesso`, `Transacao` e `Chamado` têm timestamp (`dataHora`, `data`, `abertoEm`). A fase 3 encadeia
 os três por cliente, em ordem cronológica, com `PROXIMO_EVENTO` — a consulta completa está em
-[cypher/03_jornada.cypher](../cypher/03_jornada.cypher).
+[pipeline/03_jornada.cypher](../pipeline/03_jornada.cypher).
 
 ## `gabarito.json` — não carregar no grafo
 
