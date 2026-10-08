@@ -64,18 +64,12 @@ linhas em vez de tudo numa transação só — importante aqui porque `acessos.c
 
 ## Testado de ponta a ponta
 
-Blocos 01-08: testados 3 vezes (2 numa AuraDB Free real, 1 num sandbox self-managed), sempre
-começando de banco vazio: **carga completa em 32-90 segundos** (a variação é mais rede/latência do
-que volume de dado), e a fase de GDS (04-08) em **~80 segundos** com sessão fria incluída. Cabe
-folgado na agenda do workshop.
+Blocos 01-09: testados de ponta a ponta numa AuraDB Free real (instância `d034b8ef`), banco vazio
+→ carga → jornada → GDS (01-09), tudo numa rodada só: **carga completa (01-03) em ~24s**,
+**GDS 04-08 em ~190s** (sessão AGA fria incluída, ~106s só no cold start, confirmando o padrão já
+documentado), **bloco 09 em ~19s** (sessão já quente). Cabe folgado na agenda do workshop.
 
-**Bloco 09 (previsão de inadimplência) ainda NÃO foi testado contra uma instância AuraDB Free real**
-nesta rodada — a sintaxe foi revisada com cuidado contra a API estável de Node Classification
-pipelines do GDS, mas recomendamos rodar uma vez antes do workshop pra confirmar os números
-(`modelInfo.metrics.F1_WEIGHTED.test` e a contagem de `altoRiscoInadimplencia` batendo perto dos 250
-clientes do gabarito).
-
-## Resultados do teste end-to-end (AuraDB Free real, blocos 01-08)
+## Resultados do teste end-to-end (AuraDB Free real, blocos 01-09)
 
 | Algoritmo | O que valida | Resultado real |
 |---|---|---|
@@ -87,7 +81,8 @@ clientes do gabarito).
 | BFS (`jornadaGraph`) | Sequência de account takeover é encontrável | `Acesso → Transacao → Transacao → Transacao → Transacao`, valores [2839, 2927, 545, 1721] |
 | Node Similarity ponderada (`segmentacaoGraph`) | Clientes com a mesma persona comportamental ficam parecidos | Pares `SIMILAR_COMPORTAMENTO` de maior score compartilham a persona injetada em **499 de 500 casos (99,8%)** |
 | Louvain ponderado (`segmentacaoGraph`) | Segmentos macro emergem do comportamento | 6 comunidades — **3 grandes** (663/561/273 clientes) com 56-73% de pureza por persona, mais 3 singletons. `digital_nativo` e `operacional_puro` se misturam num segmento (preferências de ação parecidas de propósito — resultado honesto, não bug) |
-| Blocking + fuzzy matching (`RegistroBruto`↔`Cliente`) | Registros de outros sistemas resolvem pro cliente certo | **90 de 90 duplicados verdadeiros** resolvidos (score ≥ 0.8) pro cliente correto, **0 erros**, **0 falsos positivos** nos 25 negativos verdadeiros |
+| Blocking + fuzzy matching (`RegistroBruto`↔`Cliente`) | Registros de outros sistemas resolvem pro cliente certo | **89-90 de 90 duplicados verdadeiros** resolvidos (score ≥ 0.8) pro cliente correto (varia 1 caso entre rodadas por causa do ruído aleatório injetado), **0 falsos positivos** nos 25 negativos verdadeiros |
+| Node Classification — Random Forest (`inadimplenciaGraph`) | Previsão de risco de inadimplência a partir do atraso progressivo em `ObrigacaoPagamento` | F1_WEIGHTED de teste **0.9999**, ACCURACY de teste **1.0**; corte calibrado por prevalência (`altoRiscoInadimplencia`) bateu **250 de 250** clientes do gabarito (100% precisão, 100% recall), 0 falsos positivos |
 
 ## Lições aprendidas
 
@@ -136,6 +131,21 @@ clientes do gabarito).
   taxaPositivaObservada)`), em vez de um limiar fixo tipo `>= 0.5`: um valor fixo quebraria
   silenciosamente se a proporção real de inadimplentes mudasse (hoje é 250/500 = 50%, mas calculado
   dinamicamente a cada execução, não hardcoded).
+- **Na sessão AGA, o catálogo de pipeline/modelo (`gds.beta.pipeline.nodeClassification.*`,
+  `gds.pipeline.*`, `gds.model.*`) pede o nome da sessão (`'workshop-session'`) como 1º argumento**
+  — diferente do catálogo de grafo (`gds.graph.*`), que não pede. Isso não aparece na documentação
+  genérica de Node Classification (que assume GDS embarcado, sem sessão); só foi descoberto testando
+  contra a sessão AGA real (`gds.beta.pipeline.nodeClassification.create('workshop-session',
+  'pipelineInadimplencia')`, não só `create('pipelineInadimplencia')`). `train` e `predict.*`, por
+  outro lado, só pedem o nome do grafo — não da sessão.
+- **`predict.write` não grava classe prevista e probabilidades em duas propriedades separadas**
+  nesta versão da AGA: com `includePredictedProbabilities: true`, `writeProperty` passa a guardar a
+  lista de probabilidades inteira (sobrescrevendo a classe), e `predictedProbabilityProperty` é
+  ignorado silenciosamente (sem erro, só um aviso de "property key does not exist" ao ler depois).
+  O fix foi usar `predict.mutate` (que aceita `mutateProperty` + `predictedProbabilityProperty` como
+  propriedades distintas de verdade) seguido de `gds.graph.nodeProperties.write(...)` pra persistir
+  as duas — só então extrair `riscoInadimplencia = probabilidades[1]` (índice 1 = probabilidade da
+  classe `1`/inadimplente, confirmado contra os dados de teste) em Cypher puro.
 
 ## Detalhes da resolução de identidade (bloco 08)
 
@@ -165,8 +175,11 @@ similaridade, pra não comparar todo registro com todo cliente — aqui, a essa 
   diferença entre as duas médias) — todas derivadas de `ObrigacaoPagamento.diasAtraso`.
 - **Modelo**: Random Forest (`numberOfDecisionTrees: 100`), único candidato — ver "Lições
   aprendidas" acima pro porquê de não ter GraphSAGE/embeddings.
-- **Saída**: `Cliente.riscoInadimplencia` (probabilidade, `predict.write`) e
-  `Cliente.altoRiscoInadimplencia` (bool, corte calibrado por prevalência observada).
+- **Saída**: `Cliente.riscoInadimplencia` (probabilidade, via `predict.mutate` +
+  `gds.graph.nodeProperties.write`, ver "lições aprendidas" acima) e `Cliente.altoRiscoInadimplencia`
+  (bool, corte calibrado por prevalência observada).
+- **Testado numa AuraDB Free real**: F1_WEIGHTED de teste 0.9999, ACCURACY de teste 1.0,
+  `altoRiscoInadimplencia` bateu 250 de 250 clientes do gabarito (100% precisão/recall).
 
 ## Próxima fase
 
